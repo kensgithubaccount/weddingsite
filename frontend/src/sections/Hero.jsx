@@ -13,7 +13,7 @@ const Hero = () => {
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden" data-testid="hero-cover">
+    <section ref={ref} id="hero-cover" className="relative overflow-hidden" data-testid="hero-cover">
       <div className="max-w-7xl mx-auto px-5 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24">
         <div className="flex items-baseline justify-between rule-fine pb-3">
           <span className="overline-label">

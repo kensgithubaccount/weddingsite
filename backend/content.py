@@ -99,6 +99,7 @@ CONTENT = {
         "_status": "placeholder",
     },
     "ny_guide": {
+        "published": True,
         "intro": "You will not be able to see all of New York this weekend. These are the parts we would choose.",
         "empty_note": "This page is being quietly compiled. Sophie and Ken's recommendations — the restaurants, bars, walks and rooms they actually love — will appear here as June approaches.",
         "categories": ["Eat", "Drink", "Coffee", "Walk", "See", "Late Night"],
@@ -106,6 +107,7 @@ CONTENT = {
         "_status": "placeholder",
     },
     "travel": {
+        "published": True,
         "intro": "Everything an out-of-towner needs, and nothing they don't.",
         "hotels_note": "Room blocks and recommended hotels are being arranged. Details, rates and booking deadlines will be posted here.",
         "hotels": [],
@@ -141,6 +143,7 @@ CONTENT = {
         {"q": "Who should I contact with a question?", "a": "See the Contact section below — one address for logistics, one for RSVP help, one for accessibility.", "_status": "confirmed"},
     ],
     "registry": {
+        "published": True,
         "note": "Your presence at 180 Central Park South is the gift. For those who have asked — thank you. The links below are the honest answer.",
         "entries": [
             {"name": "Zola", "kind": "Registry", "note": "Sample link — the couple will replace it with their real registry page.", "url": "https://www.zola.com", "_status": "placeholder"},

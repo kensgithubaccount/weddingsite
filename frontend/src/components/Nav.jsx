@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -18,6 +18,13 @@ export const Nav = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const go = (id) => {
     setOpen(false);
     if (window.location.pathname !== "/") {
@@ -29,7 +36,7 @@ export const Nav = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[#F7F5F0] border-b border-[#1A1A1A]/15" data-testid="main-nav">
+    <header className="xl:hidden sticky top-0 z-50 bg-[#F7F5F0] border-b border-[#1A1A1A]/15" data-testid="main-nav">
       <div className="max-w-7xl mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3" data-testid="nav-home-link" aria-label="Sophie and Ken — home">
           <Seal size={34} />

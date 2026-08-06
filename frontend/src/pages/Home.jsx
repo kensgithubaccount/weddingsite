@@ -14,7 +14,7 @@ import Registry from "@/sections/Registry";
 import Contact from "@/sections/Contact";
 
 const Home = () => (
-  <main data-testid="home-page">
+  <main data-testid="home-page" className="xl:pl-28">
     <Nav />
     <VerticalRail />
     <Hero />
