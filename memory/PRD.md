@@ -1,7 +1,7 @@
 # PRD — Sophie + Ken Wedding Website
 
 ## Original Problem Statement
-Build a complete wedding website for Sophie Knochenauer and Ken Syme (June 5, 2027, New York Athletic Club, 180 Central Park South, Manhattan) inspired by the literary sophistication, restraint, observational humor and editorial illustration of The New Yorker — without copying any of its IP. The site must feel like a small, beautifully designed Manhattan publication devoted to one event, while remaining a fully functional wedding website: invitation, schedule, story, NY guide, travel, attire, FAQ, secure RSVP with guest lookup, registry, contact, admin, custom 404, password-protected preview.
+Build a complete wedding website for Sophie Knochenhauer and Ken Syme (June 5, 2027, New York Athletic Club, 180 Central Park South, Manhattan) inspired by the literary sophistication, restraint, observational humor and editorial illustration of The New Yorker — without copying any of its IP. The site must feel like a small, beautifully designed Manhattan publication devoted to one event, while remaining a fully functional wedding website: invitation, schedule, story, NY guide, travel, attire, FAQ, secure RSVP with guest lookup, registry, contact, admin, custom 404, password-protected preview.
 
 ## User Personas
 - Wedding guests (desktop + mobile, need instant clarity on where/when, easy RSVP)
@@ -14,6 +14,12 @@ Build a complete wedding website for Sophie Knochenauer and Ken Syme (June 5, 20
 - Content: /app/backend/content.py — single editable source, every item marked _status confirmed/placeholder/hidden.
 - Illustrations: 8 bespoke ink-and-wash editorial images generated with Gemini Nano Banana (gemini-3.1-flash-image-preview), saved to /app/frontend/public/illustrations/ (hero, evening, doorman, chairs, taxi, nyac, pigeon, story). Regenerate via /app/scripts/generate_illustrations.py.
 - Design system: /app/design_guidelines.json — Cormorant Garamond / Lora / Chivo; ivory #F7F5F0, ink #1A1A1A, oxblood #731F17, park green, taxi yellow; SK+KS seal + date/edition stamps; grain overlay; folio labels; fine rules.
+
+## Implemented (2026-08-06, update 2)
+- Name corrected universally: Sophie Knochenhauer
+- Vertical section index rail (seal + numbered items 01–11, boxed 09 RSVP, oxblood active state tracking scroll, 2xl screens and up)
+- Gift registry built out: Zola (sample outbound link), Honeymoon Fund, charity card — content-driven, "Link to come" states
+- Dress code published: Black Tie Optional, with plain-English guidance (men/women/shoes/weather) + FAQ answer updated
 
 ## Implemented (2026-08-06)
 - Password-protected preview gate (password: soph)

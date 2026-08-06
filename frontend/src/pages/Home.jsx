@@ -1,6 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { Marquee } from "@/components/Marquee";
+import { VerticalRail } from "@/components/VerticalRail";
 import Hero from "@/sections/Hero";
 import Invitation from "@/sections/Invitation";
 import Evening from "@/sections/Evening";
@@ -15,6 +16,7 @@ import Contact from "@/sections/Contact";
 const Home = () => (
   <main data-testid="home-page">
     <Nav />
+    <VerticalRail />
     <Hero />
     <Marquee />
     <Invitation />

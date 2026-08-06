@@ -6,7 +6,7 @@
 
 CONTENT = {
     "couple": {
-        "partner_one": "Sophie Knochenauer",
+        "partner_one": "Sophie Knochenhauer",
         "partner_two": "Ken Syme",
         "display_names": "Sophie + Ken",
         "mark": "SK+KS",
@@ -118,16 +118,22 @@ CONTENT = {
     },
     "attire": {
         "published": True,
-        "placeholder": True,
-        "headline": "What to Wear",
-        "body": "[ The dress code is being finalized and will be announced here — in plain English, with the New York Athletic Club's own requirements noted. No guest will need to guess. ]",
-        "_status": "placeholder",
+        "placeholder": False,
+        "headline": "Black Tie Optional",
+        "body": "In plain English: tuxedos and floor-length gowns are welcome and encouraged — but a dark suit and tie, or an elegant cocktail dress, is equally at home. Dress for the best evening you plan to have all year.",
+        "guidance": [
+            {"label": "For men", "body": "A tuxedo if you own one — or have been waiting for an excuse. Otherwise, a dark suit, a white shirt and a tie will do beautifully."},
+            {"label": "For women", "body": "A long gown, a cocktail dress or a dressy suit. Anything you'd wear to an evening you'd rather not end."},
+            {"label": "Shoes & walking", "body": "There will be dancing, and possibly a short walk afterward. Choose shoes that can survive both."},
+            {"label": "Weather", "body": "June evenings in New York are warm and the club is cool inside. A wrap or jacket is a good companion for the taxi line."},
+        ],
+        "_status": "confirmed",
     },
     "faqs": [
         {"q": "What time should I arrive?", "a": "Doors open at 5:30 PM at the New York Athletic Club. Cocktail hour begins at 6:30.", "_status": "confirmed"},
         {"q": "Where is the wedding?", "a": "The New York Athletic Club, 180 Central Park South, New York, New York — at the southern edge of Central Park.", "_status": "confirmed"},
         {"q": "Is the wedding indoors?", "a": "The entire evening takes place at the New York Athletic Club.", "_status": "confirmed"},
-        {"q": "What should I wear?", "a": "The dress code is being finalized and will be announced on this page.", "_status": "confirmed"},
+        {"q": "What should I wear?", "a": "Black tie optional. Tuxedos and long gowns are welcome; a dark suit and tie or an elegant cocktail dress is equally at home. See the Attire section for the full word.", "_status": "confirmed"},
         {"q": "Can I bring a guest?", "a": "Your invitation lists everyone in your party. When you RSVP, you'll see exactly who is included — including any plus-one.", "_status": "confirmed"},
         {"q": "Are children invited?", "a": "Your invitation lists everyone in your party. If a younger guest is included, they'll appear by name when you RSVP.", "_status": "confirmed"},
         {"q": "When should I RSVP?", "a": "As soon as you know your plans. A formal deadline will be announced here.", "_status": "confirmed"},
@@ -135,8 +141,12 @@ CONTENT = {
         {"q": "Who should I contact with a question?", "a": "See the Contact section below — one address for logistics, one for RSVP help, one for accessibility.", "_status": "confirmed"},
     ],
     "registry": {
-        "note": "Your presence at 180 Central Park South is the gift. For those who have asked, registry details will appear here in due course.",
-        "links": [],
+        "note": "Your presence at 180 Central Park South is the gift. For those who have asked — thank you. The links below are the honest answer.",
+        "entries": [
+            {"name": "Zola", "kind": "Registry", "note": "Sample link — the couple will replace it with their real registry page.", "url": "https://www.zola.com", "_status": "placeholder"},
+            {"name": "The Honeymoon Fund", "kind": "A fund", "note": "Toward a proper trip, taken slowly. Link to come.", "url": "", "_status": "placeholder"},
+            {"name": "A Charity Close to Their Hearts", "kind": "In lieu of anything wrapped", "note": "Details to come.", "url": "", "_status": "placeholder"},
+        ],
         "_status": "placeholder",
     },
     "contacts": [

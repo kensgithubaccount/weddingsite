@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="lg:col-span-5 relative z-10">
             <h1 className="font-display font-semibold tracking-tight text-[#1A1A1A] text-5xl sm:text-6xl lg:text-[4.4rem] leading-[0.98]" data-testid="hero-names">
               <MaskedLine delay={0.15}>Sophie</MaskedLine>
-              <MaskedLine delay={0.28}>Knochenauer</MaskedLine>
+              <MaskedLine delay={0.28}>Knochenhauer</MaskedLine>
               <MaskedLine delay={0.41} className="py-1">
                 <span className="text-[#731F17] font-normal italic text-4xl sm:text-5xl lg:text-6xl">&amp;</span>
               </MaskedLine>
