@@ -1,0 +1,125 @@
+{
+  "theme": "Light",
+  "design_concept": "The New Yorker inspired editorial wedding website. Cultivated, visual restraint, observational humor. Collectible illustrated cover feel.",
+  "typography": {
+    "fonts": [
+      {
+        "role": "Headings, Names, Expressive Moments (Primary Serif)",
+        "family": "Cormorant Garamond",
+        "fallback": "serif",
+        "css_class": "font-serif-display"
+      },
+      {
+        "role": "Longer Copy, Body Text (Legible Serif)",
+        "family": "Lora",
+        "fallback": "serif",
+        "css_class": "font-serif-body"
+      },
+      {
+        "role": "Labels, Times, Captions, Metadata, Nav (Restrained Sans)",
+        "family": "Chivo",
+        "fallback": "sans-serif",
+        "css_class": "font-sans-label"
+      }
+    ],
+    "rules": [
+      "Use tracking-tight for large headlines (Cormorant Garamond).",
+      "Use tracking-[0.2em] uppercase for overlines, metadata, and timestamps (Chivo).",
+      "Never use Inter or generic sans for any text.",
+      "Dramatic scale selectively: names at text-5xl or text-6xl, small functional info at text-xs or text-sm.",
+      "Use drop caps for the first letter of story sections."
+    ]
+  },
+  "colors": {
+    "backgrounds": {
+      "page_base": "#F7F5F0",
+      "surface_alt": "#F2EFE9",
+      "surface_dark": "#2C2C2C"
+    },
+    "text": {
+      "primary": "#1A1A1A",
+      "secondary": "#595959",
+      "inverse": "#F7F5F0"
+    },
+    "accents": {
+      "oxblood_red": "#731F17",
+      "central_park_green": "#4A5D4E",
+      "faded_taxi_yellow": "#D9B340",
+      "dusty_blue": "#5C6B73"
+    },
+    "rules": [
+      "No pure white (#FFFFFF). Page base is warm ivory (#F7F5F0).",
+      "Text is deep charcoal (#1A1A1A), not pure black.",
+      "Use oxblood red for primary actions (RSVP button) and key editorial highlights.",
+      "Shift to darker tones (charcoal/dark green) specifically for the 'After-Party' section of the schedule."
+    ]
+  },
+  "visual_enhancers": {
+    "stamps": [
+      "Create custom circular CSS/SVG stamps.",
+      "Couple's Seal: 'SK+KS' center, 'PROPERTY OF' upper arc, 'NYC' lower arc.",
+      "Date Stamp: 'JUN 05 2027'.",
+      "Edition Stamp: 'ONE NIGHT ONLY'.",
+      "Use absolute positioning to place these slightly offset/rotated on the edges of sections (max 1-2 per screen). Color: Oxblood or Charcoal."
+    ],
+    "editorial_details": [
+      "Use fine 1px solid lines (border-b or border-t border-charcoal/20) to separate sections, not standard floating cards.",
+      "Use folio-style page numbers and running labels in the margins.",
+      "Apply a subtle noise/grain texture overlay (opacity: 0.03, pointer-events-none, mix-blend-multiply) across the entire app wrapper to simulate paper."
+    ]
+  },
+  "layouts": {
+    "spacing": "Generous. Use p-12, p-16, py-24. Wide margins.",
+    "grid_system": "Asymmetric editorial grid. Use a 12-column grid where text may span col-4 to col-10, leaving empty columns for margin notes or stamps.",
+    "sections": {
+      "homepage_cover": "Full height (min-h-screen). Central bespoke illustration, prominent RSVP, names, date. No scroll hijacking.",
+      "schedule": "Narrow editorial column, times on the left (Chivo text-xs tracking-widest), event names on the right (Cormorant Garamond text-2xl).",
+      "our_story": "Magazine feature layout. Large pull quotes, asymmetrical image placement."
+    }
+  },
+  "components": {
+    "buttons": "Pill-shaped or sharp rectangular. Solid oxblood or charcoal background, ivory text. No shadows. Subtle hover state (opacity 90% or scale 0.98).",
+    "rsvp_form": "Customize Shadcn inputs to look like a printed form: transparent backgrounds, border-b-2 border-[#1A1A1A]/20 only, no rounded corners. Label floating or tightly above.",
+    "accordion": "FAQ uses Shadcn accordion but styled with fine rules (1px top/bottom borders), Cormorant Garamond for questions, Chivo for answers.",
+    "navigation": "Sticky top bar, solid ivory background (NO transparent backgrounds to avoid text overlap). SK+KS seal on left, desktop links centered or right."
+  },
+  "motion": {
+    "philosophy": "Editorial, controlled, nearly effortless. Respect reduced-motion.",
+    "animations": [
+      "Hero reveal: Masked line-by-line reveal for names.",
+      "Stamps: Arrive as finishing details (gentle scale down from 1.2 and fade in).",
+      "Scroll: Soft fades (opacity 0 to 1, y: 20 to 0) for sections as they enter viewport.",
+      "Hover: Gentle underlines expanding from left to right."
+    ]
+  },
+  "media": {
+    "image_urls": {
+      "hero_illustration": {
+        "url": "https://images.unsplash.com/photo-1726403557197-df0951b36893?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwyfHx3YXRlcmNvbG9yJTIwc2tldGNoJTIwbmV3JTIweW9ya3xlbnwwfHx8fDE3ODU5ODU0Nzl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Watercolor landscape. Use as placeholder for 'bespoke ink-and-wash illustration of couple crossing Central Park South'."
+      },
+      "our_story_portrait": {
+        "url": "https://images.unsplash.com/photo-1522941471521-6ee21ec5cc26?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2ODh8MHwxfHNlYXJjaHwxfHxjb3VwbGUlMjBibGFjayUyMGFuZCUyMHdoaXRlJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzg1OTg1NDc5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Black and white portrait of a couple posing. Use in 'Our Story' section."
+      },
+      "new_york_guide": {
+        "url": "https://images.unsplash.com/photo-1445699269025-bcc2c8f3faee?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwzfHxjbGFzc2ljJTIwbmV3JTIweW9yayUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODU5ODU0Nzl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Flatiron building. Use as a header or divider image for the 'New York Guide' section."
+      },
+      "evening_schedule": {
+        "url": "https://images.unsplash.com/photo-1686129947538-5a432de30493?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxjbGFzc2ljJTIwbmV3JTIweW9yayUyMGFyY2hpdGVjdHVyZXxlbnwwfHx8fDE3ODU5ODU0Nzl8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Classic NY fire escape architecture (B&W). Use as spot illustration or transitional image."
+      }
+    }
+  },
+  "universal_guidelines_for_main_agent": [
+    "DO NOT use generic centered text alignment globally (.App { text-align: center }). Text should flow naturally, largely left-aligned, with center alignment used strictly for decorative editorial intent.",
+    "Include 'data-testid' on all interactive elements (buttons, links, inputs).",
+    "Use 'lucide-react' for basic icons but rely more on typography and CSS shapes (like circles for stamps) than generic icons. Avoid emoji.",
+    "Do NOT use HTML native date/select. Use Shadcn components for forms, but strip their default Vercel-like styling completely to match the print/editorial vibe.",
+    "Ensure 'sonner' toast notifications match the ivory/charcoal styling with Serif fonts.",
+    "Never use pure transparent backgrounds for the sticky header; it must be solid ivory (#F7F5F0) to ensure readability.",
+    "Implement the UI using React (.js files, NOT .tsx) + Tailwind CSS + Framer Motion. Shadcn primitives go into src/components/ui/.",
+    "For the custom 'Stamps', use absolute positioning in relative containers so they overlap content slightly like a real inked stamp."
+  ]
+}
