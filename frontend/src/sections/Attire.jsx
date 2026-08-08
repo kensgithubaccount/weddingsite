@@ -1,11 +1,18 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Attire = () => {
   const { attire } = useContent();
 
   return (
-    <section id="attire" className="py-24 md:py-36" data-testid="attire-section">
+    <section id="attire" className="relative py-24 md:py-36" data-testid="attire-section">
+      <SpotArt
+        src="/illustrations/spot-footwear.png"
+        alt="Ink drawing of a formal shoe and a practical walking shoe beside a Manhattan curb"
+        className="hidden xl:block absolute left-12 bottom-28 w-28 opacity-90"
+        rotate={-3}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={6} label="Attire" title={attire.headline} />
 

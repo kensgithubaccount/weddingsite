@@ -1,13 +1,26 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Travel = () => {
   const { travel } = useContent();
 
   return (
-    <section id="travel" className="py-24 md:py-36 bg-[#F2EFE9]" data-testid="travel-section">
+    <section id="travel" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="travel-section">
+      <SpotArt
+        src="/illustrations/spot-twohundred.png"
+        alt="Ink drawing of a taxi roof sign reading Two Hundred"
+        className="hidden xl:block absolute left-12 top-44 w-28 opacity-90"
+        rotate={-3}
+      />
+      <SpotArt
+        src="/illustrations/spot-coffee.png"
+        alt="Ink drawing of a strong cup of coffee beside folded eyeglasses and a drooping newspaper"
+        className="hidden xl:block absolute right-12 bottom-24 w-28 opacity-90"
+        rotate={3}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={5} label="Travel & Stay" title="Getting There, Staying Over">
+        <SectionHeading index={5} label="Travel & Stay" title="Getting Here. Staying Here.">
           <p>{travel.intro}</p>
         </SectionHeading>
 

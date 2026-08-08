@@ -1,15 +1,22 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const FAQ = () => {
   const { faqs } = useContent();
 
   return (
-    <section id="questions" className="py-24 md:py-36 bg-[#F2EFE9]" data-testid="faq-section">
+    <section id="questions" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="faq-section">
+      <SpotArt
+        src="/illustrations/spot-gap.png"
+        alt="Ink drawing of a dropped place card beside a Manhattan street grate"
+        className="hidden xl:block absolute right-14 top-44 w-28 opacity-90"
+        rotate={4}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={7} label="Questions" title="Everything You Were Going to Ask">
-          <p>Answers confirmed by the couple. Anything unconfirmed is simply not printed.</p>
+        <SectionHeading index={7} label="Questions" title="Everything You Were About to Ask">
+          <p>We tried to answer it before it became a text. Though if you have questions, feel free to text.</p>
         </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

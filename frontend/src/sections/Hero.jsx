@@ -39,8 +39,8 @@ const Hero = () => {
               transition={{ duration: 1, delay: 0.9 }}
               className="mt-8"
             >
-              <p className="font-label text-[0.72rem] tracking-[0.24em] uppercase text-[#1A1A1A]">
-                Are getting married
+              <p className="font-display italic text-xl md:text-2xl text-[#1A1A1A]">
+                We&rsquo;re getting married.
               </p>
               <p className="font-display text-2xl md:text-[1.7rem] mt-4 text-[#1A1A1A]">{content.date.display}</p>
               <p className="font-body text-[#595959] mt-2 leading-relaxed">

@@ -15,6 +15,18 @@ Build a complete wedding website for Sophie Knochenhauer and Ken Syme (June 5, 2
 - Illustrations: 8 bespoke ink-and-wash editorial images generated with Gemini Nano Banana (gemini-3.1-flash-image-preview), saved to /app/frontend/public/illustrations/ (hero, evening, doorman, chairs, taxi, nyac, pigeon, story). Regenerate via /app/scripts/generate_illustrations.py.
 - Design system: /app/design_guidelines.json — Cormorant Garamond / Lora / Chivo; ivory #F7F5F0, ink #1A1A1A, oxblood #731F17, park green, taxi yellow; SK+KS seal + date/edition stamps; grain overlay; folio labels; fine rules.
 
+## Implemented (2026-08-08, update 3)
+- Preview password gate removed; site is fully public
+- Hero copy: "We're getting married. / Apparently, it requires a website."
+- Invitation section retitled "The Details" with new intro
+- Program rebuilt: Arrival 5:30 / The Ceremony 6:00 / Cocktail Hour 6:30 / The Reception 7:30–11:30 + after-party
+- NY guide retitled "New York, According to Us" with new intro; slot wired for "The Manhattan Plan" feature cartoon
+- Travel retitled "Getting Here. Staying Here." with By plane/train/car/getting-around copy (valet confirmed by couple)
+- FAQ retitled "Everything You Were About to Ask"; 4 answers replaced (venue, attire, children, after-11:30)
+- 404 rewritten ("This does not appear to be the place." / BACK TO THE WEDDING); falls back to pigeon art until notfound.png exists
+- 17 illustration slots wired sitewide (2 feature cartoons + 15 spot marginalia) with graceful hiding until files exist
+- BLOCKED: image generation fails — Universal Key budget exceeded (proxy reports max 0.4, current 0.54). Fix: Profile → Manage plan → Universal Key → Add Balance, then run `python /app/scripts/generate_illustrations.py` (skips existing files)
+
 ## Implemented (2026-08-06, update 2)
 - Name corrected universally: Sophie Knochenhauer
 - Vertical section index rail (seal + numbered items 01–11, boxed 09 RSVP, oxblood active state tracking scroll, 2xl screens and up)

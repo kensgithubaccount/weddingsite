@@ -2,7 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
 import "@/App.css";
 import { ContentProvider } from "@/lib/content";
-import PreviewGate from "@/components/PreviewGate";
 import { useLenis } from "@/hooks/useLenis";
 import Home from "@/pages/Home";
 import RSVP from "@/pages/RSVP";
@@ -16,16 +15,14 @@ function App() {
     <div className="App">
       <div className="grain-overlay" />
       <ContentProvider>
-        <PreviewGate>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/rsvp" element={<RSVP />} />
-              <Route path="/admin" element={<Admin />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </PreviewGate>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rsvp" element={<RSVP />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
       </ContentProvider>
       <Toaster
         position="bottom-center"

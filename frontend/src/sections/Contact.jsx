@@ -1,11 +1,18 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Contact = () => {
   const { contacts } = useContent();
 
   return (
-    <section id="contact" className="py-24 md:py-32 bg-[#F2EFE9]" data-testid="contact-section">
+    <section id="contact" className="relative py-24 md:py-32 bg-[#F2EFE9]" data-testid="contact-section">
+      <SpotArt
+        src="/illustrations/spot-key.png"
+        alt="Ink drawing of a vintage key with a leather tag marked June 5"
+        className="hidden xl:block absolute right-14 top-36 w-24 opacity-90"
+        rotate={5}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={9} label="Contact" title="Correspondence">
           <p>One address per kind of question. All of them read by a human.</p>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const NYGuide = () => {
@@ -8,11 +9,36 @@ const NYGuide = () => {
   const recs = ny_guide.recommendations.filter((r) => r.category === active);
 
   return (
-    <section id="new-york" className="py-24 md:py-36" data-testid="ny-guide-section">
+    <section id="new-york" className="relative py-24 md:py-36" data-testid="ny-guide-section">
+      <SpotArt
+        src="/illustrations/spot-review.png"
+        alt="Ink drawing of a hand editing a recommendation list reading Pasta, Pizza, Steak, Everything"
+        className="hidden xl:block absolute right-12 top-44 w-28 opacity-90"
+        rotate={3}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={4} label="New York" title="The City, As We'd Give It to You">
+        <SectionHeading index={4} label="New York" title="New York, According to Us">
           <p>{ny_guide.intro}</p>
         </SectionHeading>
+
+        <Reveal>
+          <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 md:p-3 mb-16" data-testid="manhattan-plan-figure">
+            <img
+              src="/illustrations/manhattan-plan.png"
+              alt="Editorial cartoon of an out-of-town wedding guest at a Manhattan hotel desk calmly constructing an impossible Saturday itinerary: a map of Manhattan crossed by frantic red arrows, a coffee cup, a wristwatch, the wedding invitation and a neatly handwritten schedule"
+              className="w-full h-72 sm:h-96 lg:h-[30rem] object-cover"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.closest("figure").style.display = "none";
+              }}
+              data-testid="manhattan-plan-illustration"
+            />
+            <figcaption className="pt-3 px-1 pb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+              <span className="font-body italic text-[#595959] text-sm">A perfectly reasonable Saturday, on paper.</span>
+              <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959]">The Manhattan Plan</span>
+            </figcaption>
+          </figure>
+        </Reveal>
 
         <Reveal>
           <div className="flex flex-wrap gap-2 mb-14" role="tablist" aria-label="Recommendation categories">

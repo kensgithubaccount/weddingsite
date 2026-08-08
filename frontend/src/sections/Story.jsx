@@ -1,11 +1,18 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Story = () => {
   const { story } = useContent();
 
   return (
-    <section id="story" className="py-24 md:py-36 bg-[#F2EFE9]" data-testid="story-section">
+    <section id="story" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="story-section">
+      <SpotArt
+        src="/illustrations/spot-reservation.png"
+        alt="Ink drawing of a hand changing a restaurant reservation from two people to two hundred"
+        className="hidden xl:block absolute right-12 top-44 w-28 opacity-90"
+        rotate={3}
+      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={3} label="Our Story" title={story.headline}>
           <p className="font-label text-[0.65rem] tracking-[0.2em] uppercase text-[#731F17]">{story.kicker}</p>

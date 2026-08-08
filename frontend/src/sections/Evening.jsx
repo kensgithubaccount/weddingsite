@@ -1,11 +1,19 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
+
+const ROW_SPOTS = [
+  { src: "/illustrations/spot-coatcheck.png", alt: "Ink drawing of a coat-check ticket marked SK+KS" },
+  { src: "/illustrations/spot-chairs.png", alt: "Ink drawing of two formal chairs with place cards reading Sophie and Ken" },
+  { src: "/illustrations/spot-tray.png", alt: "Ink drawing of a waiter carrying a perfectly balanced tray" },
+  { src: "/illustrations/spot-placecards.png", alt: "Ink drawing of two folded place cards marked S and K" },
+];
 
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
-  const main = program.slice(0, 3);
-  const afterParty = program[3];
+  const main = program.slice(0, 4);
+  const afterParty = program[4];
 
   return (
     <section id="evening" data-testid="evening-section">
@@ -24,6 +32,12 @@ const Evening = () => {
                 >
                   <div className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-[#731F17] pt-1.5 leading-relaxed">
                     {item.time}
+                    <SpotArt
+                      src={ROW_SPOTS[i].src}
+                      alt={ROW_SPOTS[i].alt}
+                      className="w-12 sm:w-16 mt-4 opacity-90"
+                      rotate={i % 2 === 0 ? -3 : 3}
+                    />
                   </div>
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A]">{item.title}</h3>
@@ -56,7 +70,19 @@ const Evening = () => {
         </div>
       </div>
 
-      <div className="bg-[#2C2C2C] text-[#F7F5F0]" data-testid="afterparty-block">
+      <div className="bg-[#2C2C2C] text-[#F7F5F0] relative" data-testid="afterparty-block">
+        <SpotArt
+          src="/illustrations/spot-bowtie.png"
+          alt="Ink drawing of a bow tie hanging from a taxi's rearview mirror"
+          className="hidden lg:block absolute left-10 bottom-10 w-24 opacity-80 invert-[0.85] mix-blend-screen"
+          rotate={-4}
+        />
+        <SpotArt
+          src="/illustrations/spot-later.png"
+          alt="Ink drawing of a champagne coupe beside a wristwatch showing a late hour"
+          className="hidden lg:block absolute right-10 top-10 w-24 opacity-80 invert-[0.85] mix-blend-screen"
+          rotate={3}
+        />
         <div className="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
             <Reveal>
