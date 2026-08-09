@@ -6,6 +6,7 @@ import Hero from "@/sections/Hero";
 import Invitation from "@/sections/Invitation";
 import Evening from "@/sections/Evening";
 import Story from "@/sections/Story";
+import WeddingParty from "@/sections/WeddingParty";
 import NYGuide from "@/sections/NYGuide";
 import Travel from "@/sections/Travel";
 import Attire from "@/sections/Attire";
@@ -22,6 +23,7 @@ const Home = () => (
     <Invitation />
     <Evening />
     <Story />
+    <WeddingParty />
     <NYGuide />
     <Travel />
     <Attire />

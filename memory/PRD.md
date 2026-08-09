@@ -15,6 +15,17 @@ Build a complete wedding website for Sophie Knochenhauer and Ken Syme (June 5, 2
 - Illustrations: 8 bespoke ink-and-wash editorial images generated with Gemini Nano Banana (gemini-3.1-flash-image-preview), saved to /app/frontend/public/illustrations/ (hero, evening, doorman, chairs, taxi, nyac, pigeon, story). Regenerate via /app/scripts/generate_illustrations.py.
 - Design system: /app/design_guidelines.json — Cormorant Garamond / Lora / Chivo; ivory #F7F5F0, ink #1A1A1A, oxblood #731F17, park green, taxi yellow; SK+KS seal + date/edition stamps; grain overlay; folio labels; fine rules.
 
+## Implemented (2026-08-09, update 4 — completion pass)
+- Program fixed to exactly four acts (Arrival / Ceremony / Cocktail Hour / Reception — "Dinner and dancing."); After-Party is now the dark EPILOGUE ("A short walk from the park. A long way from an early night.")
+- Story retitled "Before All This" with standfirst, real FCB origin copy, couple portrait, closing line; placeholder modules hidden
+- NEW Wedding Party section (between Story and NY, deliberately absent from side rail): contributors-page list with hover/focus bio reveal + portrait panel on desktop, accordion on mobile; 10 placeholder members, data-driven
+- NY guide rebuilt as full satirical feature: new headline/disclaimer, 13 terrible recommendations (data-driven, category filters, Open in Maps), Perfect Saturday itinerary card, MAKE MY DAY WORSE randomizer, interactive map feature (illustrated base + SVG route + numbered pins, hover/click/focus sync with list, mobile carousel) — map hidden until manhattan-map.png exists
+- Zebra striping removed: Travel/FAQ/Contact now editorial ivory; feature paper reserved for Story + Wedding Party; dark for Epilogue
+- Registry retitled "There Is, Apparently, Also a Registry" / "Having you with us is the point."; Contact retitled "One More Question?" / "We may have missed something."
+- RSVP page art slots wired (list-checking illustration on lookup, June 5 taxi on confirmation); FAQ suitcase art slot wired
+- Oxford comma applied across all new copy
+- STILL BLOCKED: 20 illustration assets (map, desk cartoon, group portrait, portrait frame, suitcase, 2 RSVP, 404, 13 spots) — Universal Key budget exceeded. Run `python /app/scripts/generate_illustrations.py` after top-up; all slots hide gracefully until then
+
 ## Implemented (2026-08-08, update 3)
 - Preview password gate removed; site is fully public
 - Hero copy: "We're getting married. / Apparently, it requires a website."

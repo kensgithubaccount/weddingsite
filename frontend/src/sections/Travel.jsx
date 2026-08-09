@@ -6,7 +6,7 @@ const Travel = () => {
   const { travel } = useContent();
 
   return (
-    <section id="travel" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="travel-section">
+    <section id="travel" className="relative py-24 md:py-36" data-testid="travel-section">
       <SpotArt
         src="/illustrations/spot-twohundred.png"
         alt="Ink drawing of a taxi roof sign reading Two Hundred"

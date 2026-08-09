@@ -12,8 +12,7 @@ const ROW_SPOTS = [
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
-  const main = program.slice(0, 4);
-  const afterParty = program[4];
+  const epilogue = content.epilogue;
 
   return (
     <section id="evening" data-testid="evening-section">
@@ -24,7 +23,7 @@ const Evening = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">
-            {main.map((item, i) => (
+            {program.map((item, i) => (
               <Reveal key={item.title} delay={i * 0.06}>
                 <div
                   className="grid grid-cols-[92px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-8 py-8 rule-fine first:border-t-0 first:pt-0"
@@ -42,9 +41,6 @@ const Evening = () => {
                   <div>
                     <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A]">{item.title}</h3>
                     <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">{item.description}</p>
-                    {item.note && (
-                      <p className="font-body italic text-[#595959]/80 text-sm mt-2">{item.note}</p>
-                    )}
                   </div>
                 </div>
               </Reveal>
@@ -86,12 +82,12 @@ const Evening = () => {
         <div className="max-w-7xl mx-auto px-5 md:px-10 py-20 md:py-28 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-6">
             <Reveal>
-              <p className="font-label text-[0.65rem] tracking-[0.24em] uppercase text-[#F7F5F0]/50">{afterParty.time}</p>
-              <h3 className="font-display text-4xl sm:text-5xl tracking-tight mt-4">{afterParty.title}</h3>
-              <p className="font-body text-[#F7F5F0]/75 mt-5 leading-relaxed max-w-md">{afterParty.description}</p>
-              <p className="font-label text-[0.62rem] tracking-[0.2em] uppercase text-[#D9B340] mt-8">
-                Details to follow — pace yourself accordingly
-              </p>
+              <p className="font-label text-[0.65rem] tracking-[0.24em] uppercase text-[#D9B340]">{epilogue.label}</p>
+              <p className="font-label text-[0.65rem] tracking-[0.24em] uppercase text-[#F7F5F0]/50 mt-4">{epilogue.time}</p>
+              <h3 className="font-display text-4xl sm:text-5xl tracking-tight mt-4 leading-[1.05]" data-testid="epilogue-headline">
+                {epilogue.headline}
+              </h3>
+              <p className="font-body text-[#F7F5F0]/75 mt-6 leading-relaxed max-w-md">{epilogue.body}</p>
             </Reveal>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">

@@ -1,12 +1,46 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { ExternalLink, MapPin } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
+const VENUE_PIN = { x: 50, y: 18 };
+const ROUTE = [
+  [62, 78], [52, 14], [45, 42], [46, 35], [45, 38], [52, 22], [47, 36], [50, 18],
+];
+
+const mapsUrl = (q) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+
 const NYGuide = () => {
   const { ny_guide } = useContent();
-  const [active, setActive] = useState("Eat");
-  const recs = ny_guide.recommendations.filter((r) => r.category === active);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [activePin, setActivePin] = useState(null);
+  const [worse, setWorse] = useState(null);
+  const [mapOk, setMapOk] = useState(true);
+
+  const categories = useMemo(
+    () => ["All", ...new Set(ny_guide.recommendations.map((r) => r.category))],
+    [ny_guide]
+  );
+  const recs = useMemo(
+    () => (activeCategory === "All" ? ny_guide.recommendations : ny_guide.recommendations.filter((r) => r.category === activeCategory)),
+    [ny_guide, activeCategory]
+  );
+
+  const goToRec = (num) => {
+    setActivePin(num);
+    const el = document.getElementById(`rec-${num}`);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const makeMyDayWorse = () => {
+    const pool = [...ny_guide.recommendations];
+    const picks = [];
+    while (picks.length < 3 && pool.length) {
+      picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    setWorse(picks);
+  };
 
   return (
     <section id="new-york" className="relative py-24 md:py-36" data-testid="ny-guide-section">
@@ -17,86 +51,198 @@ const NYGuide = () => {
         rotate={3}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={4} label="New York" title="New York, According to Us">
-          <p>{ny_guide.intro}</p>
+        <SectionHeading index={4} label={ny_guide.label} title={ny_guide.headline}>
+          <p className="font-display italic text-xl text-[#1A1A1A]">{ny_guide.subhead}</p>
+          <p className="mt-3">{ny_guide.body}</p>
+          <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#731F17] mt-5">{ny_guide.disclaimer}</p>
         </SectionHeading>
 
+        {/* The desk cartoon */}
         <Reveal>
-          <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 md:p-3 mb-16" data-testid="manhattan-plan-figure">
+          <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 md:p-3 mb-20" data-testid="manhattan-plan-figure">
             <img
               src="/illustrations/manhattan-plan.png"
-              alt="Editorial cartoon of an out-of-town wedding guest at a Manhattan hotel desk calmly constructing an impossible Saturday itinerary: a map of Manhattan crossed by frantic red arrows, a coffee cup, a wristwatch, the wedding invitation and a neatly handwritten schedule"
+              alt="Editorial cartoon of an out-of-town wedding guest at a Manhattan hotel desk calmly constructing an impossible Saturday itinerary: a map of Manhattan crossed by frantic red arrows, a coffee cup, a wristwatch, the wedding invitation, and a neatly handwritten schedule"
               className="w-full h-72 sm:h-96 lg:h-[30rem] object-cover"
               loading="lazy"
-              onError={(e) => {
-                e.currentTarget.closest("figure").style.display = "none";
-              }}
+              onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
               data-testid="manhattan-plan-illustration"
             />
             <figcaption className="pt-3 px-1 pb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
               <span className="font-body italic text-[#595959] text-sm">A perfectly reasonable Saturday, on paper.</span>
-              <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959]">The Manhattan Plan</span>
+              <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959]">Fig. 1 — The Itinerary</span>
             </figcaption>
           </figure>
         </Reveal>
 
+        {/* The interactive map */}
+        {mapOk && (
+          <div className="mb-20" data-testid="manhattan-map-feature">
+            <Reveal>
+              <div className="flex items-baseline justify-between rule-fine pt-4 mb-8">
+                <span className="overline-label">{ny_guide.map_title}</span>
+                <span className="overline-label hidden sm:block">Fig. 2</span>
+              </div>
+              <p className="font-body italic text-[#595959] text-sm mb-8 max-w-xl">{ny_guide.map_caption}</p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="relative border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 md:p-3 max-w-3xl mx-auto">
+                <div className="relative">
+                  <img
+                    src="/illustrations/manhattan-map.png"
+                    alt="Hand-drawn illustrated map of Manhattan with numbered oxblood pins marking each recommendation, and an increasingly irrational red route between them"
+                    className="w-full h-auto block"
+                    loading="lazy"
+                    onError={() => setMapOk(false)}
+                    data-testid="manhattan-map-image"
+                  />
+                  <svg
+                    viewBox="0 0 100 100"
+                    preserveAspectRatio="none"
+                    className="absolute inset-0 w-full h-full pointer-events-none"
+                    aria-hidden="true"
+                  >
+                    <polyline
+                      points={ROUTE.map((p) => p.join(",")).join(" ")}
+                      fill="none"
+                      stroke="#731F17"
+                      strokeWidth="0.5"
+                      strokeDasharray="1.4 1"
+                      opacity="0.75"
+                    />
+                  </svg>
+                  {ny_guide.recommendations.map((r) => (
+                    <button
+                      key={r.num}
+                      onClick={() => goToRec(r.num)}
+                      onMouseEnter={() => setActivePin(r.num)}
+                      onFocus={() => setActivePin(r.num)}
+                      aria-label={`${r.num} — ${r.name}. Show recommendation.`}
+                      className={`absolute w-6 h-6 -ml-3 -mt-3 rounded-full border font-label text-[0.55rem] font-bold flex items-center justify-center transition-all ${
+                        activePin === r.num
+                          ? "bg-[#731F17] text-[#F7F5F0] border-[#731F17] scale-125"
+                          : "bg-[#F7F5F0]/90 text-[#731F17] border-[#731F17] hover:bg-[#731F17] hover:text-[#F7F5F0]"
+                      }`}
+                      style={{ left: `${r.pin.x}%`, top: `${r.pin.y}%` }}
+                      data-testid={`map-pin-${r.num}`}
+                    >
+                      {r.num}
+                    </button>
+                  ))}
+                  <span
+                    className="absolute w-6 h-6 -ml-3 -mt-3 rounded-full bg-[#1A1A1A] text-[#F7F5F0] font-label text-[0.45rem] font-bold flex items-center justify-center"
+                    style={{ left: `${VENUE_PIN.x}%`, top: `${VENUE_PIN.y}%` }}
+                    title="The wedding — 5:30 PM"
+                    aria-label="The New York Athletic Club — the wedding, 5:30 PM"
+                    data-testid="map-pin-venue"
+                  >
+                    5:30
+                  </span>
+                </div>
+                <p className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1 flex justify-between">
+                  <span>{activePin ? ny_guide.recommendations.find((r) => r.num === activePin)?.name : "Hover the pins. Judge the route."}</span>
+                  <span className="hidden sm:inline">Not to scale. Obviously.</span>
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        )}
+
+        {/* The Perfect Saturday */}
         <Reveal>
-          <div className="flex flex-wrap gap-2 mb-14" role="tablist" aria-label="Recommendation categories">
-            {ny_guide.categories.map((cat) => (
-              <button
-                key={cat}
-                role="tab"
-                aria-selected={active === cat}
-                onClick={() => setActive(cat)}
-                className={`font-label text-[0.68rem] tracking-[0.16em] uppercase px-5 py-2.5 border transition-colors ${
-                  active === cat
-                    ? "bg-[#1A1A1A] text-[#F7F5F0] border-[#1A1A1A]"
-                    : "border-[#1A1A1A]/40 text-[#1A1A1A] hover:border-[#1A1A1A]"
-                }`}
-                data-testid={`ny-category-${cat.toLowerCase().replace(/\s+/g, "-")}`}
-              >
-                {cat}
-              </button>
-            ))}
+          <div className="max-w-2xl mx-auto border border-[#1A1A1A]/25 bg-[#F2EFE9] px-8 md:px-12 py-10 mb-24" data-testid="perfect-saturday-card">
+            <p className="overline-label text-center">{ny_guide.perfect_saturday.title}</p>
+            <div className="mt-8">
+              {ny_guide.perfect_saturday.stops.map((s, i) => (
+                <div key={i} className="grid grid-cols-[5.5rem_1fr] gap-4 py-2.5 rule-fine first:border-t-0" data-testid={`saturday-stop-${i}`}>
+                  <span className="font-label text-[0.65rem] tracking-[0.12em] uppercase text-[#731F17] pt-0.5">{s.time}</span>
+                  <span className="font-body text-[0.95rem] text-[#1A1A1A]">{s.label}</span>
+                </div>
+              ))}
+            </div>
+            <p className="font-body italic text-[#595959] text-sm text-center mt-8">{ny_guide.perfect_saturday.caption}</p>
           </div>
         </Reveal>
 
-        {recs.length === 0 ? (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <Reveal className="lg:col-span-6">
-              <p className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A] leading-snug max-w-lg" data-testid="ny-empty-note">
-                {ny_guide.empty_note}
-              </p>
-              <p className="font-body italic text-[#595959] mt-6 text-sm">
-                Recommendations will be passed quietly, the way they should be.
-              </p>
-            </Reveal>
-            <Reveal delay={0.12} className="lg:col-span-5 lg:col-start-8">
-              <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5">
-                <img
-                  src="/illustrations/doorman.png"
-                  alt="Ink-and-wash illustration of a Manhattan doorman reviewing a very long guest list"
-                  className="w-full h-72 object-cover"
-                  loading="lazy"
-                  data-testid="ny-illustration"
-                />
-                <figcaption className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1">
-                  The doorman knows a place
-                </figcaption>
-              </figure>
-            </Reveal>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recs.map((rec) => (
-              <article key={rec.name} className="rule-fine pt-5" data-testid={`ny-rec-${rec.name.toLowerCase().replace(/\s+/g, "-")}`}>
-                <p className="overline-label">{rec.neighborhood}</p>
-                <h3 className="font-display text-2xl mt-2">{rec.name}</h3>
-                <p className="font-body text-sm text-[#595959] mt-3 leading-relaxed">{rec.note}</p>
-              </article>
-            ))}
+        {/* Recommendations */}
+        <div className="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Recommendation categories">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              role="tab"
+              aria-selected={activeCategory === cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`font-label text-[0.68rem] tracking-[0.16em] uppercase px-5 py-2.5 border transition-colors ${
+                activeCategory === cat
+                  ? "bg-[#1A1A1A] text-[#F7F5F0] border-[#1A1A1A]"
+                  : "border-[#1A1A1A]/40 text-[#1A1A1A] hover:border-[#1A1A1A]"
+              }`}
+              data-testid={`ny-category-${cat.toLowerCase().replace(/\s+/g, "-")}`}
+            >
+              {cat}
+            </button>
+          ))}
+          <button
+            onClick={makeMyDayWorse}
+            className="font-label text-[0.68rem] tracking-[0.16em] uppercase px-5 py-2.5 border border-[#731F17] text-[#731F17] hover:bg-[#731F17] hover:text-[#F7F5F0] transition-colors ml-auto"
+            data-testid="make-my-day-worse-button"
+          >
+            Make my day worse
+          </button>
+        </div>
+
+        {worse && (
+          <div className="border border-[#731F17]/50 bg-[#F2EFE9] px-6 py-5 mb-10" data-testid="worse-itinerary">
+            <p className="overline-label text-[#731F17]">Your terrible three-stop itinerary</p>
+            <p className="font-body text-[#1A1A1A] mt-3 text-[0.95rem] leading-relaxed">
+              {worse.map((r, i) => (
+                <span key={r.num}>
+                  <strong className="font-display text-lg">{i + 1}. {r.name}</strong>
+                  {i < worse.length - 1 ? " → " : "."}
+                </span>
+              ))}
+            </p>
+            <p className="font-body italic text-[#595959] text-sm mt-2">Allow fifteen minutes between stops. You will need four hours.</p>
           </div>
         )}
+
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 -mx-5 px-5 lg:mx-0 lg:px-0 lg:block lg:overflow-visible lg:snap-none" data-testid="ny-recommendations">
+          {recs.map((r) => (
+            <article
+              key={r.num}
+              id={`rec-${r.num}`}
+              onMouseEnter={() => setActivePin(r.num)}
+              className={`min-w-[82vw] sm:min-w-[60vw] lg:min-w-0 snap-center shrink-0 lg:shrink rule-fine lg:first:border-t-0 border lg:border-0 border-[#1A1A1A]/15 p-6 lg:p-0 lg:py-9 grid lg:grid-cols-[4rem_1fr_auto] gap-4 lg:gap-8 items-start transition-colors ${
+                activePin === r.num ? "lg:bg-[#F2EFE9]" : ""
+              }`}
+              data-testid={`ny-rec-${r.num}`}
+            >
+              <span className={`font-label text-[0.7rem] tracking-[0.1em] pt-1.5 ${activePin === r.num ? "text-[#731F17] font-bold" : "text-[#595959]/60"}`}>
+                {r.num}
+              </span>
+              <div>
+                <p className="overline-label">{r.category}</p>
+                <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A] mt-2">{r.name}</h3>
+                <p className="font-body text-[#595959] text-[0.95rem] leading-relaxed mt-3 max-w-2xl">{r.body}</p>
+                {r.note && <p className="font-body italic text-[#731F17] text-sm mt-2">Editorial note: {r.note}</p>}
+                <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#731F17] mt-4">{r.tag}</p>
+              </div>
+              <a
+                href={mapsUrl(r.maps_query)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 font-label text-[0.62rem] tracking-[0.16em] uppercase border border-[#1A1A1A]/40 px-4 py-2.5 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors self-start"
+                data-testid={`ny-maps-${r.num}`}
+              >
+                <MapPin size={12} /> Open in maps
+              </a>
+            </article>
+          ))}
+        </div>
+
+        <p className="font-body italic text-[#595959] text-sm mt-12 text-center" data-testid="ny-map-note">
+          {ny_guide.map_note}
+        </p>
       </div>
     </section>
   );

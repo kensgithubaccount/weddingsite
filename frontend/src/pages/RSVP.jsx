@@ -117,6 +117,19 @@ const RSVP = () => {
               <p className="font-body text-[#595959] mt-4 text-[0.95rem]">
                 Your name as it appears on the envelope.
               </p>
+              <figure className="mt-8 border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 max-w-md" data-testid="rsvp-lookup-figure">
+                <img
+                  src="/illustrations/rsvp-list.png"
+                  alt="Ink-and-wash illustration of a club attendant checking a guest's name against an implausibly long list while, in the distance, Sophie and Ken wave the guest through"
+                  className="w-full h-48 object-cover"
+                  loading="lazy"
+                  onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
+                  data-testid="rsvp-lookup-illustration"
+                />
+                <figcaption className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1">
+                  The list is thorough. The waving is sincere.
+                </figcaption>
+              </figure>
               <form onSubmit={doLookup} className="mt-10 space-y-8">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div>
@@ -370,6 +383,16 @@ const RSVP = () => {
           {step === 3 && result && (
             <StepShell stepKey="confirmation">
               <div className="text-center py-10" data-testid="rsvp-confirmation">
+                <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 max-w-md mx-auto mb-10" data-testid="rsvp-confirmation-figure">
+                  <img
+                    src="/illustrations/rsvp-taxi.png"
+                    alt="Warm nighttime ink-and-wash illustration of a yellow taxi crossing Manhattan with an illuminated roof sign reading June 5, formal clothing and a gift bag visible through the rear window"
+                    className="w-full h-52 object-cover"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
+                    data-testid="rsvp-confirmation-illustration"
+                  />
+                </figure>
                 <Seal size={80} className="mx-auto" />
                 {result.attending_any ? (
                   <>

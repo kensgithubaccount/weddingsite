@@ -45,7 +45,7 @@ export const Footer = () => (
           Vol. I · No. 1 · The Wedding Issue · One Night Only
         </p>
         <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#F7F5F0]/45">
-          Set in Cormorant Garamond, Lora &amp; Chivo · Printed in New York
+          Set in Cormorant Garamond, Lora, and Chivo · Printed in New York
         </p>
       </div>
     </div>

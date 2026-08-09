@@ -3,10 +3,10 @@ import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Contact = () => {
-  const { contacts } = useContent();
+  const { contact } = useContent();
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 bg-[#F2EFE9]" data-testid="contact-section">
+    <section id="contact" className="relative py-24 md:py-32" data-testid="contact-section">
       <SpotArt
         src="/illustrations/spot-key.png"
         alt="Ink drawing of a vintage key with a leather tag marked June 5"
@@ -14,12 +14,12 @@ const Contact = () => {
         rotate={5}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={9} label="Contact" title="Correspondence">
-          <p>One address per kind of question. All of them read by a human.</p>
+        <SectionHeading index={9} label={contact.label} title={contact.headline}>
+          <p>{contact.body}</p>
         </SectionHeading>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {contacts.map((c, i) => {
+          {contact.methods.map((c, i) => {
             const email = `${c.user}@${c.domain}`;
             return (
               <Reveal key={c.label} delay={i * 0.08}>

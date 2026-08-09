@@ -7,7 +7,7 @@ const FAQ = () => {
   const { faqs } = useContent();
 
   return (
-    <section id="questions" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="faq-section">
+    <section id="questions" className="relative py-24 md:py-36" data-testid="faq-section">
       <SpotArt
         src="/illustrations/spot-gap.png"
         alt="Ink drawing of a dropped place card beside a Manhattan street grate"
@@ -18,6 +18,22 @@ const FAQ = () => {
         <SectionHeading index={7} label="Questions" title="Everything You Were About to Ask">
           <p>We tried to answer it before it became a text. Though if you have questions, feel free to text.</p>
         </SectionHeading>
+
+        <Reveal>
+          <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 max-w-lg mb-14" data-testid="faq-figure">
+            <img
+              src="/illustrations/faq-suitcase.png"
+              alt="Ink-and-wash illustration of an exceptionally prepared wedding guest beside an open suitcase with compartments labeled Ceremony, Weather, After-Party, Emergency Outfit #1, Emergency Outfit #2, and Questions for Ken"
+              className="w-full h-64 object-cover"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
+              data-testid="faq-illustration"
+            />
+            <figcaption className="font-body italic text-[#595959] text-sm pt-2.5 px-1 pb-1">
+              Most of this is answered below.
+            </figcaption>
+          </figure>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-8 lg:col-start-3">

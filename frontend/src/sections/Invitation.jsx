@@ -21,7 +21,7 @@ const Invitation = () => {
       "DTEND:20270606T033000Z",
       "SUMMARY:Sophie + Ken — Wedding",
       `LOCATION:${venue.name}\\, ${venue.address}\\, ${venue.city}`,
-      "DESCRIPTION:Arrival 5:30 PM · Cocktail hour 6:30 PM · Ceremony and celebration 7:30–11:30 PM · After-party to follow",
+      "DESCRIPTION:Arrival 5:30 PM · Ceremony 6:00 PM · Cocktail hour 6:30 PM · Reception 7:30–11:30 PM · After-party to follow",
       "END:VEVENT",
       "END:VCALENDAR",
     ].join("\r\n");
@@ -58,7 +58,7 @@ const Invitation = () => {
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={1} label="The Invitation" title="The Details">
-          <p>The important details are below. The unimportant ones are mostly there too.</p>
+          <p>Important details are below. Some unimportant ones are too.</p>
         </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
