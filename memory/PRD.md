@@ -18,6 +18,14 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-01 (RSVP production rebuild + Rehearsal Dinner): Complete RSVP architecture rebuilt per user spec —
+  - MongoDB collections: parties, guests (normalized lookup keys ×3), rsvp_details, events, event_invites, settings. Indexes on lookup keys, party_id, invite_code (unique), event_code (unique), external_invite_id (unique). Startup migration from legacy households/rsvps.
+  - Lookup: POST /api/guest-lookup — single-name, server-side normalization (case/whitespace/punctuation/apostrophes/hyphens), states found/multiple/not_found, signed candidate tokens for disambiguation (email or household-member), generic failures (no enumeration), honeypot + time-trap + rate limits.
+  - Flow: party confirm → returning-guest interstitial (update-in-place, submitted_at preserved) → per-person attendance → RD step (invited guests only) → details → contact email → review → confirmation ("You're in."/"We'll miss you.") + Add to Calendar (Google/Outlook/ICS) + Resend email with signed 150-day update link.
+  - Rehearsal dinner: Event_Invites is authoritative; per-guest eligibility enforced server-side; non-invited guests never see RD data anywhere; RD details are placeholders ("Details to follow") until Events record is filled; RD section in review/email only when applicable; admin RD counts (invited/responded/attending/declined/outstanding).
+  - Admin: stats, search/filter, manual response edit, CSV export (incl. RD column), import (xlsx workbook upsert by external IDs / CSV paste / Google Sheet URL) with preview-before-commit, settings (deadline + meal options).
+  - Workbook Sophie_Ken_RSVP_TEST_Import.xlsx imported into PREVIEW: 195 parties, 218 guests, 2 events, 247 invites (29 RD).
+  - Tests: /app/backend/tests/test_rsvp.py — 24/24 passing; testing agent iteration_1 all green.
 - 2026-09-01: Visual edit round (agentic edit notifications + chat) —
   - Hero: line now reads "We're getting married. Apparently, it requires a website."; standalone tagline removed.
   - Invitation: removed "Important details are below…" heading subcopy.

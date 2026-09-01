@@ -1,0 +1,27 @@
+{
+  "summary": "Full first-pass regression on Sophie+Ken RSVP + Rehearsal Dinner rebuild. 24/24 pytest backend tests pass and every prioritised UI flow verified via Playwright: lookup normalization (whitespace/case/apostrophe/curly-apostrophe/hyphen/collapsed), not-found editorial copy, ambiguous disambiguation by email and by member name, returning-guest 'Welcome back.' interstitial, party confirm, per-person attendance, submit + update-in-place, plus-one gating, cross-party guest_id injection rejection, uninvited event_response rejection, admin auth 401, admin overview with separate Rehearsal Dinner block, admin parties search + filter, CSV export, deadline enforcement (past deadline closes RSVP + rejects submit; deadline restored to null after test). RSVP wizard: Sophie Knochenhauer shows step '02 / 06' with overline 'The night before', title 'Rehearsal Dinner', and 'Details to follow.' (no invented details). Aunt Gail shows '02 / 05' with zero mention of 'rehearsal' anywhere on the page.",
+  "backend_issues": { "critical": [], "minor": [
+    {"endpoint": "GET /api/admin/overview", "issue": "meal_totals is populated from guests.meal_choice regardless of settings.meal_options_enabled. If a guest still holds a stale meal_choice from a previous settings state (currently 'Seared salmon (sample) × 1' visible), it leaks into the dashboard while meal options are disabled. Consider gating the meal_totals aggregation on meal_options_enabled OR clearing guest.meal_choice when it is no longer in the allowlist."}
+  ]},
+  "frontend_issues": { "ui_bugs": [], "integration_issues": [], "design_issues": [] },
+  "test_report_links": ["/app/backend/tests/test_rsvp.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "(minor) Gate meal_totals aggregation on meal_options_enabled OR clear guest.meal_choice when settings change so disabled meal state doesn't display stale counts in the admin overview.",
+    "(informational) Preview DB now contains extra responses from testing agents (Jamie Doe-Smith declined, Sophie Knochenhauer attending RD, Test Guest party from earlier smoke tests, Alex Sample lookup unchanged). No action required — returning-guest path handles this."
+  ],
+  "critical_code_review_comments": [
+    "server.py is 1500 lines; consider splitting into routers/ (guest_lookup, rsvp, admin, admin_import, models, security). Not blocking.",
+    "Line 636-637: right after upsert with $setOnInsert submitted_at, code re-checks and calls a second $set — this is a no-op if the party existed (submitted_at already set) but harmless. $setOnInsert on a non-upsert $set was silently ignored anyway; the follow-up $set is what actually persists submitted_at on first submission. Clean but slightly confusing; a single conditional set would read better.",
+    "guest_lookup disambiguation-by-member searches only against the candidate parties' non-plus-one members using the same three lookup keys — correct and safe.",
+    "member_events correctly omits the 'events' key entirely for non-invited members (verified in tests) — good defense against enumeration.",
+    "admin_export CSV column 'Rehearsal Dinner' emits 'Invited' when RD-invited but no response yet — nice touch."
+  ],
+  "updated_files": ["/app/backend/tests/test_rsvp.py"],
+  "success_rate": {"backend": "100% (24/24)", "frontend": "100% of tested flows"},
+  "test_credentials": "Admin password skks-2027 from /app/memory/test_credentials.md; all RSVP names from same file used.",
+  "seed_data_creation": "None created. Used existing preview DB fixtures + workbook import that was already committed.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Deadline is UNSET (verified after test). Jamie Doe-Smith party now shows a 'declined' response from my submit-then-update test; Sophie Knochenhauer has a 'yes' RD response from my flow test. Test Guest, Alex Sample, Saoirse O'Brien untouched. Backend tests are in /app/backend/tests/test_rsvp.py and run in <3s via pytest -n auto.",
+  "rca of the issue": "N/A — no blocking issues found."
+}
