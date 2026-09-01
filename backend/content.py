@@ -64,14 +64,14 @@ CONTENT = {
             "location": "New York Athletic Club",
             "_status": "confirmed",
         },
+        {
+            "time": "11:30 PM",
+            "title": "The After-Party",
+            "description": "For those who, for whatever reason, would like to spend more time with the couple. Details to follow.",
+            "location": "To be announced",
+            "_status": "confirmed",
+        },
     ],
-    "epilogue": {
-        "label": "Epilogue",
-        "time": "11:30 PM",
-        "headline": "A short walk from the park. A long way from an early night.",
-        "body": "The after-party begins at 11:30. Details to follow. For now, assume the evening continues.",
-        "_status": "confirmed",
-    },
     "meal_options": {
         "enabled": True,
         "sample": True,
@@ -90,7 +90,6 @@ CONTENT = {
         "photos": [
             {
                 "url": "/photos/sophie-ken-nyac.png",
-                "caption": "Sophie and Ken, inspecting the venue in person. It passed.",
                 "alt": "Illustrated portrait of Sophie and Ken standing together outside the New York Athletic Club entrance",
             },
         ],
@@ -126,21 +125,6 @@ CONTENT = {
         "map_title": "The Manhattan Plan",
         "map_caption": "An efficient way to spend a weekend in New York without accidentally experiencing New York.",
         "map_note": "For an actual recommendation, ask us. We have several.",
-        "perfect_saturday": {
-            "title": "The Perfect Saturday",
-            "caption": "A perfectly reasonable Saturday, on paper.",
-            "stops": [
-                {"time": "8:00 AM", "label": "Breakfast downtown."},
-                {"time": "9:30 AM", "label": "Museum uptown."},
-                {"time": "12:00 PM", "label": "Sbarro."},
-                {"time": "1:00 PM", "label": "M&M'S New York."},
-                {"time": "2:00 PM", "label": "Madame Tussauds."},
-                {"time": "3:15 PM", "label": "Central Park pedicab."},
-                {"time": "4:00 PM", "label": "Olive Garden breadsticks."},
-                {"time": "5:15 PM", "label": "Quick nap."},
-                {"time": "5:30 PM", "label": "Arrive at the wedding."},
-            ],
-        },
         "recommendations": [
             {"num": "01", "category": "Eat", "name": "Olive Garden, Times Square", "body": "New York contains a significant amount of Italian food. We recommend walking past all of it until you reach the Olive Garden. The breadsticks are unlimited. Your time here is not.", "tag": "Sophie + Ken's Definitive Italian", "maps_query": "Olive Garden Times Square New York", "pin": {"x": 47, "y": 36}},
             {"num": "02", "category": "Eat", "name": "Sbarro, Herald Square", "body": "At last: an authentic New York slice, provided your primary source on New York is Michael Scott. Eat it standing up for additional credibility.", "tag": "A New York Institution, Technically", "maps_query": "Sbarro Herald Square New York", "pin": {"x": 45, "y": 42}},
@@ -179,8 +163,6 @@ CONTENT = {
         "guidance": [
             {"label": "For men", "body": "A tuxedo if you own one — or have been waiting for an excuse. Otherwise, a dark suit and a button-down shirt."},
             {"label": "For women", "body": "A long gown, a cocktail dress, or a dressy suit. If it feels slightly too dressed up for dinner, it is probably correct."},
-            {"label": "Shoes & walking", "body": "There will be dancing, and it will be summer in New York. Choose shoes that can manage the first and fabric that can manage the second."},
-            {"label": "Weather", "body": "June evenings in New York are warm and the club is cool inside. A wrap or jacket is a good companion for the taxi line."},
         ],
         "_status": "confirmed",
     },
@@ -193,7 +175,6 @@ CONTENT = {
         {"q": "Are children invited?", "a": "Unfortunately, they are not.", "_status": "confirmed"},
         {"q": "When should I RSVP?", "a": "As soon as you know your plans. A formal deadline will be announced here.", "_status": "confirmed"},
         {"q": "What happens after 11:30 PM?", "a": "The after-party. More information will follow. For now, assume the evening continues.", "_status": "confirmed"},
-        {"q": "Who should I contact with a question?", "a": "See the Contact section below — one address for logistics, one for RSVP help, and one for accessibility.", "_status": "confirmed"},
     ],
     "registry": {
         "published": True,
@@ -207,20 +188,9 @@ CONTENT = {
         ],
         "_status": "placeholder",
     },
-    "contact": {
-        "label": "One More Question?",
-        "headline": "We may have missed something.",
-        "body": "It happens rarely, but not never.",
-        "methods": [
-            {"label": "General questions", "name": "Sophie & Ken", "user": "hello", "domain": "sophieandken.example", "_status": "placeholder"},
-            {"label": "RSVP support", "name": "The Wedding Office", "user": "rsvp", "domain": "sophieandken.example", "_status": "placeholder"},
-            {"label": "Accessibility & venue", "name": "The Wedding Office", "user": "access", "domain": "sophieandken.example", "_status": "placeholder"},
-        ],
-        "_status": "placeholder",
-    },
     "rsvp": {
         "personality_question": "What song gets you to the dance floor without fail?",
-        "deadline_note": "Kindly respond at your earliest convenience.",
+        "deadline_note": "Kindly reply, one way or the other, at your earliest convenience.",
         "_status": "confirmed",
     },
 }

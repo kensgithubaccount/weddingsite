@@ -15,7 +15,6 @@ const NYGuide = () => {
   const { ny_guide } = useContent();
   const [activeCategory, setActiveCategory] = useState("All");
   const [activePin, setActivePin] = useState(null);
-  const [worse, setWorse] = useState(null);
   const [mapOk, setMapOk] = useState(true);
 
   const categories = useMemo(
@@ -31,15 +30,6 @@ const NYGuide = () => {
     setActivePin(num);
     const el = document.getElementById(`rec-${num}`);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  };
-
-  const makeMyDayWorse = () => {
-    const pool = [...ny_guide.recommendations];
-    const picks = [];
-    while (picks.length < 3 && pool.length) {
-      picks.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
-    }
-    setWorse(picks);
   };
 
   return (
@@ -148,22 +138,6 @@ const NYGuide = () => {
           </div>
         )}
 
-        {/* The Perfect Saturday */}
-        <Reveal>
-          <div className="max-w-2xl mx-auto border border-[#1A1A1A]/25 bg-[#F2EFE9] px-8 md:px-12 py-10 mb-24" data-testid="perfect-saturday-card">
-            <p className="overline-label text-center">{ny_guide.perfect_saturday.title}</p>
-            <div className="mt-8">
-              {ny_guide.perfect_saturday.stops.map((s, i) => (
-                <div key={i} className="grid grid-cols-[5.5rem_1fr] gap-4 py-2.5 rule-fine first:border-t-0" data-testid={`saturday-stop-${i}`}>
-                  <span className="font-label text-[0.65rem] tracking-[0.12em] uppercase text-[#731F17] pt-0.5">{s.time}</span>
-                  <span className="font-body text-[0.95rem] text-[#1A1A1A]">{s.label}</span>
-                </div>
-              ))}
-            </div>
-            <p className="font-body italic text-[#595959] text-sm text-center mt-8">{ny_guide.perfect_saturday.caption}</p>
-          </div>
-        </Reveal>
-
         {/* Recommendations */}
         <div className="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Recommendation categories">
           {categories.map((cat) => (
@@ -182,29 +156,7 @@ const NYGuide = () => {
               {cat}
             </button>
           ))}
-          <button
-            onClick={makeMyDayWorse}
-            className="font-label text-[0.68rem] tracking-[0.16em] uppercase px-5 py-2.5 border border-[#731F17] text-[#731F17] hover:bg-[#731F17] hover:text-[#F7F5F0] transition-colors ml-auto"
-            data-testid="make-my-day-worse-button"
-          >
-            Make my day worse
-          </button>
         </div>
-
-        {worse && (
-          <div className="border border-[#731F17]/50 bg-[#F2EFE9] px-6 py-5 mb-10" data-testid="worse-itinerary">
-            <p className="overline-label text-[#731F17]">Your terrible three-stop itinerary</p>
-            <p className="font-body text-[#1A1A1A] mt-3 text-[0.95rem] leading-relaxed">
-              {worse.map((r, i) => (
-                <span key={r.num}>
-                  <strong className="font-display text-lg">{i + 1}. {r.name}</strong>
-                  {i < worse.length - 1 ? " → " : "."}
-                </span>
-              ))}
-            </p>
-            <p className="font-body italic text-[#595959] text-sm mt-2">Allow fifteen minutes between stops. You will need four hours.</p>
-          </div>
-        )}
 
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-4 -mx-5 px-5 lg:mx-0 lg:px-0 lg:block lg:overflow-visible lg:snap-none" data-testid="ny-recommendations">
           {recs.map((r) => (

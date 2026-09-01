@@ -12,7 +12,6 @@ import Travel from "@/sections/Travel";
 import Attire from "@/sections/Attire";
 import FAQ from "@/sections/FAQ";
 import Registry from "@/sections/Registry";
-import Contact from "@/sections/Contact";
 
 const Home = () => (
   <main data-testid="home-page" className="xl:pl-28">
@@ -29,7 +28,6 @@ const Home = () => (
     <Attire />
     <FAQ />
     <Registry />
-    <Contact />
     <Footer />
   </main>
 );

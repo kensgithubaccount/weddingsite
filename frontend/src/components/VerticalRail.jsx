@@ -14,7 +14,6 @@ const ALL_ITEMS = [
   { num: "08", label: "Questions", anchor: "questions", always: true },
   { num: "09", label: "RSVP", anchor: "rsvp", isRsvp: true, always: true },
   { num: "10", label: "Registry", anchor: "registry", key: "registry" },
-  { num: "11", label: "Contact", anchor: "contact", always: true },
 ];
 
 export const scrollToAnchor = (anchor) => {

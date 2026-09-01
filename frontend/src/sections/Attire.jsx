@@ -37,14 +37,14 @@ const Attire = () => {
           <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9">
             <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5">
               <img
-                src="/illustrations/chairs.png"
-                alt="Ink-and-wash illustration of two chairs reserved beside one another at a candlelit table"
+                src="/illustrations/black-tie-transit.png"
+                alt="Watercolor illustration of a yellow taxi carrying a dark suit, a bow tie, and dress shoes through Manhattan at night"
                 className="w-full h-72 object-cover"
                 loading="lazy"
                 data-testid="attire-illustration"
               />
               <figcaption className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1">
-                Two seats, reserved
+                Black tie, in transit.
               </figcaption>
             </figure>
           </Reveal>

@@ -45,9 +45,11 @@ const Story = () => {
                       loading="lazy"
                     />
                   </div>
-                  <figcaption className="font-body italic text-[#595959] text-sm mt-3 max-w-sm">
-                    {photo.caption}
-                  </figcaption>
+                  {photo.caption && (
+                    <figcaption className="font-body italic text-[#595959] text-sm mt-3 max-w-sm">
+                      {photo.caption}
+                    </figcaption>
+                  )}
                 </figure>
               </Reveal>
             ))}

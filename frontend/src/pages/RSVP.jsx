@@ -117,6 +117,9 @@ const RSVP = () => {
               <p className="font-body text-[#595959] mt-4 text-[0.95rem]">
                 Your name as it appears on the envelope.
               </p>
+              <p className="font-body italic text-[#595959] mt-2 text-[0.95rem]" data-testid="rsvp-deadline-note">
+                {content.rsvp.deadline_note}
+              </p>
               <figure className="mt-8 border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 max-w-md" data-testid="rsvp-lookup-figure">
                 <img
                   src="/illustrations/rsvp-list.png"
