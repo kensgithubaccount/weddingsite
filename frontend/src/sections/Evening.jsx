@@ -17,9 +17,7 @@ const Evening = () => {
   return (
     <section id="evening" data-testid="evening-section">
       <div className="py-24 md:py-36 max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={2} label="The Evening" title="The Program">
-          <p>One evening, five acts. The first four at 180 Central Park South.</p>
-        </SectionHeading>
+        <SectionHeading index={2} label="The Evening" title="The Program" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">

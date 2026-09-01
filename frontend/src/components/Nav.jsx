@@ -9,9 +9,8 @@ const LINKS = [
   { id: "invitation", label: "Invitation" },
   { id: "evening", label: "The Evening" },
   { id: "story", label: "Our Story" },
-  { id: "new-york", label: "New York" },
-  { id: "travel", label: "Travel" },
   { id: "questions", label: "Questions" },
+  { id: "new-york", label: "New York" },
 ];
 
 export const Nav = () => {

@@ -15,7 +15,7 @@ const FAQ = () => {
         rotate={4}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={7} label="Questions" title="Everything You Were About to Ask">
+        <SectionHeading index={5} label="Questions" title="Everything You Were About to Ask">
           <p>We tried to answer it before it became a text. Though if you have questions, feel free to text.</p>
         </SectionHeading>
 

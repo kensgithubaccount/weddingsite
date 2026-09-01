@@ -14,7 +14,7 @@ const Attire = () => {
         rotate={-3}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={6} label="Attire" title={attire.headline} />
+        <SectionHeading index={4} label="Attire" title={attire.headline} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7">

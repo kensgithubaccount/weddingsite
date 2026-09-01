@@ -8,12 +8,11 @@ const ALL_ITEMS = [
   { num: "02", label: "Invitation", anchor: "invitation", always: true },
   { num: "03", label: "The Evening", anchor: "evening", always: true },
   { num: "04", label: "Our Story", anchor: "story", key: "story" },
-  { num: "05", label: "New York", anchor: "new-york", key: "ny_guide" },
-  { num: "06", label: "Travel", anchor: "travel", key: "travel" },
-  { num: "07", label: "Attire", anchor: "attire", key: "attire" },
-  { num: "08", label: "Questions", anchor: "questions", always: true },
-  { num: "09", label: "RSVP", anchor: "rsvp", isRsvp: true, always: true },
-  { num: "10", label: "Registry", anchor: "registry", key: "registry" },
+  { num: "05", label: "Attire", anchor: "attire", key: "attire" },
+  { num: "06", label: "Questions", anchor: "questions", always: true },
+  { num: "07", label: "RSVP", anchor: "rsvp", isRsvp: true, always: true },
+  { num: "08", label: "Registry", anchor: "registry", key: "registry" },
+  { num: "09", label: "New York", anchor: "new-york", key: "ny_guide" },
 ];
 
 export const scrollToAnchor = (anchor) => {

@@ -57,9 +57,7 @@ const Invitation = () => {
         rotate={4}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={1} label="The Invitation" title="The Details">
-          <p>Important details are below. Some unimportant ones are too.</p>
-        </SectionHeading>
+        <SectionHeading index={1} label="The Invitation" title="The Details" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 lg:col-start-3 text-center">

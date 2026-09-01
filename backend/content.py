@@ -10,7 +10,6 @@ CONTENT = {
         "partner_two": "Ken Syme",
         "display_names": "Sophie + Ken",
         "mark": "SK+KS",
-        "tagline": "Apparently, it requires a website.",
         "_status": "confirmed",
     },
     "date": {
@@ -67,7 +66,7 @@ CONTENT = {
         {
             "time": "11:30 PM",
             "title": "The After-Party",
-            "description": "For those who, for whatever reason, would like to spend more time with the couple. Details to follow.",
+            "description": "We carry on.",
             "location": "To be announced",
             "_status": "confirmed",
         },
@@ -85,12 +84,12 @@ CONTENT = {
         "kicker": "An origin story, abridged",
         "headline": "How It Started",
         "standfirst": "There are several versions of how this started. This is the one we agreed to publish.",
-        "intro": "Sophie and Ken worked together at an agency formerly known as FCB. After spending hours stuck in a small conference room working together on a (successful) pitch for Morningstar Farms, Sophie fell madly in love with Ken. Now they're getting married. And neither of them work on Morningstar Farms anymore.",
+        "intro": "Sophie and Ken worked together at an agency formerly known as FCB. After spending hours stuck in a small conference room working together on a (successful) pitch for Morningstar Farms, Sophie fell madly in love with Ken. Now they're getting married. And neither of them works on Morningstar Farms anymore.",
         "closing": "The story is still in progress. This part has a dress code.",
         "photos": [
             {
-                "url": "/photos/sophie-ken-nyac.png",
-                "alt": "Illustrated portrait of Sophie and Ken standing together outside the New York Athletic Club entrance",
+                "url": "/photos/sophie-ken-booth.jpg",
+                "alt": "Black-and-white photograph of Sophie and Ken laughing together in a photo booth",
             },
         ],
         "_status": "confirmed",
@@ -142,24 +141,11 @@ CONTENT = {
         ],
         "_status": "confirmed",
     },
-    "travel": {
-        "published": True,
-        "intro": "New York has three airports, several train stations, and an impressive number of ways to take the wrong route. These are the simplest options.",
-        "hotels_note": "Room blocks and recommended hotels are being arranged. Details, rates, and booking deadlines will be posted here.",
-        "hotels": [],
-        "getting_here": [
-            {"title": "By plane", "body": "Fly into whichever airport produces the least offensive combination of price and arrival time. JFK, LaGuardia, and Newark all serve the city — allow an hour to Manhattan, more at rush hour."},
-            {"title": "By train", "body": "Penn Station and Grand Central are both convenient, depending on where you are coming from, and how strongly you feel about train stations. Amtrak arrives at Moynihan Train Hall; commuter lines at Grand Central. Both are a short ride from the venue."},
-            {"title": "By car", "body": "If you are brave enough to drive into Manhattan, valet parking is available at the venue."},
-            {"title": "Getting around", "body": "The venue is on Central Park South, and is easy to reach by subway, cab, or a walk in shoes you have planned appropriately."},
-        ],
-        "_status": "placeholder",
-    },
     "attire": {
         "published": True,
         "placeholder": False,
         "headline": "Black Tie Optional",
-        "body": "In plain English: tuxedos and floor-length gowns are welcome and encouraged — but a dark suit and tie, or an elegant cocktail dress, is equally at home.",
+        "body": "In plain English: tuxedos and floor-length gowns are welcome — but a dark suit and tie, or an elegant cocktail dress, is equally at home.",
         "guidance": [
             {"label": "For men", "body": "A tuxedo if you own one — or have been waiting for an excuse. Otherwise, a dark suit and a button-down shirt."},
             {"label": "For women", "body": "A long gown, a cocktail dress, or a dressy suit. If it feels slightly too dressed up for dinner, it is probably correct."},

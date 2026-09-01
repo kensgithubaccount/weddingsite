@@ -21,9 +21,8 @@ export const Footer = () => (
           <ul className="space-y-3 font-body text-sm text-[#F7F5F0]/85">
             <li><a href="/#invitation" className="link-underline" data-testid="footer-link-invitation">The Invitation</a></li>
             <li><a href="/#evening" className="link-underline" data-testid="footer-link-evening">The Evening</a></li>
-            <li><a href="/#new-york" className="link-underline" data-testid="footer-link-new-york">New York</a></li>
-            <li><a href="/#travel" className="link-underline" data-testid="footer-link-travel">Travel &amp; Stay</a></li>
             <li><a href="/#questions" className="link-underline" data-testid="footer-link-questions">Questions</a></li>
+            <li><a href="/#new-york" className="link-underline" data-testid="footer-link-new-york">New York</a></li>
           </ul>
         </div>
         <div className="md:col-span-4">

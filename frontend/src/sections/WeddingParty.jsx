@@ -51,8 +51,7 @@ const WeddingParty = () => {
           </Reveal>
           <Reveal delay={0.16}>
             <div className="mt-6 max-w-2xl text-[#595959] text-base md:text-lg leading-relaxed">
-              <p>{party.intro}</p>
-              <p className="font-body italic text-sm mt-4 text-[#595959]/85">{party.secondary}</p>
+              <p className="font-body italic text-sm text-[#595959]/85">{party.secondary}</p>
             </div>
           </Reveal>
         </div>

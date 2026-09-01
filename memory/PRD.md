@@ -11,14 +11,24 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 ## Architecture
 - React frontend (`/app/frontend/src`), FastAPI backend (`/app/backend`), MongoDB.
 - Centralized CMS: all public copy lives in `/app/backend/content.py`, served via `GET /api/content`.
-- Sections: Hero, Invitation, Evening (5 acts incl. After-Party), Story, Wedding Party, NY Guide, Travel, Attire, FAQ, Registry. (Contact section REMOVED Aug 2026 per user.)
-- Navigation: VerticalRail (desktop, numbered 01–10) + sticky top Nav (mobile/tablet). No Contact item.
+- Sections: Hero, Invitation, Evening (5 acts incl. After-Party), Story, Wedding Party, Attire, FAQ, Registry, NY Guide (at page end). (Contact and Travel sections REMOVED per user.)
+- Navigation: VerticalRail (desktop, numbered 01–09, RSVP boxed at 07) + sticky top Nav (mobile/tablet). No Contact or Travel items.
 - Key endpoints: `GET /api/content`, `POST /api/rsvp/lookup`, `POST /api/rsvp/submit`, `POST /api/admin/login`, `GET /api/admin/guests`.
 - Integrations: Resend (RSVP confirmation emails, Emergent-managed), Gemini Nano Banana (illustration generation, budget-blocked).
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
-- 2026-08/09 (this session): Revision round from user msgs 148 & 151 —
+- 2026-09-01: Visual edit round (agentic edit notifications + chat) —
+  - Hero: line now reads "We're getting married. Apparently, it requires a website."; standalone tagline removed.
+  - Invitation: removed "Important details are below…" heading subcopy.
+  - Evening: removed "One evening, five acts…" heading subcopy; After-Party description now "We carry on."
+  - Story: "work" → "works" (Morningstar Farms line); closing line removed; photo swapped to user-uploaded black-and-white photo (`/photos/sophie-ken-booth.jpg`); no caption.
+  - Wedding Party: intro paragraph removed; secondary italic line kept.
+  - Attire: removed "and encouraged" from body copy.
+  - Travel section REMOVED entirely (file, rail/nav/footer links, content.py key).
+  - NY Guide section MOVED to the end of the page (after Registry, before footer). Page order: Hero, Invitation, Evening, Story, Wedding Party, Attire, FAQ, Registry, New York. Section indexes renumbered (Attire 04, Questions 05, Registry 06, New York 07); rail renumbered 01–09 with RSVP at 07.
+  - Verified: section order via DOM, all copy changes, story image live, rail order; lint clean; API serves updated content.
+- 2026-08/09: Revision round from user msgs 148 & 151 —
   - Contact section fully removed (page, rail, content.py); last FAQ removed (8 FAQs remain).
   - After-party integrated into main timeline as Act 5 ("The After-Party", 11:30 PM, "For those who, for whatever reason, would like to spend more time with the couple."); standalone dark Epilogue block removed; heading copy now "One evening, five acts."
   - NY Guide: "Make my day worse" button and "Perfect Saturday" module removed.

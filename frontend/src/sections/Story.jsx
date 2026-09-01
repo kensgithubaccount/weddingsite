@@ -26,11 +26,6 @@ const Story = () => {
                 {story.intro}
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
-              <p className="font-body italic text-[#595959] mt-12 text-[0.95rem] rule-fine pt-6 max-w-md" data-testid="story-closing">
-                {story.closing}
-              </p>
-            </Reveal>
           </div>
 
           <div className="lg:col-span-5 lg:col-start-8">

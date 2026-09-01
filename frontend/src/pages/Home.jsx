@@ -8,7 +8,6 @@ import Evening from "@/sections/Evening";
 import Story from "@/sections/Story";
 import WeddingParty from "@/sections/WeddingParty";
 import NYGuide from "@/sections/NYGuide";
-import Travel from "@/sections/Travel";
 import Attire from "@/sections/Attire";
 import FAQ from "@/sections/FAQ";
 import Registry from "@/sections/Registry";
@@ -23,11 +22,10 @@ const Home = () => (
     <Evening />
     <Story />
     <WeddingParty />
-    <NYGuide />
-    <Travel />
     <Attire />
     <FAQ />
     <Registry />
+    <NYGuide />
     <Footer />
   </main>
 );

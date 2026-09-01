@@ -41,7 +41,7 @@ const NYGuide = () => {
         rotate={3}
       />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={4} label={ny_guide.label} title={ny_guide.headline}>
+        <SectionHeading index={7} label={ny_guide.label} title={ny_guide.headline}>
           <p className="font-display italic text-xl text-[#1A1A1A]">{ny_guide.subhead}</p>
           <p className="mt-3">{ny_guide.body}</p>
           <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#731F17] mt-5">{ny_guide.disclaimer}</p>
