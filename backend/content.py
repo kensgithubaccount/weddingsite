@@ -166,13 +166,11 @@ CONTENT = {
         "published": True,
         "label": "There Is, Apparently, Also a Registry",
         "headline": "Having you with us is the point.",
-        "body": "For those who have asked anyway, we've put a few ideas here.",
+        "body": "For those who have asked anyway, everything lives in one place — gifts, the honeymoon fund, and a charity close to our hearts.",
         "entries": [
-            {"name": "Zola", "kind": "Registry", "note": "Sample link — the couple will replace it with their real registry page.", "url": "https://www.zola.com", "_status": "placeholder"},
-            {"name": "The Honeymoon Fund", "kind": "A fund", "note": "Toward a proper trip, taken slowly. Link to come.", "url": "", "_status": "placeholder"},
-            {"name": "A Charity Close to Their Hearts", "kind": "In lieu of anything wrapped", "note": "Details to come.", "url": "", "_status": "placeholder"},
+            {"name": "MyRegistry", "kind": "Registry, honeymoon fund, and charity", "note": "One list for all of it.", "url": "https://www.myregistry.com/giftlist/sophieandken", "_status": "confirmed"},
         ],
-        "_status": "placeholder",
+        "_status": "confirmed",
     },
     "rsvp": {
         "personality_question": "What song gets you to the dance floor without fail?",

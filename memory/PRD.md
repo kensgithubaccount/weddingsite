@@ -18,6 +18,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-01 (Registry live): Registry condensed to one real entry — MyRegistry (https://www.myregistry.com/giftlist/sophieandken) covering gifts, honeymoon fund, and charity. All placeholders removed.
 - 2026-09-01 (RSVP production rebuild + Rehearsal Dinner): Complete RSVP architecture rebuilt per user spec —
   - MongoDB collections: parties, guests (normalized lookup keys ×3), rsvp_details, events, event_invites, settings. Indexes on lookup keys, party_id, invite_code (unique), event_code (unique), external_invite_id (unique). Startup migration from legacy households/rsvps.
   - Lookup: POST /api/guest-lookup — single-name, server-side normalization (case/whitespace/punctuation/apostrophes/hyphens), states found/multiple/not_found, signed candidate tokens for disambiguation (email or household-member), generic failures (no enumeration), honeypot + time-trap + rate limits.
@@ -53,7 +54,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Editorial illustration generation (17 images via `/app/scripts/generate_illustrations.py`) BLOCKED on Emergent LLM Key budget. Missing images degrade gracefully (hidden, no broken icons).
 
 ## Backlog
-- P1: Real registry, honeymoon fund, and charity links (awaiting URLs from user).
-- P1: Explicit RSVP reply-by deadline (awaiting date from user).
+- P1: RSVP reply-by deadline (awaiting date from user).
+- P1: Rehearsal dinner date/time/venue (Events record placeholders).
 - P1: Re-run illustration generation when LLM budget restored.
 - P2: Replace placeholder Wedding Party names/bios and portraits when supplied.
