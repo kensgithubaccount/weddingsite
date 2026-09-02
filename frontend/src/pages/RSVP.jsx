@@ -408,8 +408,11 @@ const RSVP = () => {
             {step === "party" && party && (
               <StepShell stepKey="party">
                 <h1 ref={headingRef} tabIndex={-1} className="font-display text-4xl sm:text-5xl tracking-tight text-[#1A1A1A] outline-none" data-testid="rsvp-party-title">
-                  {party.display_name}
+                  They look familiar?
                 </h1>
+                {members.length > 1 && (
+                  <p className="overline-label mt-4 text-[#595959]">{party.display_name}</p>
+                )}
                 <div className="mt-10" data-testid="rsvp-party-list">
                   {members.map((m) => (
                     <div key={m.id} className="rule-fine py-4">

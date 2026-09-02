@@ -18,6 +18,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-02 (RSVP copy): Party-confirmation step heading changed to "They look familiar?" (party name shown as overline only for multi-guest parties).
 - 2026-09-02 (Art-direction pass, "edit, don't redesign"): Removed decorative Marquee ticker; Evening re-composed as centered single-column program + wide unframed taxi strip below (no more split grid, no row spot arts); Attire illustration unframed/offset with italic margin caption; Invitation stripped to pure centered typography (spot doodles removed); Registry given more vertical air; section padding increased site-wide (py-28/py-44). Framed-plate treatment now reserved for Hero cover + Story photograph only. Remaining artwork each carries a story/idea: cover plate, evening-shoes taxi, booth photo, black-tie-in-transit, party portraits.
 - 2026-09-01 (Registry live): Registry condensed to one real entry — MyRegistry (https://www.myregistry.com/giftlist/sophieandken) covering gifts, honeymoon fund, and charity. All placeholders removed.
 - 2026-09-01 (RSVP production rebuild + Rehearsal Dinner): Complete RSVP architecture rebuilt per user spec —
