@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
-import { Marquee } from "@/components/Marquee";
 import { VerticalRail } from "@/components/VerticalRail";
 import Hero from "@/sections/Hero";
 import Invitation from "@/sections/Invitation";
@@ -17,7 +16,6 @@ const Home = () => (
     <Nav />
     <VerticalRail />
     <Hero />
-    <Marquee />
     <Invitation />
     <Evening />
     <Story />

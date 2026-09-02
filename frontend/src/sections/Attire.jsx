@@ -1,29 +1,22 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Attire = () => {
   const { attire } = useContent();
 
   return (
-    <section id="attire" className="relative py-24 md:py-36" data-testid="attire-section">
-      <SpotArt
-        src="/illustrations/spot-footwear.png"
-        alt="Ink drawing of a formal shoe and a practical walking shoe beside a Manhattan curb"
-        className="hidden xl:block absolute left-12 bottom-28 w-28 opacity-90"
-        rotate={-3}
-      />
+    <section id="attire" className="relative py-28 md:py-44" data-testid="attire-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={4} label="Attire" title={attire.headline} />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-6">
             <Reveal>
               <p className="font-body text-[#1A1A1A] text-base md:text-lg leading-[1.9] max-w-xl" data-testid="attire-body">
                 {attire.body}
               </p>
             </Reveal>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 mt-12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 mt-16">
               {attire.guidance.map((g, i) => (
                 <Reveal key={g.label} delay={i * 0.06}>
                   <div className="rule-fine pt-5 pb-6" data-testid={`attire-guidance-${i}`}>
@@ -34,8 +27,8 @@ const Attire = () => {
               ))}
             </div>
           </div>
-          <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9">
-            <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5">
+          <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9 lg:mt-24">
+            <figure>
               <img
                 src="/illustrations/black-tie-transit.png"
                 alt="Watercolor illustration of a yellow taxi carrying a dark suit, a bow tie, and dress shoes through Manhattan at night"
@@ -43,7 +36,7 @@ const Attire = () => {
                 loading="lazy"
                 data-testid="attire-illustration"
               />
-              <figcaption className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1">
+              <figcaption className="font-body italic text-[#595959] text-sm mt-4">
                 Black tie, in transit.
               </figcaption>
             </figure>

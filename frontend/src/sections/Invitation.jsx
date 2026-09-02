@@ -2,7 +2,6 @@ import { toast } from "sonner";
 import { CalendarPlus, Copy, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import SpotArt from "@/components/SpotArt";
 import { useContent } from "@/lib/content";
 
 const Invitation = () => {
@@ -43,19 +42,7 @@ const Invitation = () => {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.maps_query)}`;
 
   return (
-    <section id="invitation" className="relative py-24 md:py-36" data-testid="invitation-section">
-      <SpotArt
-        src="/illustrations/spot-nyac.png"
-        alt="Small architectural ink drawing of the New York Athletic Club entrance"
-        className="hidden xl:block absolute left-14 top-40 w-28 opacity-90"
-        rotate={-3}
-      />
-      <SpotArt
-        src="/illustrations/spot-envelope.png"
-        alt="Ink drawing of a cream envelope hand-addressed to S. and K., N.Y.C."
-        className="hidden xl:block absolute right-14 bottom-32 w-32 opacity-90"
-        rotate={4}
-      />
+    <section id="invitation" className="relative py-28 md:py-44" data-testid="invitation-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={1} label="The Invitation" title="The Details" />
 

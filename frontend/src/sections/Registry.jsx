@@ -6,7 +6,7 @@ const Registry = () => {
   const { registry } = useContent();
 
   return (
-    <section id="registry" className="py-24 md:py-32" data-testid="registry-section">
+    <section id="registry" className="py-28 md:py-44" data-testid="registry-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={6} label={registry.label} title={registry.headline}>
           <p>{registry.body}</p>
