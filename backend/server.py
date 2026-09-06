@@ -346,7 +346,7 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
             f"<td style='padding:8px 16px 8px 0;font-family:Georgia,serif;font-size:15px;color:#1A1A1A;border-bottom:1px solid #e3ded4;'>"
             f"{esc(r['guest_name'])}{extra_html}</td>"
             f"<td style='padding:8px 0;font-family:Georgia,serif;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;"
-            f"color:{'#4A5D4E' if r['attending'] else '#731F17'};border-bottom:1px solid #e3ded4;vertical-align:top;'>"
+            f"color:{'#1D3F2C' if r['attending'] else '#595959'};border-bottom:1px solid #e3ded4;vertical-align:top;'>"
             f"{'Attending' if r['attending'] else 'Regrets'}</td>"
             f"</tr>"
         )
@@ -356,7 +356,7 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
             f"<tr>"
             f"<td style='padding:6px 16px 6px 0;font-family:Georgia,serif;font-size:14px;color:#1A1A1A;border-bottom:1px solid #e3ded4;'>{esc(r['guest_name'])}</td>"
             f"<td style='padding:6px 0;font-family:Georgia,serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;"
-            f"color:{'#4A5D4E' if r['attending'] else '#731F17'};border-bottom:1px solid #e3ded4;'>"
+            f"color:{'#1D3F2C' if r['attending'] else '#595959'};border-bottom:1px solid #e3ded4;'>"
             f"{'Attending' if r['attending'] else 'Regrets'}</td>"
             f"</tr>"
             for r in event_responses
@@ -384,7 +384,7 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
     if update_url:
         update_html = f"""
       <tr><td align="center" style="padding-top:28px;">
-        <a href="{update_url}" style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.2em;color:#731F17;text-decoration:underline;">PLANS CHANGE? VIEW OR UPDATE YOUR RSVP</a>
+        <a href="{update_url}" style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.2em;color:#1D3F2C;text-decoration:underline;">PLANS CHANGE? VIEW OR UPDATE YOUR RSVP</a>
       </td></tr>"""
     return f"""
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F7F5F0;padding:32px 16px;">
@@ -394,19 +394,19 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
         VOL. I &nbsp;&middot;&nbsp; NO. 1 &nbsp;&middot;&nbsp; THE WEDDING ISSUE
       </td></tr>
       <tr><td align="center" style="font-family:Georgia,serif;font-size:30px;color:#1A1A1A;padding-bottom:8px;">
-        Sophie <span style="color:#731F17;">&amp;</span> Ken
+        Sophie <span style="color:#1D3F2C;">&amp;</span> Ken
       </td></tr>
       <tr><td align="center" style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.2em;color:#595959;padding-bottom:32px;">
         SATURDAY, JUNE 5, 2027 &nbsp;&middot;&nbsp; NEW YORK ATHLETIC CLUB
       </td></tr>
-      <tr><td align="center" style="font-family:Georgia,serif;font-size:24px;color:#731F17;padding-bottom:12px;">{headline}</td></tr>
+      <tr><td align="center" style="font-family:Georgia,serif;font-size:24px;color:#1D3F2C;padding-bottom:12px;">{headline}</td></tr>
       <tr><td align="center" style="font-family:Georgia,serif;font-style:italic;font-size:15px;color:#595959;padding-bottom:32px;">{sub}</td></tr>
       <tr><td>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{rows}</table>
         <table role="presentation" width="100%" cellpadding="0" cellspacing="0">{extra_rows}</table>
       </td></tr>
       <tr><td align="center" style="padding-top:36px;">
-        <span style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.2em;color:#731F17;border:1px solid #731F17;display:inline-block;padding:12px 24px;">
+        <span style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.2em;color:#1D3F2C;border:1px solid #1D3F2C;display:inline-block;padding:12px 24px;">
         JUN 05 2027 &nbsp;&middot;&nbsp; 180 CENTRAL PARK SOUTH, NEW YORK
         </span>
       </td></tr>

@@ -1,4 +1,4 @@
-export const Seal = ({ size = 96, className = "", color = "#731F17" }) => {
+export const Seal = ({ size = 96, className = "", color = "#1D3F2C" }) => {
   const id = `seal-${size}-${color.replace("#", "")}`;
   return (
     <svg
@@ -43,7 +43,7 @@ export const Seal = ({ size = 96, className = "", color = "#731F17" }) => {
 
 export const DateStamp = ({ text = "JUN 05 2027", className = "" }) => (
   <div
-    className={`inline-block border-2 border-[#731F17] text-[#731F17] font-label font-semibold text-[0.65rem] tracking-[0.28em] uppercase px-4 py-2.5 ${className}`}
+    className={`inline-block border-2 border-[#1D3F2C] text-[#1D3F2C] font-label font-semibold text-[0.65rem] tracking-[0.28em] uppercase px-4 py-2.5 ${className}`}
     style={{ transform: "rotate(-10deg)" }}
     data-testid="date-stamp"
   >

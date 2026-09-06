@@ -75,10 +75,10 @@ export const VerticalRail = () => {
             return (
               <li key={item.anchor}>
                 <Link to="/rsvp" className="flex flex-col items-center gap-1 group" data-testid="rail-link-rsvp">
-                  <span className="font-label font-bold text-[0.6rem] tracking-[0.08em] text-[#731F17] border border-[#731F17] rounded-sm px-1.5 py-0.5 group-hover:bg-[#731F17] group-hover:text-[#F7F5F0] transition-colors">
+                  <span className="font-label font-bold text-[0.6rem] tracking-[0.08em] text-[#1D3F2C] border border-[#1D3F2C] rounded-sm px-1.5 py-0.5 group-hover:bg-[#1D3F2C] group-hover:text-[#F7F5F0] transition-colors">
                     {item.num}
                   </span>
-                  <span className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-[#731F17]">RSVP</span>
+                  <span className="font-label text-[0.55rem] tracking-[0.24em] uppercase text-[#1D3F2C]">RSVP</span>
                 </Link>
               </li>
             );
@@ -94,14 +94,14 @@ export const VerticalRail = () => {
               >
                 <span
                   className={`font-label text-[0.6rem] tracking-[0.08em] transition-colors ${
-                    isActive ? "text-[#731F17] font-bold" : "text-[#595959]/70 group-hover:text-[#1A1A1A]"
+                    isActive ? "text-[#1D3F2C] font-bold" : "text-[#595959]/70 group-hover:text-[#1A1A1A]"
                   }`}
                 >
                   {item.num}
                 </span>
                 <span
                   className={`font-label text-[0.5rem] tracking-[0.22em] uppercase text-center leading-tight max-w-[4.5rem] transition-colors ${
-                    isActive ? "text-[#731F17]" : "text-[#595959]/70 group-hover:text-[#1A1A1A]"
+                    isActive ? "text-[#1D3F2C]" : "text-[#595959]/70 group-hover:text-[#1A1A1A]"
                   }`}
                 >
                   {item.label}

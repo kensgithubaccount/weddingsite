@@ -17,7 +17,7 @@ const Evening = () => {
                 className="grid grid-cols-[92px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-8 py-10 rule-fine first:border-t-0 first:pt-0"
                 data-testid={`schedule-item-${i}`}
               >
-                <div className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-[#731F17] pt-1.5 leading-relaxed">
+                <div className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-[#1D3F2C] pt-1.5 leading-relaxed">
                   {item.time}
                 </div>
                 <div>
@@ -28,21 +28,6 @@ const Evening = () => {
             </Reveal>
           ))}
         </div>
-
-        <Reveal delay={0.1} className="mt-24 md:mt-36">
-          <figure data-testid="evening-figure">
-            <img
-              src="/illustrations/taxi.png"
-              alt="Ink-and-wash illustration of a taxi carrying a pair of evening shoes through Manhattan at night"
-              className="w-full h-72 sm:h-96 lg:h-[28rem] object-cover"
-              loading="lazy"
-              data-testid="evening-illustration"
-            />
-            <figcaption className="font-body italic text-[#595959] text-sm mt-4 text-center">
-              The evening shoes travel separately.
-            </figcaption>
-          </figure>
-        </Reveal>
       </div>
     </section>
   );

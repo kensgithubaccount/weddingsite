@@ -1,0 +1,59 @@
+{
+  "summary": "Full frontend + RSVP/Admin regression for the Save-the-Date art-direction reskin (forest green / B&W photo / line-art SVGs). Verified: hero B&W photo, all seven line-art SVG replacements, no oxblood remnants, mobile no-overflow, 404 pigeon, RSVP full flow to confirmation with CabCans SVG, rehearsal-dinner gating (Sophie=has step, Aunt Gail=no step), Admin attending green / regrets muted gray. No issues found.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "verification_details": {
+    "hero": {
+      "image_src": "/photos/sophie-ken-bw.jpg",
+      "hero_date": "June 5, 2027",
+      "caption": "SOPHIE AND KEN, SHORTLY BEFORE EVERYTHING CHANGES + FIG. 1",
+      "stamps_present": 0
+    },
+    "line_art_svgs_present": {
+      "story-illustration": "svg OK",
+      "attire-illustration": "svg OK",
+      "invitation-envelope": "svg OK",
+      "registry-coupe": "svg OK",
+      "ny-taxi": "svg OK",
+      "not-found-illustration": "svg OK",
+      "rsvp-confirmation-illustration": "svg OK (verified after real submission)"
+    },
+    "oxblood_remnants": "none detected via getComputedStyle scan for rgb(115,31,23) / #731f17",
+    "mobile_375_overflow": "scrollWidth == clientWidth (375==375, no horizontal overflow)",
+    "broken_images_on_home": [
+      "portrait-placeholder.png (WeddingParty — intentional graceful fallback, pre-existing)",
+      "manhattan-map.png (NYGuide — intentional graceful fallback, pre-existing)"
+    ],
+    "not_found_page": {
+      "copy_present": true,
+      "caption_present": "Not the New York Athletic Club",
+      "back_button_present": true,
+      "pigeon_svg_present": true
+    },
+    "rsvp_flow": {
+      "negative_lookup": "'Nonsense Xyz Person' shows 'We couldn\u2019t find that name.' error state",
+      "saoirse_obrien_full_flow": "Party is a returning-response household -> View or update RSVP -> attendance (yes/yes) -> finer points -> email delivered@resend.dev -> review -> Send my response -> Confirmation page renders 'You\u2019re in.' + CabCans SVG under [data-testid=rsvp-confirmation-figure]. No <img> tags on confirmation page (no large taxi image).",
+      "returning_headline_note": "Saoirse already had a response so screen shows 'Welcome back.' rather than 'They look familiar?' — expected behavior for returning households; first-time-lookup heading not directly exercised in this iteration but code path unchanged from prev iterations.",
+      "rehearsal_gating": {
+        "Aunt Gail": "step indicator 03/05, no events-back-button, no 'rehearsal' in body — correct (NOT invited)",
+        "Sophie Knochenhauer": "step indicator 03/06, events-back-button present, 'Rehearsal Dinner' screen visible — correct (invited)"
+      }
+    },
+    "admin": {
+      "login_password_skks-2027": "OK",
+      "overview_loaded": true,
+      "attending_label_color": "rgb(29,63,44) = #1D3F2C (forest green) \u2713",
+      "regrets_label_color": "rgb(89,89,89) = #595959 (muted gray) \u2713"
+    }
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (not re-run — no backend logic changes expected)", "frontend": "100%"},
+  "test_credentials": "Admin: skks-2027; RSVP guests exercised: Saoirse O'Brien (returning), Aunt Gail (no rehearsal), Sophie Knochenhauer (has rehearsal)",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Art-direction reskin fully verified. All 7 LineArt SVGs render as <svg> under their data-testids. Confirmation email backend send appears to succeed (RSVP confirmation renders immediately, 'A confirmation is on its way to your inbox'). Two intentional dormant broken-image references remain in the DOM (portrait-placeholder.png, manhattan-map.png) — these are graceful fallbacks and NOT bugs. RSVP step 3 uses data-testid='rsvp-details-continue-button' (not 'rsvp-continue-button'); step 4 uses 'rsvp-contact-continue-button'; final submit is 'rsvp-submit-button' — useful for future automation."
+}

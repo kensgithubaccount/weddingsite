@@ -6,12 +6,13 @@ import { toast } from "sonner";
 import { api } from "@/lib/api";
 import { useContent } from "@/lib/content";
 import { DateStamp, Seal } from "@/components/Seal";
+import { CabCans } from "@/components/LineArt";
 
 const inputCls =
-  "w-full bg-transparent border-b-2 border-[#1A1A1A]/25 focus:border-[#731F17] outline-none py-3 font-body text-base text-[#1A1A1A] transition-colors placeholder:text-[#595959]/50";
+  "w-full bg-transparent border-b-2 border-[#1A1A1A]/25 focus:border-[#1D3F2C] outline-none py-3 font-body text-base text-[#1A1A1A] transition-colors placeholder:text-[#595959]/50";
 const labelCls = "overline-label block mb-1.5";
 const primaryBtn =
-  "font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#731F17] text-[#F7F5F0] px-10 py-4 hover:bg-[#5d1812] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 min-h-[44px]";
+  "font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-10 py-4 hover:bg-[#142B1F] transition-colors disabled:opacity-60 flex items-center justify-center gap-2 min-h-[44px]";
 const secondaryBtn =
   "font-label text-[0.7rem] tracking-[0.18em] uppercase border border-[#1A1A1A]/50 px-8 py-4 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors flex items-center justify-center gap-2 min-h-[44px]";
 
@@ -322,7 +323,7 @@ const RSVP = () => {
         <div className="max-w-3xl mx-auto px-5 py-16 md:py-24">
           {step !== "done" && (
             <div className="flex items-baseline justify-between rule-fine pb-3 mb-12">
-              <span className="overline-label text-[#731F17]">09 — RSVP</span>
+              <span className="overline-label text-[#1D3F2C]">09 — RSVP</span>
               <StepIndicator />
             </div>
           )}
@@ -364,7 +365,7 @@ const RSVP = () => {
 
                 {lookupState === "not_found" && (
                   <div className="rule-fine mt-10 pt-6" role="alert" data-testid="rsvp-not-found">
-                    <p className="font-display text-2xl tracking-tight text-[#731F17]">We couldn&rsquo;t find that name.</p>
+                    <p className="font-display text-2xl tracking-tight text-[#1D3F2C]">We couldn&rsquo;t find that name.</p>
                     <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">
                       Check the spelling, try another member of your household, or contact us and we&rsquo;ll sort it out.
                     </p>
@@ -372,7 +373,7 @@ const RSVP = () => {
                 )}
                 {lookupState === "error" && (
                   <div className="rule-fine mt-10 pt-6" role="alert" data-testid="rsvp-lookup-error">
-                    <p className="font-body text-[#731F17] text-[0.95rem]">Something went wrong on our end. Please try again in a moment.</p>
+                    <p className="font-body text-[#1D3F2C] text-[0.95rem]">Something went wrong on our end. Please try again in a moment.</p>
                   </div>
                 )}
 
@@ -427,7 +428,7 @@ const RSVP = () => {
                           <span className="font-label text-[0.75rem] tracking-[0.18em] uppercase text-[#595959]">
                             Guest of {m.first_name} {m.last_name}
                           </span>
-                          <span className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#731F17]">Plus-one available</span>
+                          <span className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#1D3F2C]">Plus-one available</span>
                         </div>
                       )}
                     </div>
@@ -481,7 +482,7 @@ const RSVP = () => {
                             onClick={() => setResponses({ ...responses, [m.id]: { ...r, attending: true } })}
                             aria-pressed={r.attending === true}
                             className={`font-label text-[0.65rem] tracking-[0.16em] uppercase px-5 py-3.5 min-h-[44px] border transition-colors ${
-                              r.attending === true ? "bg-[#731F17] text-[#F7F5F0] border-[#731F17]" : "border-[#1A1A1A]/40 hover:border-[#1A1A1A]"
+                              r.attending === true ? "bg-[#1D3F2C] text-[#F7F5F0] border-[#1D3F2C]" : "border-[#1A1A1A]/40 hover:border-[#1A1A1A]"
                             }`}
                             data-testid={`rsvp-attending-yes-${m.id}`}
                           >
@@ -533,7 +534,7 @@ const RSVP = () => {
 
             {step === "events" && hasEvents && (
               <StepShell stepKey="events">
-                <p className="overline-label text-[#731F17]" data-testid="rsvp-events-overline">The night before</p>
+                <p className="overline-label text-[#1D3F2C]" data-testid="rsvp-events-overline">The night before</p>
                 <h1 ref={headingRef} tabIndex={-1} className="font-display text-4xl sm:text-5xl tracking-tight mt-4 text-[#1A1A1A] outline-none" data-testid="rsvp-events-title">
                   Rehearsal Dinner
                 </h1>
@@ -562,7 +563,7 @@ const RSVP = () => {
                               onClick={() => setEventResponses({ ...eventResponses, [key]: true })}
                               aria-pressed={val === true}
                               className={`font-label text-[0.65rem] tracking-[0.16em] uppercase px-5 py-3.5 min-h-[44px] border transition-colors ${
-                                val === true ? "bg-[#731F17] text-[#F7F5F0] border-[#731F17]" : "border-[#1A1A1A]/40 hover:border-[#1A1A1A]"
+                                val === true ? "bg-[#1D3F2C] text-[#F7F5F0] border-[#1D3F2C]" : "border-[#1A1A1A]/40 hover:border-[#1A1A1A]"
                               }`}
                               data-testid={`rsvp-event-yes-${m.id}`}
                             >
@@ -764,7 +765,7 @@ const RSVP = () => {
                             )}
                           </p>
                         </div>
-                        <span className={`font-label text-[0.62rem] tracking-[0.18em] uppercase ${r.attending ? "text-[#731F17]" : "text-[#595959]"}`}>
+                        <span className={`font-label text-[0.62rem] tracking-[0.18em] uppercase ${r.attending ? "text-[#1D3F2C]" : "text-[#595959]"}`}>
                           {r.attending ? "Yes, happily" : "Regretfully, no"}
                         </span>
                       </div>
@@ -772,14 +773,14 @@ const RSVP = () => {
                   })}
                   {hasEvents && (
                     <div className="rule-fine py-5" data-testid="rsvp-review-events">
-                      <p className="overline-label text-[#731F17] mb-3">The night before — Rehearsal Dinner</p>
+                      <p className="overline-label text-[#1D3F2C] mb-3">The night before — Rehearsal Dinner</p>
                       {eventMembers.map((m) =>
                         m.events.map((ev) => {
                           const val = eventResponses[`${m.id}:${ev.code}`];
                           return (
                             <div key={`${m.id}:${ev.code}`} className="flex items-baseline justify-between gap-4 py-1">
                               <span className="font-body text-sm text-[#1A1A1A]">{m.first_name} {m.last_name}</span>
-                              <span className={`font-label text-[0.62rem] tracking-[0.18em] uppercase ${val ? "text-[#731F17]" : "text-[#595959]"}`}>
+                              <span className={`font-label text-[0.62rem] tracking-[0.18em] uppercase ${val ? "text-[#1D3F2C]" : "text-[#595959]"}`}>
                                 {val ? "Yes, happily" : "Regretfully, no"}
                               </span>
                             </div>
@@ -814,20 +815,13 @@ const RSVP = () => {
             {step === "done" && result && (
               <StepShell stepKey="confirmation">
                 <div className="text-center py-6" data-testid="rsvp-confirmation">
-                  <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 max-w-md mx-auto mb-10" data-testid="rsvp-confirmation-figure">
-                    <img
-                      src="/illustrations/taxi.png"
-                      alt="Ink-and-wash illustration of a yellow taxi crossing Manhattan at night, evening shoes riding along"
-                      className="w-full h-52 object-cover"
-                      loading="lazy"
-                      onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
-                      data-testid="rsvp-confirmation-illustration"
-                    />
-                  </figure>
+                  <div className="flex justify-center mb-10" data-testid="rsvp-confirmation-figure">
+                    <CabCans className="w-36" testId="rsvp-confirmation-illustration" />
+                  </div>
                   <Seal size={80} className="mx-auto" />
                   {result.attending_any ? (
                     <>
-                      <h1 className="font-display text-5xl sm:text-6xl tracking-tight mt-10 text-[#731F17]" data-testid="rsvp-confirmation-headline">
+                      <h1 className="font-display text-5xl sm:text-6xl tracking-tight mt-10 text-[#1D3F2C]" data-testid="rsvp-confirmation-headline">
                         You&rsquo;re in.
                       </h1>
                       <p className="font-body italic text-[#595959] mt-5 text-lg">

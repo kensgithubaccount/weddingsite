@@ -2,6 +2,7 @@ import { toast } from "sonner";
 import { CalendarPlus, Copy, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import { Envelope } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Invitation = () => {
@@ -52,7 +53,7 @@ const Invitation = () => {
               <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug">
                 {content.couple.partner_one}
               </p>
-              <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#731F17] my-4">and</p>
+              <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-4">and</p>
               <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug">
                 {content.couple.partner_two}
               </p>
@@ -101,12 +102,16 @@ const Invitation = () => {
                 </a>
                 <Link
                   to="/rsvp"
-                  className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase bg-[#731F17] text-[#F7F5F0] px-5 py-3 hover:bg-[#5d1812] transition-colors"
+                  className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-3 hover:bg-[#142B1F] transition-colors"
                   data-testid="invitation-rsvp-button"
                 >
                   RSVP
                 </Link>
               </div>
+            </Reveal>
+
+            <Reveal delay={0.26}>
+              <Envelope className="w-16 mt-16 mx-auto opacity-90" testId="invitation-envelope" />
             </Reveal>
           </div>
         </div>

@@ -58,7 +58,7 @@ export const Nav = () => {
         <div className="flex items-center gap-3">
           <Link
             to="/rsvp"
-            className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#731F17] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#5d1812] transition-colors"
+            className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors"
             data-testid="nav-rsvp-button"
           >
             RSVP
@@ -94,7 +94,7 @@ export const Nav = () => {
                   className="text-left font-display text-2xl py-3 border-b border-[#1A1A1A]/10 flex items-baseline gap-4"
                   data-testid={`nav-mobile-link-${l.id}`}
                 >
-                  <span className="font-label text-[0.6rem] tracking-[0.2em] text-[#731F17]">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="font-label text-[0.6rem] tracking-[0.2em] text-[#1D3F2C]">{String(i + 1).padStart(2, "0")}</span>
                   {l.label}
                 </button>
               ))}

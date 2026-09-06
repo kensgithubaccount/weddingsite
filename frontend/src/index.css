@@ -29,8 +29,8 @@
         --paper: #F2EFE9;
         --ink: #1A1A1A;
         --ink-soft: #595959;
-        --oxblood: #731F17;
-        --park: #4A5D4E;
+        --forest: #1D3F2C;
+        --forest-deep: #142B1F;
         --taxi: #D9B340;
         --dusty: #5C6B73;
         --charcoal: #2C2C2C;
@@ -52,11 +52,11 @@
         -moz-osx-font-smoothing: grayscale;
     }
     ::selection {
-        background: var(--oxblood);
+        background: var(--forest);
         color: var(--ivory);
     }
     :focus-visible {
-        outline: 2px solid var(--oxblood);
+        outline: 2px solid var(--forest);
         outline-offset: 3px;
     }
 }
@@ -96,6 +96,9 @@
 .font-display {
     font-family: 'Cormorant Garamond', Georgia, serif;
 }
+.font-std {
+    font-family: 'Bodoni Moda', 'Cormorant Garamond', Georgia, serif;
+}
 .font-body {
     font-family: 'Lora', Georgia, serif;
 }
@@ -132,7 +135,7 @@
     line-height: 0.85;
     padding-right: 0.12em;
     padding-top: 0.05em;
-    color: var(--oxblood);
+    color: var(--forest);
     font-weight: 600;
 }
 

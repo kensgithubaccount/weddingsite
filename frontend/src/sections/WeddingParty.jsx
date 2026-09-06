@@ -68,15 +68,15 @@ const WeddingParty = () => {
                   onClick={() => setActive(i)}
                   aria-pressed={active === i}
                   className={`w-full text-left grid grid-cols-[3rem_1fr] gap-4 py-4 rule-fine first:border-t-0 group transition-colors ${
-                    active === i ? "text-[#731F17]" : "text-[#1A1A1A]"
+                    active === i ? "text-[#1D3F2C]" : "text-[#1A1A1A]"
                   }`}
                   data-testid={`party-member-${i}`}
                 >
-                  <span className={`font-label text-[0.65rem] tracking-[0.1em] pt-1.5 ${active === i ? "text-[#731F17]" : "text-[#595959]/60"}`}>
+                  <span className={`font-label text-[0.65rem] tracking-[0.1em] pt-1.5 ${active === i ? "text-[#1D3F2C]" : "text-[#595959]/60"}`}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span>
-                    <span className="font-display text-2xl tracking-tight block group-hover:text-[#731F17] transition-colors">
+                    <span className="font-display text-2xl tracking-tight block group-hover:text-[#1D3F2C] transition-colors">
                       {m.name}
                     </span>
                     <span className="font-label text-[0.62rem] tracking-[0.2em] uppercase text-[#595959]">{m.role}</span>
@@ -128,7 +128,7 @@ const WeddingParty = () => {
                   data-testid={`party-member-mobile-${i}`}
                 >
                   <span className="flex items-baseline gap-4">
-                    <span className="font-label text-[0.62rem] tracking-[0.1em] text-[#731F17]">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="font-label text-[0.62rem] tracking-[0.1em] text-[#1D3F2C]">{String(i + 1).padStart(2, "0")}</span>
                     <span>
                       <span className="font-display text-xl tracking-tight text-[#1A1A1A] block">{m.name}</span>
                       <span className="font-label text-[0.58rem] tracking-[0.2em] uppercase text-[#595959]">{m.role}</span>

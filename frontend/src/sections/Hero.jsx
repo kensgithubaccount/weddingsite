@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskedLine } from "@/components/Reveal";
-import { DateStamp, EditionStamp } from "@/components/Seal";
 import { scrollToId } from "@/hooks/useLenis";
 import { useContent } from "@/lib/content";
 
@@ -28,7 +27,7 @@ const Hero = () => {
               <MaskedLine delay={0.15}>Sophie</MaskedLine>
               <MaskedLine delay={0.28}>Knochenhauer</MaskedLine>
               <MaskedLine delay={0.41} className="py-1">
-                <span className="text-[#731F17] font-normal italic text-4xl sm:text-5xl lg:text-6xl">&amp;</span>
+                <span className="text-[#1D3F2C] font-normal italic text-4xl sm:text-5xl lg:text-6xl">&amp;</span>
               </MaskedLine>
               <MaskedLine delay={0.54}>Ken Syme</MaskedLine>
             </h1>
@@ -42,8 +41,13 @@ const Hero = () => {
               <p className="font-display italic text-xl md:text-2xl text-[#1A1A1A]">
                 We&rsquo;re getting married. Apparently, it requires a website.
               </p>
-              <p className="font-display text-2xl md:text-[1.7rem] mt-4 text-[#1A1A1A]">{content.date.display}</p>
-              <p className="font-body text-[#595959] mt-2 leading-relaxed">
+              <div className="mt-10 border-t border-[#1D3F2C]/40 pt-5" data-testid="hero-date-block">
+                <p className="font-label text-[0.65rem] tracking-[0.34em] uppercase text-[#1D3F2C]">Saturday</p>
+                <p className="font-std font-bold uppercase tracking-tight text-[#1D3F2C] text-4xl sm:text-5xl lg:text-[3.4rem] leading-none mt-3" data-testid="hero-date">
+                  June 5, 2027
+                </p>
+              </div>
+              <p className="font-label text-[0.68rem] tracking-[0.26em] uppercase text-[#595959] mt-6 leading-loose">
                 {content.venue.name}
                 <br />
                 {content.venue.city}
@@ -58,7 +62,7 @@ const Hero = () => {
             >
               <Link
                 to="/rsvp"
-                className="font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#731F17] text-[#F7F5F0] px-8 py-4 hover:bg-[#5d1812] transition-colors"
+                className="font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-8 py-4 hover:bg-[#142B1F] transition-colors"
                 data-testid="hero-rsvp-button"
               >
                 RSVP
@@ -70,15 +74,6 @@ const Hero = () => {
               >
                 View the details
               </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.5, duration: 0.6 }}
-              className="mt-12 hidden lg:block"
-            >
-              <EditionStamp text="ONE NIGHT ONLY" />
             </motion.div>
           </div>
 
@@ -92,26 +87,17 @@ const Hero = () => {
             >
               <div className="overflow-hidden">
                 <motion.img
-                  src="/illustrations/hero.png"
-                  alt="Editorial ink-and-wash illustration of Sophie and Ken crossing Central Park South toward the New York Athletic Club, the city quietly rearranging itself around them"
+                  src="/photos/sophie-ken-bw.jpg"
+                  alt="Black-and-white photograph of Sophie and Ken laughing together, foreheads touching"
                   className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover"
                   style={{ y: imgY, scale: 1.12 }}
                   data-testid="hero-illustration"
                 />
               </div>
               <p className="font-label text-[0.6rem] tracking-[0.18em] uppercase text-[#595959] pt-2.5 px-1 flex justify-between">
-                <span>Central Park South, shortly before everything changes</span>
+                <span>Sophie and Ken, shortly before everything changes</span>
                 <span className="hidden sm:inline">Fig. 1</span>
               </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 1.35, rotate: -14 }}
-              animate={{ opacity: 1, scale: 1, rotate: -10 }}
-              transition={{ duration: 0.7, delay: 1.7, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-6 -left-2 sm:-left-6 bg-[#F7F5F0]/90"
-            >
-              <DateStamp text={content.date.stamp} />
             </motion.div>
           </div>
         </div>

@@ -6,11 +6,11 @@ import { api } from "@/lib/api";
 import { Seal } from "@/components/Seal";
 
 const inputCls =
-  "w-full bg-transparent border-b-2 border-[#1A1A1A]/25 focus:border-[#731F17] outline-none py-2.5 font-body text-sm text-[#1A1A1A] transition-colors";
+  "w-full bg-transparent border-b-2 border-[#1A1A1A]/25 focus:border-[#1D3F2C] outline-none py-2.5 font-body text-sm text-[#1A1A1A] transition-colors";
 const smallBtn =
   "font-label text-[0.65rem] tracking-[0.14em] uppercase border border-[#1A1A1A]/40 px-4 py-2.5 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors min-h-[44px]";
 const oxbloodBtn =
-  "font-label text-[0.65rem] tracking-[0.14em] uppercase bg-[#731F17] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#5d1812] transition-colors min-h-[44px]";
+  "font-label text-[0.65rem] tracking-[0.14em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors min-h-[44px]";
 
 const SAMPLE_CSV = "party,first_name,last_name,email,plus_one\nThe Syme Family,Gordon,Syme,,no\nThe Syme Family,Moira,Syme,,no";
 
@@ -201,7 +201,7 @@ const Admin = () => {
           />
           <button
             type="submit"
-            className="mt-6 w-full font-label text-[0.7rem] tracking-[0.2em] uppercase bg-[#1A1A1A] text-[#F7F5F0] py-3.5 hover:bg-[#731F17] transition-colors min-h-[44px]"
+            className="mt-6 w-full font-label text-[0.7rem] tracking-[0.2em] uppercase bg-[#1A1A1A] text-[#F7F5F0] py-3.5 hover:bg-[#1D3F2C] transition-colors min-h-[44px]"
             data-testid="admin-login-button"
           >
             Sign in
@@ -272,7 +272,7 @@ const Admin = () => {
             </div>
             {overview.rehearsal_dinner && overview.rehearsal_dinner.invited > 0 && (
               <div className="mt-8" data-testid="admin-rd-stats">
-                <p className="overline-label text-[#731F17] mb-3">The night before — Rehearsal Dinner</p>
+                <p className="overline-label text-[#1D3F2C] mb-3">The night before — Rehearsal Dinner</p>
                 <div className="grid grid-cols-2 sm:grid-cols-5 gap-px bg-[#1A1A1A]/15 border border-[#1A1A1A]/15">
                   {[
                     ["Invited", overview.rehearsal_dinner.invited],
@@ -310,7 +310,7 @@ const Admin = () => {
         {tab === "guests" && (
           <div>
             <form onSubmit={addParty} className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-6 mb-10" data-testid="admin-add-household-form">
-              <p className="overline-label text-[#731F17] mb-4">Add a party</p>
+              <p className="overline-label text-[#1D3F2C] mb-4">Add a party</p>
               <input
                 required
                 placeholder="Party name (e.g. The Syme Family)"
@@ -382,14 +382,14 @@ const Admin = () => {
                     <p className="font-display text-2xl tracking-tight">
                       {p.display_name}
                       {p.responded && (
-                        <span className={`ml-3 font-label text-[0.6rem] tracking-[0.16em] uppercase align-middle ${p.attending_any ? "text-[#4A5D4E]" : "text-[#731F17]"}`}>
+                        <span className={`ml-3 font-label text-[0.6rem] tracking-[0.16em] uppercase align-middle ${p.attending_any ? "text-[#1D3F2C]" : "text-[#595959]"}`}>
                           {p.attending_any ? "Replied — attending" : "Replied — regrets"}
                         </span>
                       )}
                     </p>
                     <button
                       onClick={async () => { await api.delete(`/admin/parties/${p.id}`, auth); load(); }}
-                      className="text-[#731F17] p-1.5 min-h-[44px] min-w-[44px]"
+                      className="text-[#1D3F2C] p-1.5 min-h-[44px] min-w-[44px]"
                       aria-label={`Delete ${p.display_name}`}
                       data-testid={`admin-delete-household-${p.id}`}
                     >
@@ -401,11 +401,11 @@ const Admin = () => {
                       <li key={m.id} className="flex items-center justify-between font-body text-sm text-[#595959]">
                         <span>
                           {m.first_name} {m.last_name}
-                          {m.plus_one_allowed && <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-[#731F17] ml-2">+1</span>}
+                          {m.plus_one_allowed && <span className="font-label text-[0.6rem] tracking-[0.14em] uppercase text-[#1D3F2C] ml-2">+1</span>}
                         </span>
                         <button
                           onClick={async () => { await api.delete(`/admin/members/${m.id}`, auth); load(); }}
-                          className="text-[#595959]/60 hover:text-[#731F17] p-2 min-h-[44px] min-w-[44px]"
+                          className="text-[#595959]/60 hover:text-[#1D3F2C] p-2 min-h-[44px] min-w-[44px]"
                           aria-label={`Remove ${m.first_name} ${m.last_name}`}
                           data-testid={`admin-delete-member-${m.id}`}
                         >
@@ -500,7 +500,7 @@ const Admin = () => {
                       <ul className="mt-3 space-y-1.5 font-body text-sm text-[#595959]">
                         {p.members.map((m) => (
                           <li key={m.id}>
-                            <span className={m.attendance === "yes" ? "text-[#4A5D4E]" : m.attendance === "no" ? "text-[#731F17]" : "text-[#595959]/50"}>
+                            <span className={m.attendance === "yes" ? "text-[#1D3F2C]" : m.attendance === "no" ? "text-[#595959]" : "text-[#595959]/50"}>
                               {m.attendance === "yes" ? "✓" : m.attendance === "no" ? "✕" : "—"}
                             </span>{" "}
                             {m.first_name} {m.last_name}
@@ -539,7 +539,7 @@ const Admin = () => {
                                   responses[i] = { ...r, attending: true };
                                   setEditDraft({ ...editDraft, responses });
                                 }}
-                                className={`font-label text-[0.6rem] tracking-[0.14em] uppercase px-3 py-2 border min-h-[44px] ${r.attending ? "bg-[#731F17] text-[#F7F5F0] border-[#731F17]" : "border-[#1A1A1A]/40"}`}
+                                className={`font-label text-[0.6rem] tracking-[0.14em] uppercase px-3 py-2 border min-h-[44px] ${r.attending ? "bg-[#1D3F2C] text-[#F7F5F0] border-[#1D3F2C]" : "border-[#1A1A1A]/40"}`}
                                 data-testid={`admin-edit-yes-${m.id}`}
                               >
                                 Attending
@@ -660,7 +660,7 @@ const Admin = () => {
                 value={importData}
                 onChange={(e) => setImportData(e.target.value)}
                 placeholder={SAMPLE_CSV}
-                className="w-full bg-[#F2EFE9] border border-[#1A1A1A]/25 p-4 font-mono text-xs text-[#1A1A1A] outline-none focus:border-[#731F17]"
+                className="w-full bg-[#F2EFE9] border border-[#1A1A1A]/25 p-4 font-mono text-xs text-[#1A1A1A] outline-none focus:border-[#1D3F2C]"
                 data-testid="admin-import-textarea"
               />
             ) : (
@@ -680,7 +680,7 @@ const Admin = () => {
 
             {importPreview && (
               <div className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-6 mt-8" data-testid="admin-import-summary">
-                <p className="overline-label text-[#731F17]">Import summary — nothing committed yet</p>
+                <p className="overline-label text-[#1D3F2C]">Import summary — nothing committed yet</p>
                 <p className="font-display text-3xl tracking-tight mt-4">
                   {importPreview.parties} parties · {importPreview.guests} guests
                 </p>
@@ -730,7 +730,7 @@ const Admin = () => {
         {tab === "settings" && settings && (
           <div className="max-w-2xl space-y-10" data-testid="admin-settings">
             <div>
-              <p className="overline-label text-[#731F17] mb-3">RSVP deadline</p>
+              <p className="overline-label text-[#1D3F2C] mb-3">RSVP deadline</p>
               <p className="font-body text-sm text-[#595959] mb-4">
                 After this moment, the RSVP desk closes and guests are asked to contact you directly. Leave empty to keep RSVPs open.
               </p>
@@ -748,7 +748,7 @@ const Admin = () => {
               )}
             </div>
             <div>
-              <p className="overline-label text-[#731F17] mb-3">Meal selection</p>
+              <p className="overline-label text-[#1D3F2C] mb-3">Meal selection</p>
               <label className="flex items-center gap-3 font-body text-sm text-[#1A1A1A] cursor-pointer min-h-[44px]">
                 <input
                   type="checkbox"
@@ -763,7 +763,7 @@ const Admin = () => {
                 value={mealDraft}
                 onChange={(e) => setMealDraft(e.target.value)}
                 placeholder={"Herb-roasted chicken\nSeared salmon\nWild mushroom risotto"}
-                className="w-full max-w-sm mt-4 bg-[#F2EFE9] border border-[#1A1A1A]/25 p-4 font-body text-sm text-[#1A1A1A] outline-none focus:border-[#731F17]"
+                className="w-full max-w-sm mt-4 bg-[#F2EFE9] border border-[#1A1A1A]/25 p-4 font-body text-sm text-[#1A1A1A] outline-none focus:border-[#1D3F2C]"
                 data-testid="admin-meal-options-input"
               />
               <p className="font-body italic text-xs text-[#595959] mt-2">One option per line. Hidden from guests until enabled.</p>

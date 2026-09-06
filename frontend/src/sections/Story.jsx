@@ -1,5 +1,5 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import SpotArt from "@/components/SpotArt";
+import { StickCouple } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Story = () => {
@@ -7,15 +7,9 @@ const Story = () => {
 
   return (
     <section id="story" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="story-section">
-      <SpotArt
-        src="/illustrations/spot-reservation.png"
-        alt="Ink drawing of a hand changing a restaurant reservation from two people to two hundred"
-        className="hidden xl:block absolute right-12 top-44 w-28 opacity-90"
-        rotate={3}
-      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={3} label={story.label} title={story.headline}>
-          <p className="font-label text-[0.65rem] tracking-[0.2em] uppercase text-[#731F17]">{story.kicker}</p>
+          <p className="font-label text-[0.65rem] tracking-[0.2em] uppercase text-[#1D3F2C]">{story.kicker}</p>
           <p className="mt-3">{story.standfirst}</p>
         </SectionHeading>
 
@@ -29,25 +23,16 @@ const Story = () => {
           </div>
 
           <div className="lg:col-span-5 lg:col-start-8">
-            {story.photos.map((photo, i) => (
-              <Reveal key={photo.url} delay={i * 0.1}>
-                <figure data-testid={`story-photo-${i}`}>
-                  <div className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5">
-                    <img
-                      src={photo.url}
-                      alt={photo.alt}
-                      className="w-full h-auto object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  {photo.caption && (
-                    <figcaption className="font-body italic text-[#595959] text-sm mt-3 max-w-sm">
-                      {photo.caption}
-                    </figcaption>
-                  )}
-                </figure>
-              </Reveal>
-            ))}
+            <Reveal delay={0.1}>
+              <figure className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5" data-testid="story-photo-0">
+                <div className="py-10 md:py-14 flex justify-center">
+                  <StickCouple className="w-44 md:w-56" testId="story-illustration" />
+                </div>
+                <figcaption className="font-body italic text-[#595959] text-sm pt-2.5 px-1 pb-1 text-center">
+                  Sophie and Ken, drawn from memory.
+                </figcaption>
+              </figure>
+            </Reveal>
           </div>
         </div>
       </div>

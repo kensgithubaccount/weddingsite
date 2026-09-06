@@ -11,13 +11,22 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 ## Architecture
 - React frontend (`/app/frontend/src`), FastAPI backend (`/app/backend`), MongoDB.
 - Centralized CMS: all public copy lives in `/app/backend/content.py`, served via `GET /api/content`.
-- Sections: Hero, Invitation, Evening (5 acts incl. After-Party), Story, Wedding Party, Attire, FAQ, Registry, NY Guide (at page end). (Contact and Travel sections REMOVED per user.)
+- Sections: Hero, Invitation, Evening (5-part program: Arrival, The Ceremony, Cocktail Hour, The Reception, The After-Party), Story, Wedding Party, Attire, FAQ, Registry, NY Guide (at page end). (Contact and Travel sections REMOVED per user.)
 - Navigation: VerticalRail (desktop, numbered 01–09, RSVP boxed at 07) + sticky top Nav (mobile/tablet). No Contact or Travel items.
 - Key endpoints: `GET /api/content`, `POST /api/rsvp/lookup`, `POST /api/rsvp/submit`, `POST /api/admin/login`, `GET /api/admin/guests`.
 - Integrations: Resend (RSVP confirmation emails, Emergent-managed), Gemini Nano Banana (illustration generation, budget-blocked).
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-06 (SAVE-THE-DATE ART DIRECTION — reskin, not redesign): Whole site re-skinned to match the user-supplied Save the Date card. Structure, section order, grids, spacing, copy, and RSVP/Admin logic unchanged.
+  - Palette: warm cream/ivory + ink + deep forest green (#1D3F2C / hover #142B1F) replacing oxblood (#731F17) across all UI, tokens (--forest/--forest-deep), and the RSVP confirmation email HTML. Attending = green, Regrets = muted #595959 (kept distinguishable in email + Admin).
+  - Typography: Bodoni Moda added (`.font-std`) used selectively — hero date block only; body/hierarchy fonts unchanged.
+  - Hero: right-side framed plate now shows the B&W couple photo extracted from the Save the Date (`/photos/sophie-ken-bw.jpg`, 3x Lanczos upscale, no content edits); stamps removed; caption adapted to "Sophie and Ken, shortly before everything changes".
+  - Line art system: new `/app/frontend/src/components/LineArt.jsx` — thin hand-drawn SVGs (StickCouple, CabCans, TaxiLine, BowTie, Coupe, Envelope, Pigeon) in ink/forest green.
+  - Placements: Story photo → StickCouple ("Sophie and Ken, drawn from memory."); Attire large taxi → small BowTie (caption kept); Evening wide taxi removed; FAQ suitcase figure removed; NYGuide desk cartoon removed + small TaxiLine above closing note; Registry small Coupe; Invitation small Envelope; RSVP confirmation taxi → small CabCans; 404 → small Pigeon (caption kept).
+  - Deleted: 9 old watercolor PNGs from public/illustrations, unused SpotArt.jsx, stray root yarn.lock. Two dormant graceful-fallback refs remain (portrait-placeholder, manhattan-map) — pre-existing, intentional.
+  - Checkpoint: git tag `pre-savethedate-checkpoint` = commit 5d3ede4 (clean pre-reskin state, restorable).
+  - Verified: testing agent iteration_3 — 100% frontend pass (all 7 SVGs render, zero oxblood remnants via computed-style scan, no mobile overflow at 375px, full RSVP E2E incl. apostrophe name + RD gating for invited/non-invited, Admin colors, 404), backend pytest 24/24 re-passed.
 - 2026-09-02 (REVERT): Illustration integration pass fully reverted at user request ("these don't work"). All 5 placements removed and image files deleted; site restored to its pre-integration state. Verified by testing agent (iteration_2, 100% pass). The 5 uploaded clip-art assets (NYAC entrance, pigeons, Anthora cup, MetroCard, checker taxi) are NOT on the site.
 - 2026-09-02 (RSVP copy): Party-confirmation step heading changed to "They look familiar?" (party name shown as overline only for multi-guest parties).
 - 2026-09-02 (Art-direction pass, "edit, don't redesign"): Removed decorative Marquee ticker; Evening re-composed as centered single-column program + wide unframed taxi strip below (no more split grid, no row spot arts); Attire illustration unframed/offset with italic margin caption; Invitation stripped to pure centered typography (spot doodles removed); Registry given more vertical air; section padding increased site-wide (py-28/py-44). Framed-plate treatment now reserved for Hero cover + Story photograph only. Remaining artwork each carries a story/idea: cover plate, evening-shoes taxi, booth photo, black-tie-in-transit, party portraits.
@@ -54,10 +63,11 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Earlier: full site build, Resend emails, admin back office, Wedding Party, NY Guide overhaul, creative-director copy pass. See git log.
 
 ## Known Blockers
-- Editorial illustration generation (17 images via `/app/scripts/generate_illustrations.py`) BLOCKED on Emergent LLM Key budget. Missing images degrade gracefully (hidden, no broken icons).
+- None active. (Former watercolor illustration-generation plan is superseded by the Save-the-Date line-art direction; old assets deleted.)
 
 ## Backlog
 - P1: RSVP reply-by deadline (awaiting date from user).
 - P1: Rehearsal dinner date/time/venue (Events record placeholders).
-- P1: Re-run illustration generation when LLM budget restored.
+- P1: Production DB migration/indexes/import + validation (Preview and Production are separate databases; real guest workbook still needed).
 - P2: Replace placeholder Wedding Party names/bios and portraits when supplied.
+- P2: User visual acceptance pass on the Save-the-Date reskin.

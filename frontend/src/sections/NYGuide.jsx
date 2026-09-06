@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
-import { ExternalLink, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import SpotArt from "@/components/SpotArt";
+import { TaxiLine } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const VENUE_PIN = { x: 50, y: 18 };
@@ -34,36 +34,12 @@ const NYGuide = () => {
 
   return (
     <section id="new-york" className="relative py-24 md:py-36" data-testid="ny-guide-section">
-      <SpotArt
-        src="/illustrations/spot-review.png"
-        alt="Ink drawing of a hand editing a recommendation list reading Pasta, Pizza, Steak, Everything"
-        className="hidden xl:block absolute right-12 top-44 w-28 opacity-90"
-        rotate={3}
-      />
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={7} label={ny_guide.label} title={ny_guide.headline}>
           <p className="font-display italic text-xl text-[#1A1A1A]">{ny_guide.subhead}</p>
           <p className="mt-3">{ny_guide.body}</p>
-          <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#731F17] mt-5">{ny_guide.disclaimer}</p>
+          <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#1D3F2C] mt-5">{ny_guide.disclaimer}</p>
         </SectionHeading>
-
-        {/* The desk cartoon */}
-        <Reveal>
-          <figure className="border border-[#1A1A1A]/25 bg-[#F2EFE9] p-2.5 md:p-3 mb-20" data-testid="manhattan-plan-figure">
-            <img
-              src="/illustrations/manhattan-plan.png"
-              alt="Editorial cartoon of an out-of-town wedding guest at a Manhattan hotel desk calmly constructing an impossible Saturday itinerary: a map of Manhattan crossed by frantic red arrows, a coffee cup, a wristwatch, the wedding invitation, and a neatly handwritten schedule"
-              className="w-full h-72 sm:h-96 lg:h-[30rem] object-cover"
-              loading="lazy"
-              onError={(e) => { e.currentTarget.closest("figure").style.display = "none"; }}
-              data-testid="manhattan-plan-illustration"
-            />
-            <figcaption className="pt-3 px-1 pb-1 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-              <span className="font-body italic text-[#595959] text-sm">A perfectly reasonable Saturday, on paper.</span>
-              <span className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959]">Fig. 1 — The Itinerary</span>
-            </figcaption>
-          </figure>
-        </Reveal>
 
         {/* The interactive map */}
         {mapOk && (
@@ -95,7 +71,7 @@ const NYGuide = () => {
                     <polyline
                       points={ROUTE.map((p) => p.join(",")).join(" ")}
                       fill="none"
-                      stroke="#731F17"
+                      stroke="#1D3F2C"
                       strokeWidth="0.5"
                       strokeDasharray="1.4 1"
                       opacity="0.75"
@@ -110,8 +86,8 @@ const NYGuide = () => {
                       aria-label={`${r.num} — ${r.name}. Show recommendation.`}
                       className={`absolute w-6 h-6 -ml-3 -mt-3 rounded-full border font-label text-[0.55rem] font-bold flex items-center justify-center transition-all ${
                         activePin === r.num
-                          ? "bg-[#731F17] text-[#F7F5F0] border-[#731F17] scale-125"
-                          : "bg-[#F7F5F0]/90 text-[#731F17] border-[#731F17] hover:bg-[#731F17] hover:text-[#F7F5F0]"
+                          ? "bg-[#1D3F2C] text-[#F7F5F0] border-[#1D3F2C] scale-125"
+                          : "bg-[#F7F5F0]/90 text-[#1D3F2C] border-[#1D3F2C] hover:bg-[#1D3F2C] hover:text-[#F7F5F0]"
                       }`}
                       style={{ left: `${r.pin.x}%`, top: `${r.pin.y}%` }}
                       data-testid={`map-pin-${r.num}`}
@@ -169,15 +145,15 @@ const NYGuide = () => {
               }`}
               data-testid={`ny-rec-${r.num}`}
             >
-              <span className={`font-label text-[0.7rem] tracking-[0.1em] pt-1.5 ${activePin === r.num ? "text-[#731F17] font-bold" : "text-[#595959]/60"}`}>
+              <span className={`font-label text-[0.7rem] tracking-[0.1em] pt-1.5 ${activePin === r.num ? "text-[#1D3F2C] font-bold" : "text-[#595959]/60"}`}>
                 {r.num}
               </span>
               <div>
                 <p className="overline-label">{r.category}</p>
                 <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A] mt-2">{r.name}</h3>
                 <p className="font-body text-[#595959] text-[0.95rem] leading-relaxed mt-3 max-w-2xl">{r.body}</p>
-                {r.note && <p className="font-body italic text-[#731F17] text-sm mt-2">Editorial note: {r.note}</p>}
-                <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#731F17] mt-4">{r.tag}</p>
+                {r.note && <p className="font-body italic text-[#1D3F2C] text-sm mt-2">Editorial note: {r.note}</p>}
+                <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#1D3F2C] mt-4">{r.tag}</p>
               </div>
               <a
                 href={mapsUrl(r.maps_query)}
@@ -192,9 +168,12 @@ const NYGuide = () => {
           ))}
         </div>
 
-        <p className="font-body italic text-[#595959] text-sm mt-12 text-center" data-testid="ny-map-note">
-          {ny_guide.map_note}
-        </p>
+        <div className="mt-16 flex flex-col items-center" data-testid="ny-guide-note-block">
+          <TaxiLine className="w-24 -rotate-2 mb-8" testId="ny-taxi" />
+          <p className="font-body italic text-[#595959] text-sm text-center" data-testid="ny-map-note">
+            {ny_guide.map_note}
+          </p>
+        </div>
       </div>
     </section>
   );

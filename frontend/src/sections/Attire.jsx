@@ -1,4 +1,5 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import { BowTie } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Attire = () => {
@@ -20,23 +21,17 @@ const Attire = () => {
               {attire.guidance.map((g, i) => (
                 <Reveal key={g.label} delay={i * 0.06}>
                   <div className="rule-fine pt-5 pb-6" data-testid={`attire-guidance-${i}`}>
-                    <p className="overline-label text-[#731F17]">{g.label}</p>
+                    <p className="overline-label text-[#1D3F2C]">{g.label}</p>
                     <p className="font-body text-sm text-[#595959] leading-relaxed mt-3">{g.body}</p>
                   </div>
                 </Reveal>
               ))}
             </div>
           </div>
-          <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9 lg:mt-24">
-            <figure>
-              <img
-                src="/illustrations/black-tie-transit.png"
-                alt="Watercolor illustration of a yellow taxi carrying a dark suit, a bow tie, and dress shoes through Manhattan at night"
-                className="w-full h-72 object-cover"
-                loading="lazy"
-                data-testid="attire-illustration"
-              />
-              <figcaption className="font-body italic text-[#595959] text-sm mt-4">
+          <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9 lg:mt-32">
+            <figure className="text-center">
+              <BowTie className="w-24 md:w-28 mx-auto" testId="attire-illustration" />
+              <figcaption className="font-body italic text-[#595959] text-sm mt-6">
                 Black tie, in transit.
               </figcaption>
             </figure>

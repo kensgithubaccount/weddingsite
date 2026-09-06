@@ -1,5 +1,6 @@
 import { ExternalLink } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import { Coupe } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Registry = () => {
@@ -47,6 +48,10 @@ const Registry = () => {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.15}>
+          <Coupe className="w-12 mt-16 opacity-90" testId="registry-coupe" />
+        </Reveal>
       </div>
     </section>
   );
