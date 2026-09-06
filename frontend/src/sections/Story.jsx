@@ -26,15 +26,6 @@ const Story = () => {
                 {story.intro}
               </p>
             </Reveal>
-            <Reveal delay={0.2}>
-              <img
-                src="/illustrations/pigeons.png"
-                alt=""
-                className="w-32 md:w-40 mt-16 md:mt-24 select-none"
-                loading="lazy"
-                data-testid="story-pigeons"
-              />
-            </Reveal>
           </div>
 
           <div className="lg:col-span-5 lg:col-start-8">

@@ -1,0 +1,48 @@
+{
+  "summary": "Verified the illustration-pass revert on the Sophie+Ken wedding site. All 5 removed illustrations are absent, no broken images anywhere visible, and no collateral damage to the rest of the site. Home, 404, RSVP lookup + returning-guest flow, and Admin dashboard all working.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "verification_details": {
+    "removed_illustrations_absent": {
+      "invitation-venue-illustration": "absent (OK)",
+      "story-pigeons": "absent (OK)",
+      "rsvp-cup": "absent (OK)",
+      "ny-metrocard": "absent (OK)"
+    },
+    "retained_elements": {
+      "booth_photo": "present (/photos/sophie-ken-booth.jpg)",
+      "evening-illustration": "present (taxi strip)",
+      "attire-illustration": "present",
+      "schedule-item-0..4": "all 5 present",
+      "ny_recommendations_count": 13,
+      "ny_guide_note": "For an actual recommendation... present"
+    },
+    "404_page": {
+      "copy_present": true,
+      "caption_present": "Not the New York Athletic Club",
+      "moved_or_never_invited_copy": true,
+      "visible_broken_images": []
+    },
+    "rsvp_flow": {
+      "lookup_heading": "find your invitation — present",
+      "find_button": "present",
+      "jamie_doe_smith_lookup": "Welcome back — 'We already have a response for The Doe-Smith Household.' with VIEW OR UPDATE RSVP + THIS ISN'T MY PARTY buttons"
+    },
+    "admin": "Loaded with password skks-2027; stats visible; Rehearsal Dinner section present (Invited 29 / Responded 1 / Attending 1 / Declined 0 / Outstanding 28)",
+    "broken_images_visible": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "N/A (frontend-only run)", "frontend": "100%"},
+  "test_credentials": "Admin: skks-2027; RSVP returning guest: Jamie Doe-Smith",
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Illustration revert verified clean. /app/frontend/public/illustrations/ contains only: black-tie-transit, chairs, doorman, evening, hero, nyac, pigeon, story, taxi. The five deleted files (anthora-cup, metrocard, pigeons, nyac-entrance, checker-taxi) are gone and their JSX placements are removed. NotFound uses pigeon.png fallback and renders correctly."
+}

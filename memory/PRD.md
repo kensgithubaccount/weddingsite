@@ -18,13 +18,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
-- 2026-09-02 (Illustration integration pass): Integrated the 5 uploaded clip-art assets (transparent watercolor PNGs) as authored marginalia, no frames/treatments added, empty alt for decorative pieces, MotionConfig reducedMotion="user" now global —
-  - NYAC entrance → Invitation, small centered anchor beneath the action row (the venue as the address's payoff)
-  - Two pigeons → Story, tiny secondary spot beneath the intro text (a quiet echo of the booth photo)
-  - Anthora coffee cup ("We are happy to serve you") → RSVP lookup step, desktop-only, tucked beside the heading
-  - MetroCard → NY Guide end note ("For an actual recommendation, ask us.") — the punchline to the terrible-transit guide
-  - Checker taxi → 404 page ("…or got into the wrong cab")
-  - Note: uploaded artifact order was reversed vs. display order — filenames verified against actual image content. Density audit passed: ≤2 art pieces per viewport, quiet stretches at Wedding Party / FAQ / Registry, no mobile overflow.
+- 2026-09-02 (REVERT): Illustration integration pass fully reverted at user request ("these don't work"). All 5 placements removed and image files deleted; site restored to its pre-integration state. Verified by testing agent (iteration_2, 100% pass). The 5 uploaded clip-art assets (NYAC entrance, pigeons, Anthora cup, MetroCard, checker taxi) are NOT on the site.
 - 2026-09-02 (RSVP copy): Party-confirmation step heading changed to "They look familiar?" (party name shown as overline only for multi-guest parties).
 - 2026-09-02 (Art-direction pass, "edit, don't redesign"): Removed decorative Marquee ticker; Evening re-composed as centered single-column program + wide unframed taxi strip below (no more split grid, no row spot arts); Attire illustration unframed/offset with italic margin caption; Invitation stripped to pure centered typography (spot doodles removed); Registry given more vertical air; section padding increased site-wide (py-28/py-44). Framed-plate treatment now reserved for Hero cover + Story photograph only. Remaining artwork each carries a story/idea: cover plate, evening-shoes taxi, booth photo, black-tie-in-transit, party portraits.
 - 2026-09-01 (Registry live): Registry condensed to one real entry — MyRegistry (https://www.myregistry.com/giftlist/sophieandken) covering gifts, honeymoon fund, and charity. All placeholders removed.

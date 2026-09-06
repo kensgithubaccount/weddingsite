@@ -329,29 +329,20 @@ const RSVP = () => {
           <AnimatePresence mode="wait">
             {step === "lookup" && (
               <StepShell stepKey="lookup">
-                <div className="relative">
-                  <img
-                    src="/illustrations/anthora-cup.png"
-                    alt=""
-                    className="hidden lg:block absolute -right-16 -top-10 w-24 rotate-3 select-none"
-                    loading="lazy"
-                    data-testid="rsvp-cup"
-                  />
-                  <h1
-                    ref={headingRef}
-                    tabIndex={-1}
-                    className="font-display text-4xl sm:text-5xl tracking-tight text-[#1A1A1A] outline-none"
-                    data-testid="rsvp-lookup-title"
-                  >
-                    Let&rsquo;s find your invitation
-                  </h1>
-                  <p className="font-body text-[#595959] mt-4 text-[0.95rem]">
-                    Enter your name exactly as it appears on your invitation.
-                  </p>
-                  <p className="font-body italic text-[#595959] mt-2 text-[0.95rem]" data-testid="rsvp-deadline-note">
-                    {content.rsvp.deadline_note}
-                  </p>
-                </div>
+                <h1
+                  ref={headingRef}
+                  tabIndex={-1}
+                  className="font-display text-4xl sm:text-5xl tracking-tight text-[#1A1A1A] outline-none"
+                  data-testid="rsvp-lookup-title"
+                >
+                  Let&rsquo;s find your invitation
+                </h1>
+                <p className="font-body text-[#595959] mt-4 text-[0.95rem]">
+                  Enter your name exactly as it appears on your invitation.
+                </p>
+                <p className="font-body italic text-[#595959] mt-2 text-[0.95rem]" data-testid="rsvp-deadline-note">
+                  {content.rsvp.deadline_note}
+                </p>
 
                 <form onSubmit={doLookup} className="mt-10 space-y-8">
                   <div>
