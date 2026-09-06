@@ -14,13 +14,6 @@ const Hero = () => {
   return (
     <section ref={ref} id="hero-cover" className="relative overflow-hidden" data-testid="hero-cover">
       <div className="max-w-7xl mx-auto px-5 md:px-10 pt-10 md:pt-16 pb-16 md:pb-24">
-        <div className="flex items-baseline justify-between rule-fine pb-3">
-          <span className="overline-label">
-            {content.issue.volume} · {content.issue.number} · {content.issue.edition}
-          </span>
-          <span className="overline-label hidden sm:block">{content.issue.price_line}</span>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-6 mt-12 md:mt-16 items-start">
           <div className="lg:col-span-5 relative z-10">
             <h1 className="font-display font-semibold tracking-tight text-[#1A1A1A] text-5xl sm:text-6xl lg:text-[4.4rem] leading-[0.98]" data-testid="hero-names">

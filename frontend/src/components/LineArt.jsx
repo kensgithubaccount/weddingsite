@@ -47,53 +47,6 @@ export const CabCans = ({ className = "", testId = "line-cab-cans" }) => (
   </svg>
 );
 
-/* Plain side-profile cab. */
-export const TaxiLine = ({ className = "", testId = "line-taxi" }) => (
-  <svg viewBox="0 0 200 110" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
-    <path d="M24 66h120c7 0 14 3 18 9l7 11c2 3 0 7-4 7H24c-4 0-7-3-6-7l4-14c1-4 2-6 2-6Z" />
-    <path d="M46 66l10-18c2-4 6-6 11-6h36c6 0 12 3 15 9l9 15" />
-    <path d="M78 30h22v12H78z" />
-    <path d="M66 66V48M104 66V46" strokeWidth="2.5" />
-    <path d="M52 78h96" strokeWidth="2" strokeDasharray="6 6" />
-    <circle cx="58" cy="94" r="11" />
-    <circle cx="146" cy="94" r="11" />
-    <circle cx="58" cy="94" r="3.5" strokeWidth="2" />
-    <circle cx="146" cy="94" r="3.5" strokeWidth="2" />
-  </svg>
-);
-
-/* Bow tie. */
-export const BowTie = ({ className = "", testId = "line-bowtie" }) => (
-  <svg viewBox="0 0 120 80" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
-    <path d="M16 18 52 38 16 62c-3 2-6 0-6-4V22c0-4 3-6 6-4Z" />
-    <path d="M104 18 68 38l36 24c3 2 6 0 6-4V22c0-4-3-6-6-4Z" />
-    <rect x="52" y="30" width="16" height="18" rx="3" />
-    <path d="M22 30c8 4 16 7 24 8M98 30c-8 4-16 7-24 8" strokeWidth="2" />
-  </svg>
-);
-
-/* Champagne coupe. */
-export const Coupe = ({ className = "", testId = "line-coupe" }) => (
-  <svg viewBox="0 0 100 130" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
-    <path d="M18 26h64c0 20-12 32-32 32S18 46 18 26Z" />
-    <path d="M26 34h48" strokeWidth="2" />
-    <path d="M50 58v44" />
-    <path d="M32 106c6-4 12-6 18-6s12 2 18 6" />
-    <circle cx="40" cy="42" r="1.8" strokeWidth="1.5" />
-    <circle cx="56" cy="46" r="1.8" strokeWidth="1.5" />
-    <circle cx="48" cy="38" r="1.8" strokeWidth="1.5" />
-  </svg>
-);
-
-/* Small envelope. */
-export const Envelope = ({ className = "", testId = "line-envelope" }) => (
-  <svg viewBox="0 0 120 90" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
-    <rect x="12" y="20" width="96" height="56" rx="2" />
-    <path d="M14 24l46 34 46-34" />
-    <path d="M14 74l32-26M106 74 74 48" strokeWidth="2" />
-  </svg>
-);
-
 /* One pigeon, mildly lost. */
 export const Pigeon = ({ className = "", testId = "line-pigeon" }) => (
   <svg viewBox="0 0 130 130" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>

@@ -49,20 +49,22 @@ const Invitation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 lg:col-start-3 text-center">
             <Reveal>
-              <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug">
+              <p className="font-label text-[0.68rem] tracking-[0.26em] uppercase text-[#595959] leading-loose" data-testid="invitation-host-line">
+                Dr. and Mrs. Eric and Marie Knochenhauer
+                <br />
+                request the pleasure of your company
+                <br />
+                at the wedding of their daughter
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug mt-10">
                 {content.couple.partner_one}
               </p>
               <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-4">and</p>
               <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug">
                 {content.couple.partner_two}
-              </p>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <p className="font-label text-[0.68rem] tracking-[0.26em] uppercase text-[#595959] mt-10 leading-loose">
-                request the pleasure of your company
-                <br />
-                at their wedding
               </p>
               <p className="font-display text-2xl sm:text-3xl mt-8 text-[#1A1A1A]">{date.display}</p>
               <p className="font-body text-[#595959] mt-4 leading-relaxed">

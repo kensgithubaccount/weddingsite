@@ -1,5 +1,4 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { BowTie } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Attire = () => {
@@ -28,14 +27,6 @@ const Attire = () => {
               ))}
             </div>
           </div>
-          <Reveal delay={0.12} className="lg:col-span-4 lg:col-start-9 lg:mt-32">
-            <figure className="text-center">
-              <BowTie className="w-24 md:w-28 mx-auto" testId="attire-illustration" />
-              <figcaption className="font-body italic text-[#595959] text-sm mt-6">
-                Black tie, in transit.
-              </figcaption>
-            </figure>
-          </Reveal>
         </div>
       </div>
     </section>

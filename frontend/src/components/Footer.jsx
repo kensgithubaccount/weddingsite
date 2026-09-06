@@ -39,11 +39,6 @@ export const Footer = () => (
           </Link>
         </div>
       </div>
-      <div className="rule-fine border-[#F7F5F0]/15 mt-16 pt-6 flex flex-col sm:flex-row justify-between gap-3">
-        <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#F7F5F0]/45">
-          Vol. I · No. 1 · The Wedding Issue · One Night Only
-        </p>
-      </div>
     </div>
   </footer>
 );
