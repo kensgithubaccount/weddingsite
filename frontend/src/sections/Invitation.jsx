@@ -108,6 +108,18 @@ const Invitation = () => {
                 </Link>
               </div>
             </Reveal>
+
+            <Reveal delay={0.26}>
+              <figure className="mt-16 md:mt-24">
+                <img
+                  src="/illustrations/nyac-entrance.png"
+                  alt="The entrance of the New York Athletic Club, 180 Central Park South"
+                  className="w-52 md:w-64 mx-auto select-none"
+                  loading="lazy"
+                  data-testid="invitation-venue-illustration"
+                />
+              </figure>
+            </Reveal>
           </div>
         </div>
       </div>

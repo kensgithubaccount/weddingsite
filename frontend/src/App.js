@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "sonner";
+import { MotionConfig } from "framer-motion";
 import "@/App.css";
 import { ContentProvider } from "@/lib/content";
 import { useLenis } from "@/hooks/useLenis";
@@ -14,16 +15,18 @@ function App() {
   return (
     <div className="App">
       <div className="grain-overlay" />
-      <ContentProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/rsvp" element={<RSVP />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </ContentProvider>
+      <MotionConfig reducedMotion="user">
+        <ContentProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/rsvp" element={<RSVP />} />
+              <Route path="/admin" element={<Admin />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </BrowserRouter>
+        </ContentProvider>
+      </MotionConfig>
       <Toaster
         position="bottom-center"
         toastOptions={{

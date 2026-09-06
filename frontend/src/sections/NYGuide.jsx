@@ -192,9 +192,18 @@ const NYGuide = () => {
           ))}
         </div>
 
-        <p className="font-body italic text-[#595959] text-sm mt-12 text-center" data-testid="ny-map-note">
-          {ny_guide.map_note}
-        </p>
+        <div className="mt-16 flex flex-col items-center" data-testid="ny-guide-note-block">
+          <img
+            src="/illustrations/metrocard.png"
+            alt=""
+            className="w-24 -rotate-6 select-none mb-8"
+            loading="lazy"
+            data-testid="ny-metrocard"
+          />
+          <p className="font-body italic text-[#595959] text-sm text-center" data-testid="ny-map-note">
+            {ny_guide.map_note}
+          </p>
+        </div>
       </div>
     </section>
   );
