@@ -6,7 +6,7 @@ const Attire = () => {
   const { attire } = useContent();
 
   return (
-    <section id="attire" className="relative py-28 md:py-44" data-testid="attire-section">
+    <section id="attire" className="relative pt-16 md:pt-24 pb-28 md:pb-36" data-testid="attire-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={4} label="Attire" title={attire.headline} />
 

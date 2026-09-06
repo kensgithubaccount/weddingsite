@@ -111,9 +111,6 @@ const WeddingParty = () => {
                   <Portrait member={active === null ? null : party.members[active]} index={active || 0} />
                 </motion.div>
               </AnimatePresence>
-              <p className="font-body italic text-[#595959]/70 text-xs mt-3">
-                Portraits are being drawn from real photographs. Names to come.
-              </p>
             </div>
           </div>
         </div>

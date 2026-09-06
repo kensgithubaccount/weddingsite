@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { MapPin } from "lucide-react";
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { TaxiLine } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const VENUE_PIN = { x: 50, y: 18 };
@@ -166,13 +165,6 @@ const NYGuide = () => {
               </a>
             </article>
           ))}
-        </div>
-
-        <div className="mt-16 flex flex-col items-center" data-testid="ny-guide-note-block">
-          <TaxiLine className="w-24 -rotate-2 mb-8" testId="ny-taxi" />
-          <p className="font-body italic text-[#595959] text-sm text-center" data-testid="ny-map-note">
-            {ny_guide.map_note}
-          </p>
         </div>
       </div>
     </section>

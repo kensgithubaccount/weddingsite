@@ -8,7 +8,7 @@ const Evening = () => {
   return (
     <section id="evening" data-testid="evening-section">
       <div className="py-28 md:py-44 max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={2} label="The Evening" title="The Program" />
+        <SectionHeading index={2} label="The Evening" title="One evening, five parts." />
 
         <div className="max-w-3xl mx-auto">
           {program.map((item, i) => (

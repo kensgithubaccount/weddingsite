@@ -94,10 +94,6 @@ const Hero = () => {
                   data-testid="hero-illustration"
                 />
               </div>
-              <p className="font-label text-[0.6rem] tracking-[0.18em] uppercase text-[#595959] pt-2.5 px-1 flex justify-between">
-                <span>Sophie and Ken, shortly before everything changes</span>
-                <span className="hidden sm:inline">Fig. 1</span>
-              </p>
             </motion.div>
           </div>
         </div>

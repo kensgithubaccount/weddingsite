@@ -2,7 +2,6 @@ import { toast } from "sonner";
 import { CalendarPlus, Copy, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { Envelope } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Invitation = () => {
@@ -43,7 +42,7 @@ const Invitation = () => {
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(venue.maps_query)}`;
 
   return (
-    <section id="invitation" className="relative py-28 md:py-44" data-testid="invitation-section">
+    <section id="invitation" className="relative pt-16 md:pt-24 pb-28 md:pb-36" data-testid="invitation-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={1} label="The Invitation" title="The Details" />
 
@@ -110,9 +109,6 @@ const Invitation = () => {
               </div>
             </Reveal>
 
-            <Reveal delay={0.26}>
-              <Envelope className="w-16 mt-16 mx-auto opacity-90" testId="invitation-envelope" />
-            </Reveal>
           </div>
         </div>
       </div>
