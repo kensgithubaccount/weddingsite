@@ -38,7 +38,7 @@ const Hero = () => {
               transition={{ duration: 1, delay: 0.9 }}
               className="mt-8"
             >
-              <p className="font-display italic text-xl md:text-2xl text-[#1A1A1A]">
+              <p className="font-display italic text-lg md:text-xl text-[#1A1A1A]">
                 We&rsquo;re getting married. Apparently, it requires a website.
               </p>
               <div className="mt-10 border-t border-[#1D3F2C]/40 pt-5" data-testid="hero-date-block">
