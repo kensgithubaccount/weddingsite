@@ -18,6 +18,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-06 (Logo + RSVP deadline): Site seal replaced with the user-supplied circular "PROPERTY OF / SK+KS / NYC" mark — extracted to transparent 512px PNG (`/public/seal.png`, ink ≈ #153D28), `Seal` component now renders the image (ivory-inverted via CSS filter on the dark footer); favicon now points to it. RSVP deadline set to April 5, 2027 (stored `2027-04-05T23:59:59-04:00` in settings via admin API); guest-facing note updated to "Kindly reply, one way or the other, by April 5, 2027." Verified: note renders on /rsvp, seal in rail/nav/footer/RSVP, status endpoint returns deadline with closed=false.
 - 2026-09-06 (SAVE-THE-DATE ART DIRECTION — reskin, not redesign): Whole site re-skinned to match the user-supplied Save the Date card. Structure, section order, grids, spacing, copy, and RSVP/Admin logic unchanged.
   - Palette: warm cream/ivory + ink + deep forest green (#1D3F2C / hover #142B1F) replacing oxblood (#731F17) across all UI, tokens (--forest/--forest-deep), and the RSVP confirmation email HTML. Attending = green, Regrets = muted #595959 (kept distinguishable in email + Admin).
   - Typography: Bodoni Moda added (`.font-std`) used selectively — hero date block only; body/hierarchy fonts unchanged.
@@ -66,7 +67,6 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - None active. (Former watercolor illustration-generation plan is superseded by the Save-the-Date line-art direction; old assets deleted.)
 
 ## Backlog
-- P1: RSVP reply-by deadline (awaiting date from user).
 - P1: Rehearsal dinner date/time/venue (Events record placeholders).
 - P1: Production DB migration/indexes/import + validation (Preview and Production are separate databases; real guest workbook still needed).
 - P2: Replace placeholder Wedding Party names/bios and portraits when supplied.

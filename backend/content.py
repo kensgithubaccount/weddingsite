@@ -174,7 +174,7 @@ CONTENT = {
     },
     "rsvp": {
         "personality_question": "What song gets you to the dance floor without fail?",
-        "deadline_note": "Kindly reply, one way or the other, at your earliest convenience.",
+        "deadline_note": "Kindly reply, one way or the other, by April 5, 2027.",
         "_status": "confirmed",
     },
 }

@@ -1,43 +1,17 @@
 export const Seal = ({ size = 96, className = "", color = "#1D3F2C" }) => {
-  const id = `seal-${size}-${color.replace("#", "")}`;
+  /* The light variant (dark footer) recolors the transparent PNG to ivory. */
+  const light = color.toLowerCase() === "#f7f5f0";
   return (
-    <svg
+    <img
+      src="/seal.png"
       width={size}
       height={size}
-      viewBox="0 0 120 120"
       className={className}
+      style={light ? { filter: "brightness(0) invert(1)", opacity: 0.92 } : undefined}
       role="img"
       aria-label="SK+KS seal, property of NYC"
       data-testid="couple-seal"
-    >
-      <circle cx="60" cy="60" r="57" fill="none" stroke={color} strokeWidth="2.5" />
-      <circle cx="60" cy="60" r="44" fill="none" stroke={color} strokeWidth="1" />
-      <defs>
-        <path id={`${id}-top`} d="M 60,60 m -50,0 a 50,50 0 1,1 100,0" />
-        <path id={`${id}-bottom`} d="M 60,60 m -50,0 a 50,50 0 1,0 100,0" />
-      </defs>
-      <text fontFamily="Chivo, sans-serif" fontSize="10.5" letterSpacing="3.5" fill={color}>
-        <textPath href={`#${id}-top`} startOffset="50%" textAnchor="middle">
-          PROPERTY OF
-        </textPath>
-      </text>
-      <text fontFamily="Chivo, sans-serif" fontSize="10.5" letterSpacing="3.5" fill={color}>
-        <textPath href={`#${id}-bottom`} startOffset="50%" textAnchor="middle">
-          NYC
-        </textPath>
-      </text>
-      <text
-        x="60"
-        y="68"
-        textAnchor="middle"
-        fontFamily="Cormorant Garamond, Georgia, serif"
-        fontWeight="600"
-        fontSize="24"
-        fill={color}
-      >
-        SK+KS
-      </text>
-    </svg>
+    />
   );
 };
 
