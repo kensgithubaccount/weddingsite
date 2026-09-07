@@ -36,6 +36,25 @@ export const StickCouple = ({ className = "", testId = "line-stick-couple" }) =>
   </svg>
 );
 
+/* A tiny, slightly wonky NYC cab in the same hand-drawn spirit as the Save the Date. */
+export const SaveDateCab = ({ className = "", testId = "line-save-date-cab" }) => (
+  <svg viewBox="0 0 300 128" fill="none" stroke={GREEN} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
+    <path d="M47 77c2-9 8-15 18-17l38-6 20-27c4-5 9-8 16-8h48c8 0 14 3 19 9l20 27 22 4c10 2 16 8 18 18l2 11c1 5-2 8-7 8H54c-6 0-9-4-8-9l1-10Z" />
+    <path d="M111 54h105" />
+    <path d="M129 27l-16 27M168 20v34M201 29l15 25" strokeWidth="2" />
+    <path d="M151 18h38l4-11h-46l4 11Z" />
+    <path d="M160 10h22" strokeWidth="1.7" />
+    <circle cx="91" cy="94" r="17" />
+    <circle cx="224" cy="94" r="17" />
+    <circle cx="91" cy="94" r="5" />
+    <circle cx="224" cy="94" r="5" />
+    <path d="M48 78h24M244 78h20M132 70h10M196 70h10" strokeWidth="2" />
+    <path d="M74 62c9 2 15 7 20 15M226 61c-8 3-14 8-18 16" strokeWidth="1.8" />
+    <path d="M18 89h18M10 99h25M23 109h14" strokeWidth="1.8" />
+    <path d="M133 81c8 3 17 4 26 4 8 0 17-1 25-4" strokeWidth="1.7" />
+  </svg>
+);
+
 export const CabCans = ({ className = "", testId = "line-cab-cans" }) => (
   <svg viewBox="0 0 240 120" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
     <path d="M150 62h54c6 0 12 3 15 8l6 10c2 3 0 6-4 6h-71" />
