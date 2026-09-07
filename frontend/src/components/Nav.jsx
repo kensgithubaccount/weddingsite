@@ -1,21 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Seal } from "@/components/Seal";
 import { scrollToId } from "@/hooks/useLenis";
+import { phaseConfig } from "@/lib/sitePhase";
 
-const LINKS = [
-  { id: "invitation", label: "Invitation" },
-  { id: "evening", label: "The Evening" },
-  { id: "story", label: "Our Story" },
-  { id: "questions", label: "Questions" },
-  { id: "new-york", label: "New York" },
+const ALL_LINKS = [
+  { id: "invitation", label: "Invitation", section: "invitation" },
+  { id: "evening", label: "The Evening", section: "evening" },
+  { id: "story", label: "Our Story", section: "story" },
+  { id: "questions", label: "Questions", section: "questions" },
+  { id: "new-york", label: "New York", section: "newYork" },
 ];
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
+  const links = useMemo(
+    () => ALL_LINKS.filter((link) => phaseConfig.sections[link.section]),
+    []
+  );
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -43,7 +48,7 @@ export const Nav = () => {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7" aria-label="Sections">
-          {LINKS.map((l) => (
+          {links.map((l) => (
             <button
               key={l.id}
               onClick={() => go(l.id)}
@@ -56,13 +61,15 @@ export const Nav = () => {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link
-            to="/rsvp"
-            className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors"
-            data-testid="nav-rsvp-button"
-          >
-            RSVP
-          </Link>
+          {phaseConfig.rsvpEnabled && (
+            <Link
+              to="/rsvp"
+              className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors"
+              data-testid="nav-rsvp-button"
+            >
+              RSVP
+            </Link>
+          )}
           <button
             className="lg:hidden p-2"
             onClick={() => setOpen(!open)}
@@ -87,7 +94,7 @@ export const Nav = () => {
             data-testid="nav-mobile-menu"
           >
             <div className="px-6 py-6 flex flex-col gap-1">
-              {LINKS.map((l, i) => (
+              {links.map((l, i) => (
                 <button
                   key={l.id}
                   onClick={() => go(l.id)}

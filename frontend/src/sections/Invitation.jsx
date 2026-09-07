@@ -3,10 +3,11 @@ import { CalendarPlus, Copy, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
+import { phaseConfig } from "@/lib/sitePhase";
 
 const Invitation = () => {
   const content = useContent();
-  const { venue, date } = content;
+  const { venue, date, invitation } = content;
 
   const addToCalendar = () => {
     const ics = [
@@ -47,39 +48,43 @@ const Invitation = () => {
         <SectionHeading index={1} label="The Invitation" title="The Details" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-7 lg:col-start-3 text-center">
+          <div className="lg:col-span-8 lg:col-start-3 text-center">
             <Reveal>
-              <p className="font-display text-xl sm:text-2xl text-[#1A1A1A] leading-relaxed" data-testid="invitation-host-line">
-                Dr. Eric Knochenhauer &amp; Marie Knochenhauer
-              </p>
-              <p className="font-body italic text-[#595959] text-[0.95rem] leading-loose mt-10">
-                request the pleasure of your company
-                <br />
-                at the wedding of their daughter
-              </p>
+              <div className="max-w-2xl mx-auto">
+                <p className="font-display text-lg sm:text-xl text-[#1A1A1A] leading-relaxed" data-testid="invitation-host-line">
+                  {invitation.hosts}
+                </p>
+                <p className="font-body italic text-[#595959] text-[0.95rem] leading-loose mt-7">
+                  {invitation.request_line_one}
+                  <br />
+                  {invitation.request_line_two}
+                </p>
+              </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mt-24 md:mt-36" data-testid="invitation-name-one">
-                {content.couple.partner_one}
-              </p>
-              <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-6">and</p>
-              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08]" data-testid="invitation-name-two">
-                {content.couple.partner_two}
-              </p>
+              <div className="mt-16 md:mt-24">
+                <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-5xl sm:text-6xl lg:text-[4.8rem] leading-[0.96]" data-testid="invitation-name-one">
+                  {content.couple.partner_one}
+                </p>
+                <p className="font-label text-[0.62rem] tracking-[0.34em] uppercase text-[#1D3F2C] my-7">and</p>
+                <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-5xl sm:text-6xl lg:text-[4.8rem] leading-[0.96]" data-testid="invitation-name-two">
+                  {content.couple.partner_two}
+                </p>
+              </div>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="rule-fine mt-16 pt-12 space-y-10" data-testid="invitation-info">
+              <div className="rule-fine mt-16 pt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-9" data-testid="invitation-info">
                 <div>
                   <p className="overline-label">Saturday</p>
-                  <p className="font-std font-bold uppercase tracking-tight text-[#1D3F2C] text-3xl sm:text-4xl mt-3">{date.short}</p>
+                  <p className="font-std font-bold uppercase tracking-tight text-[#1D3F2C] text-3xl sm:text-[2.15rem] mt-3">{date.short}</p>
                 </div>
                 <div>
                   <p className="overline-label">Arrival</p>
                   <p className="font-display text-2xl text-[#1A1A1A] mt-2">{content.schedule[0].time}</p>
                 </div>
-                <div>
+                <div className="sm:col-span-2 pt-2">
                   <p className="font-display text-2xl text-[#1A1A1A]">{venue.name}</p>
                   <p className="font-body text-[#595959] mt-2 leading-relaxed">
                     {venue.address}
@@ -87,7 +92,7 @@ const Invitation = () => {
                     {venue.city}
                   </p>
                 </div>
-                <p className="overline-label text-[#1D3F2C]">{content.attire.headline}</p>
+                <p className="sm:col-span-2 overline-label text-[#1D3F2C]">{content.attire.headline}</p>
               </div>
             </Reveal>
 
@@ -116,16 +121,17 @@ const Invitation = () => {
                 >
                   <MapPin size={14} /> Open in maps
                 </a>
-                <Link
-                  to="/rsvp"
-                  className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-3 hover:bg-[#142B1F] transition-colors"
-                  data-testid="invitation-rsvp-button"
-                >
-                  RSVP
-                </Link>
+                {phaseConfig.rsvpEnabled && (
+                  <Link
+                    to="/rsvp"
+                    className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-3 hover:bg-[#142B1F] transition-colors"
+                    data-testid="invitation-rsvp-button"
+                  >
+                    RSVP
+                  </Link>
+                )}
               </div>
             </Reveal>
-
           </div>
         </div>
       </div>

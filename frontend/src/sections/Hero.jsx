@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskedLine } from "@/components/Reveal";
 import { scrollToId } from "@/hooks/useLenis";
 import { useContent } from "@/lib/content";
+import { phaseConfig } from "@/lib/sitePhase";
 
 const Hero = () => {
   const content = useContent();
@@ -53,13 +54,15 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 1.15, ease: [0.22, 1, 0.36, 1] }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              <Link
-                to="/rsvp"
-                className="font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-8 py-4 hover:bg-[#142B1F] transition-colors"
-                data-testid="hero-rsvp-button"
-              >
-                RSVP
-              </Link>
+              {phaseConfig.rsvpEnabled && (
+                <Link
+                  to="/rsvp"
+                  className="font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-8 py-4 hover:bg-[#142B1F] transition-colors"
+                  data-testid="hero-rsvp-button"
+                >
+                  RSVP
+                </Link>
+              )}
               <button
                 onClick={() => scrollToId("invitation")}
                 className="font-label text-[0.72rem] tracking-[0.2em] uppercase border border-[#1A1A1A]/60 px-8 py-4 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors"
