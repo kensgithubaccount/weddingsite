@@ -2,17 +2,18 @@ import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { Seal } from "@/components/Seal";
 import { useContent } from "@/lib/content";
+import { phaseConfig } from "@/lib/sitePhase";
 
 const ALL_ITEMS = [
   { num: "01", label: "Home", anchor: "cover", always: true },
-  { num: "02", label: "Invitation", anchor: "invitation", always: true },
-  { num: "03", label: "The Evening", anchor: "evening", always: true },
-  { num: "04", label: "Our Story", anchor: "story", key: "story" },
-  { num: "05", label: "Attire", anchor: "attire", key: "attire" },
-  { num: "06", label: "Questions", anchor: "questions", always: true },
+  { num: "02", label: "Invitation", anchor: "invitation", phaseKey: "invitation", always: true },
+  { num: "03", label: "The Evening", anchor: "evening", phaseKey: "evening", always: true },
+  { num: "04", label: "Our Story", anchor: "story", key: "story", phaseKey: "story" },
+  { num: "05", label: "Attire", anchor: "attire", key: "attire", phaseKey: "attire" },
+  { num: "06", label: "Questions", anchor: "questions", phaseKey: "questions", always: true },
   { num: "07", label: "RSVP", anchor: "rsvp", isRsvp: true, always: true },
-  { num: "08", label: "Registry", anchor: "registry", key: "registry" },
-  { num: "09", label: "New York", anchor: "new-york", key: "ny_guide" },
+  { num: "08", label: "Registry", anchor: "registry", key: "registry", phaseKey: "registry" },
+  { num: "09", label: "New York", anchor: "new-york", key: "ny_guide", phaseKey: "newYork" },
 ];
 
 export const scrollToAnchor = (anchor) => {
@@ -29,7 +30,12 @@ export const VerticalRail = () => {
   const [active, setActive] = useState("cover");
 
   const navList = useMemo(
-    () => ALL_ITEMS.filter((s) => s.always || content[s.key]?.published),
+    () =>
+      ALL_ITEMS.filter((item) => {
+        if (item.isRsvp) return phaseConfig.rsvpEnabled;
+        if (item.phaseKey && !phaseConfig.sections[item.phaseKey]) return false;
+        return item.always || content[item.key]?.published;
+      }),
     [content]
   );
 
