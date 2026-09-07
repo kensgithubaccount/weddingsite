@@ -8,8 +8,8 @@ const Registry = () => {
   return (
     <section id="registry" className="py-16 md:py-24" data-testid="registry-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={6} label={registry.label} title={registry.headline} titleClass="font-std font-semibold text-[#1D3F2C]">
-          <p className="font-display italic text-xl text-[#1A1A1A]">{registry.subhead}</p>
+        <SectionHeading index={6} label={registry.label} title="The Registry" titleClass="font-std font-semibold text-[#1D3F2C]">
+          <p className="font-display italic text-xl text-[#1A1A1A]">Some things we need. Some we probably don't but seemed fun.</p>
         </SectionHeading>
 
         <div className="max-w-3xl">
