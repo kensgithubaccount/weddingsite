@@ -1,5 +1,4 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { StickCouple } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Story = () => {
@@ -26,7 +25,12 @@ const Story = () => {
             <Reveal delay={0.1}>
               <figure className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5" data-testid="story-photo-0">
                 <div className="py-10 md:py-14 flex justify-center">
-                  <StickCouple className="w-44 md:w-56" testId="story-illustration" />
+                  <img
+                    src="/stick-couple.png"
+                    alt="A simple drawing of Sophie and Ken"
+                    className="w-44 md:w-56 h-auto object-contain"
+                    data-testid="story-illustration"
+                  />
                 </div>
                 <figcaption className="font-body italic text-[#595959] text-sm pt-2.5 px-1 pb-1 text-center">
                   Sophie and Ken, drawn from memory.
