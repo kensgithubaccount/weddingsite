@@ -13,7 +13,7 @@ const Attire = () => {
           <div className="lg:col-span-12">
             <Reveal>
               <p className="font-body text-[#1A1A1A] text-base md:text-lg leading-[1.9] max-w-3xl" data-testid="attire-body">
-                {attire.body}
+                In plain English: tuxedos and floor-length gowns if you own them (or have been waiting for an excuse). Otherwise, a dark suit and a button-down, or an elegant cocktail dress, is perfect.
               </p>
             </Reveal>
           </div>
