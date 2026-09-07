@@ -39,7 +39,6 @@ const NYGuide = () => {
           <p className="mt-3">{ny_guide.body}</p>
         </SectionHeading>
 
-        {/* The interactive map */}
         {mapOk && (
           <div className="mb-20" data-testid="manhattan-map-feature">
             <Reveal>
@@ -54,7 +53,7 @@ const NYGuide = () => {
                 <div className="relative">
                   <img
                     src="/illustrations/manhattan-map.png"
-                    alt="Hand-drawn illustrated map of Manhattan with numbered oxblood pins marking each recommendation, and an increasingly irrational red route between them"
+                    alt="Hand-drawn illustrated map of Manhattan with numbered pins marking each recommendation and a deliberately impractical route between them"
                     className="w-full h-auto block"
                     loading="lazy"
                     onError={() => setMapOk(false)}
@@ -103,16 +102,15 @@ const NYGuide = () => {
                     5:30
                   </span>
                 </div>
-                <p className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1 flex justify-between">
-                  <span>{activePin ? ny_guide.recommendations.find((r) => r.num === activePin)?.name : "Hover the pins. Judge the route."}</span>
-                  <span className="hidden sm:inline">Not to scale. Obviously.</span>
+                <p className="font-label text-[0.6rem] tracking-[0.16em] uppercase text-[#595959] pt-2.5 px-1 flex justify-between gap-4">
+                  <span>{activePin ? ny_guide.recommendations.find((r) => r.num === activePin)?.name : "Hover a pin."}</span>
+                  <span className="hidden sm:inline">Not to scale.</span>
                 </p>
               </div>
             </Reveal>
           </div>
         )}
 
-        {/* Recommendations */}
         <div className="flex flex-wrap items-center gap-2 mb-6" role="tablist" aria-label="Recommendation categories">
           {categories.map((cat) => (
             <button
@@ -150,8 +148,7 @@ const NYGuide = () => {
                 <p className="overline-label">{r.category}</p>
                 <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A] mt-2">{r.name}</h3>
                 <p className="font-body text-[#595959] text-[0.95rem] leading-relaxed mt-3 max-w-2xl">{r.body}</p>
-                {r.note && <p className="font-body italic text-[#1D3F2C] text-sm mt-2">Editorial note: {r.note}</p>}
-                <p className="font-label text-[0.6rem] tracking-[0.2em] uppercase text-[#1D3F2C] mt-4">{r.tag}</p>
+                {r.note && <p className="font-body italic text-[#1D3F2C] text-sm mt-2">{r.note}</p>}
               </div>
               <a
                 href={mapsUrl(r.maps_query)}
