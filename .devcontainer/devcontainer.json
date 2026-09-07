@@ -1,0 +1,21 @@
+{
+  "name": "Sophie + Ken Wedding Site",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": {
+      "label": "Wedding Site Preview",
+      "onAutoForward": "openPreview",
+      "protocol": "http"
+    }
+  },
+  "postCreateCommand": "bash -lc 'corepack enable && cd frontend && yarn install'",
+  "postStartCommand": "bash -lc 'nohup bash ./scripts/start_codespaces_preview.sh >/tmp/wedding-preview.log 2>&1 &'",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
