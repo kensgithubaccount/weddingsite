@@ -15,26 +15,29 @@ const FAQ = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-8 lg:col-start-3">
             <Accordion type="single" collapsible className="w-full" data-testid="faq-accordion">
-              {faqs.map((faq, i) => (
-                <AccordionItem
-                  key={faq.q}
-                  value={`q-${i}`}
-                  className="border-b border-[#1A1A1A]/15 first:border-t"
-                >
-                  <AccordionTrigger
-                    className="font-display text-xl sm:text-2xl tracking-tight text-[#1A1A1A] hover:no-underline hover:text-[#1D3F2C] transition-colors py-6 text-left"
-                    data-testid={`faq-question-${i}`}
+              {faqs.map((faq, i) => {
+                const answer = faq.q === "Is the wedding indoors?" ? `Yes. ${faq.a}` : faq.a;
+                return (
+                  <AccordionItem
+                    key={faq.q}
+                    value={`q-${i}`}
+                    className="border-b border-[#1A1A1A]/15 first:border-t"
                   >
-                    {faq.q}
-                  </AccordionTrigger>
-                  <AccordionContent
-                    className="font-body text-[#595959] text-[0.95rem] leading-relaxed pb-6 max-w-2xl"
-                    data-testid={`faq-answer-${i}`}
-                  >
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
+                    <AccordionTrigger
+                      className="font-display text-xl sm:text-2xl tracking-tight text-[#1A1A1A] hover:no-underline hover:text-[#1D3F2C] transition-colors py-6 text-left"
+                      data-testid={`faq-question-${i}`}
+                    >
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent
+                      className="font-body text-[#595959] text-[0.95rem] leading-relaxed pb-6 max-w-2xl"
+                      data-testid={`faq-answer-${i}`}
+                    >
+                      {answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
             </Accordion>
           </Reveal>
         </div>

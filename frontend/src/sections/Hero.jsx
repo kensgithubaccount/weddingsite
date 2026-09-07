@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { MaskedLine } from "@/components/Reveal";
-import { scrollToId } from "@/hooks/useLenis";
 import { useContent } from "@/lib/content";
 import { phaseConfig } from "@/lib/sitePhase";
 
@@ -44,17 +43,19 @@ const Hero = () => {
               <p className="font-label text-[0.68rem] tracking-[0.26em] uppercase text-[#595959] mt-6 leading-loose">
                 {content.venue.name}
                 <br />
+                {content.venue.address}
+                <br />
                 {content.venue.city}
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.15, ease: [0.22, 1, 0.36, 1] }}
-              className="mt-10 flex flex-wrap items-center gap-4"
-            >
-              {phaseConfig.rsvpEnabled && (
+            {phaseConfig.rsvpEnabled && (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.15, ease: [0.22, 1, 0.36, 1] }}
+                className="mt-10 flex flex-wrap items-center gap-4"
+              >
                 <Link
                   to="/rsvp"
                   className="font-label text-[0.72rem] tracking-[0.2em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-8 py-4 hover:bg-[#142B1F] transition-colors"
@@ -62,15 +63,8 @@ const Hero = () => {
                 >
                   RSVP
                 </Link>
-              )}
-              <button
-                onClick={() => scrollToId("invitation")}
-                className="font-label text-[0.72rem] tracking-[0.2em] uppercase border border-[#1A1A1A]/60 px-8 py-4 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors"
-                data-testid="hero-details-button"
-              >
-                View the details
-              </button>
-            </motion.div>
+              </motion.div>
+            )}
           </div>
 
           <div className="lg:col-span-7 relative">

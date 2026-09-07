@@ -7,26 +7,19 @@ import { scrollToId } from "@/hooks/useLenis";
 import { phaseConfig } from "@/lib/sitePhase";
 
 const ALL_LINKS = [
-  { id: "invitation", label: "Invitation", section: "invitation" },
   { id: "evening", label: "The Evening", section: "evening" },
   { id: "story", label: "Our Story", section: "story" },
   { id: "questions", label: "Questions", section: "questions" },
-  { id: "new-york", label: "New York", section: "newYork" },
 ];
 
 export const Nav = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const links = useMemo(
-    () => ALL_LINKS.filter((link) => phaseConfig.sections[link.section]),
-    []
-  );
+  const links = useMemo(() => ALL_LINKS.filter((link) => phaseConfig.sections[link.section]), []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
+    return () => { document.body.style.overflow = ""; };
   }, [open]);
 
   const go = (id) => {
@@ -46,68 +39,20 @@ export const Nav = () => {
           <Seal size={34} />
           <span className="font-display font-semibold text-lg tracking-tight hidden xs:block sm:block">Sophie + Ken</span>
         </Link>
-
         <nav className="hidden lg:flex items-center gap-7" aria-label="Sections">
-          {links.map((l) => (
-            <button
-              key={l.id}
-              onClick={() => go(l.id)}
-              className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-[#1A1A1A] link-underline"
-              data-testid={`nav-link-${l.id}`}
-            >
-              {l.label}
-            </button>
-          ))}
+          {links.map((l) => <button key={l.id} onClick={() => go(l.id)} className="font-label text-[0.7rem] tracking-[0.18em] uppercase text-[#1A1A1A] link-underline">{l.label}</button>)}
         </nav>
-
         <div className="flex items-center gap-3">
-          {phaseConfig.rsvpEnabled && (
-            <Link
-              to="/rsvp"
-              className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors"
-              data-testid="nav-rsvp-button"
-            >
-              RSVP
-            </Link>
-          )}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setOpen(!open)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            data-testid="nav-menu-toggle"
-          >
-            {open ? <X size={22} /> : <Menu size={22} />}
-          </button>
+          {phaseConfig.rsvpEnabled && <Link to="/rsvp" className="font-label text-[0.7rem] tracking-[0.18em] uppercase bg-[#1D3F2C] text-[#F7F5F0] px-5 py-2.5 hover:bg-[#142B1F] transition-colors">RSVP</Link>}
+          <button className="lg:hidden p-2" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>{open ? <X size={22} /> : <Menu size={22} />}</button>
         </div>
       </div>
-
       <AnimatePresence>
-        {open && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden overflow-hidden border-t border-[#1A1A1A]/15 bg-[#F7F5F0]"
-            aria-label="Mobile sections"
-            data-testid="nav-mobile-menu"
-          >
-            <div className="px-6 py-6 flex flex-col gap-1">
-              {links.map((l, i) => (
-                <button
-                  key={l.id}
-                  onClick={() => go(l.id)}
-                  className="text-left font-display text-2xl py-3 border-b border-[#1A1A1A]/10 flex items-baseline gap-4"
-                  data-testid={`nav-mobile-link-${l.id}`}
-                >
-                  <span className="font-label text-[0.6rem] tracking-[0.2em] text-[#1D3F2C]">{String(i + 1).padStart(2, "0")}</span>
-                  {l.label}
-                </button>
-              ))}
-            </div>
-          </motion.nav>
-        )}
+        {open && <motion.nav initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.3 }} className="lg:hidden overflow-hidden border-t border-[#1A1A1A]/15 bg-[#F7F5F0]">
+          <div className="px-6 py-6 flex flex-col gap-1">
+            {links.map((l, i) => <button key={l.id} onClick={() => go(l.id)} className="text-left font-display text-2xl py-3 border-b border-[#1A1A1A]/10 flex items-baseline gap-4"><span className="font-label text-[0.6rem] tracking-[0.2em] text-[#1D3F2C]">{String(i + 1).padStart(2, "0")}</span>{l.label}</button>)}
+          </div>
+        </motion.nav>}
       </AnimatePresence>
     </header>
   );
