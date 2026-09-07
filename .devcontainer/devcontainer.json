@@ -9,7 +9,7 @@
       "protocol": "http"
     }
   },
-  "postCreateCommand": "bash -lc 'corepack enable && cd frontend && yarn install'",
+  "postCreateCommand": "bash -lc 'corepack enable && cd frontend && yarn install --production=false --non-interactive'",
   "postStartCommand": "bash -lc 'nohup bash ./scripts/start_codespaces_preview.sh >/tmp/wedding-preview.log 2>&1 &'",
   "customizations": {
     "vscode": {
