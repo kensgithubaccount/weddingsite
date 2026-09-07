@@ -22,25 +22,14 @@ const Home = () => {
       <VerticalRail />
       <Hero />
       {s.invitation && <Invitation />}
-      {phaseConfig.ads.taxi && (
-        <AdvertisingBreak
-          src="/ads/taxi-topper.webp"
-          alt="A New York yellow cab at night with a rooftop advertisement announcing Sophie Knochenhauer and Ken Syme, June 5, 2027"
-        />
-      )}
+      {phaseConfig.ads.taxi && <AdvertisingBreak variant="taxi" />}
       {s.evening && <Evening />}
       {s.story && <Story />}
       {s.weddingParty && <WeddingParty />}
       {s.attire && <Attire />}
       {s.questions && <FAQ />}
       {s.registry && <Registry />}
-      {phaseConfig.ads.subway && (
-        <AdvertisingBreak
-          src="/ads/subway-campaign.webp"
-          alt="A row of Sophie and Ken wedding campaign posters displayed on a New York subway platform"
-          compact
-        />
-      )}
+      {phaseConfig.ads.subway && <AdvertisingBreak variant="subway" />}
       {s.newYork && <NYGuide />}
       <Footer />
     </main>
