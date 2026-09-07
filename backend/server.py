@@ -369,8 +369,6 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
         )
     if details.get("accessibility_notes"):
         extra_rows += f"<tr><td style='padding-top:16px;font-family:Georgia,serif;font-size:13px;color:#595959;'>Comfort notes: {esc(details['accessibility_notes'])}</td></tr>"
-    if details.get("song_request"):
-        extra_rows += f"<tr><td style='padding-top:8px;font-family:Georgia,serif;font-size:13px;color:#595959;'>Song request: &ldquo;{esc(details['song_request'])}&rdquo; (a request, not a legally binding agreement)</td></tr>"
     if details.get("message_to_couple"):
         extra_rows += f"<tr><td style='padding-top:8px;font-family:Georgia,serif;font-size:13px;color:#595959;'>Your note: &ldquo;{esc(details['message_to_couple'])}&rdquo;</td></tr>"
 
@@ -390,8 +388,11 @@ def build_confirmation_email(party_name, responses, attending_any, details, upda
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F7F5F0;padding:32px 16px;">
   <tr><td align="center">
     <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#F7F5F0;border:1px solid #d8d2c4;padding:48px 40px;">
-      <tr><td align="center" style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.25em;color:#595959;padding-bottom:24px;">
-        VOL. I &nbsp;&middot;&nbsp; NO. 1 &nbsp;&middot;&nbsp; THE WEDDING ISSUE
+      <tr><td align="center" style="font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.25em;color:#595959;padding-bottom:10px;">
+        DR. ERIC KNOCHENHAUER &amp; MARIE KNOCHENHAUER
+      </td></tr>
+      <tr><td align="center" style="font-family:Georgia,serif;font-style:italic;font-size:12px;color:#595959;padding-bottom:24px;">
+        request the pleasure of your company at the wedding of their daughter
       </td></tr>
       <tr><td align="center" style="font-family:Georgia,serif;font-size:30px;color:#1A1A1A;padding-bottom:8px;">
         Sophie <span style="color:#1D3F2C;">&amp;</span> Ken

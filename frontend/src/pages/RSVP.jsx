@@ -86,7 +86,7 @@ const RSVP = () => {
   const [existing, setExisting] = useState(null);
   const [responses, setResponses] = useState({});
   const [eventResponses, setEventResponses] = useState({});
-  const [details, setDetails] = useState({ accessibility_notes: "", song_request: "", message_to_couple: "" });
+  const [details, setDetails] = useState({ accessibility_notes: "", message_to_couple: "" });
   const [email, setEmail] = useState("");
   const [result, setResult] = useState(null);
   const [announce, setAnnounce] = useState("");
@@ -145,7 +145,6 @@ const RSVP = () => {
       setEmail(data.existing.email || "");
       setDetails({
         accessibility_notes: data.existing.accessibility_notes || "",
-        song_request: data.existing.song_request || "",
         message_to_couple: data.existing.message_to_couple || "",
       });
     }
@@ -436,7 +435,7 @@ const RSVP = () => {
                 </div>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <button onClick={() => setStep("attendance")} className={primaryBtn} data-testid="rsvp-thats-us">
-                    That&rsquo;s us <ArrowRight size={14} />
+                    I know them! <ArrowRight size={14} />
                   </button>
                   <button onClick={resetToLookup} className={secondaryBtn} data-testid="rsvp-not-quite">
                     Not quite
@@ -664,20 +663,6 @@ const RSVP = () => {
                   )}
 
                   <div className="rule-fine pt-6">
-                    <label htmlFor="rsvp-song" className={labelCls}>One song you would be disappointed not to hear</label>
-                    <p className="font-body italic text-[#595959]/80 text-xs mb-2">
-                      This is a request, not a legally binding agreement.
-                    </p>
-                    <input
-                      id="rsvp-song"
-                      value={details.song_request}
-                      onChange={(e) => setDetails({ ...details, song_request: e.target.value })}
-                      className={inputCls}
-                      data-testid="rsvp-song-input"
-                    />
-                  </div>
-
-                  <div className="rule-fine pt-6">
                     <label htmlFor="rsvp-note" className={labelCls}>A note for the couple (optional)</label>
                     <textarea
                       id="rsvp-note"
@@ -789,10 +774,9 @@ const RSVP = () => {
                       )}
                     </div>
                   )}
-                  {(details.accessibility_notes || details.song_request || details.message_to_couple) && (
+                  {(details.accessibility_notes || details.message_to_couple) && (
                     <div className="rule-fine py-5 font-body text-sm text-[#595959] leading-relaxed">
                       {details.accessibility_notes && <p>Comfort notes: {details.accessibility_notes}</p>}
-                      {details.song_request && <p>Song request: &ldquo;{details.song_request}&rdquo;</p>}
                       {details.message_to_couple && <p>Note: &ldquo;{details.message_to_couple}&rdquo;</p>}
                     </div>
                   )}

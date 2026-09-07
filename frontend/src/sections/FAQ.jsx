@@ -6,7 +6,7 @@ const FAQ = () => {
   const { faqs } = useContent();
 
   return (
-    <section id="questions" className="relative py-24 md:py-36" data-testid="faq-section">
+    <section id="questions" className="relative py-16 md:py-24" data-testid="faq-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={5} label="Questions" title="Everything You Were About to Ask">
           <p>We tried to answer it before it became a text. Though if you have questions, feel free to text.</p>

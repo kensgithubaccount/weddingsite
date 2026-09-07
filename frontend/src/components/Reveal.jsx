@@ -26,16 +26,8 @@ export const MaskedLine = ({ children, delay = 0, className = "" }) => (
 );
 
 export const SectionHeading = ({ index, label, title, children, titleClass = "" }) => (
-  <div className="mb-14 md:mb-20">
+  <div className="mb-10 md:mb-14">
     <Reveal>
-      <div className="flex items-baseline justify-between rule-fine pt-4 mb-10">
-        <span className="overline-label" data-testid={`section-label-${label.toLowerCase().replace(/\s+/g, "-")}`}>
-          {String(index).padStart(2, "0")} — {label}
-        </span>
-        <span className="overline-label hidden sm:block">Sophie + Ken</span>
-      </div>
-    </Reveal>
-    <Reveal delay={0.08}>
       <h2 className={`text-4xl sm:text-5xl lg:text-6xl tracking-tight ${titleClass || "font-display text-[#1A1A1A]"}`}>{title}</h2>
     </Reveal>
     {children && (

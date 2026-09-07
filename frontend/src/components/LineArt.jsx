@@ -15,18 +15,28 @@ export const StickCouple = ({ className = "", testId = "line-stick-couple" }) =>
     <circle cx="72" cy="52" r="15" />
     <path d="M57 46c-4-6 2-12 7-10M60 38c2-7 12-8 15-3M78 36c6-3 12 3 10 9M87 44c5 2 5 10 1 13" />
     <path d="M60 40C50 46 46 58 48 70" />
+    <path d="M66 50h4M74 50h4" />
+    <path d="M67 58q5 5 10 0" />
     <path d="M72 68v14" />
     <path d="M72 82 54 132h36L72 82Z" />
     <path d="M64 132l-5 34M80 132l5 34" />
-    <path d="M72 84c8 6 16 10 24 12" />
+    <path d="M54 168h9M81 168h9" />
+    <path d="M72 84l-16-10" />
     {/* Ken — curls, beard, straight body */}
     <circle cx="152" cy="48" r="15" />
     <path d="M138 40c-3-7 5-11 9-7M146 32c3-6 12-5 13 1M158 33c6-2 11 4 8 9" />
+    <path d="M146 46h4M154 46h4" />
+    <path d="M147 53q5 4 10 0" />
     <path d="M141 58c-2 8 4 14 11 14s13-6 11-14" strokeWidth="3.5" />
     <path d="M152 64v56" />
     <path d="M152 120l-8 44M152 120l8 44" />
-    <path d="M152 80c-10 4-20 10-28 16" />
+    <path d="M139 166h9M156 166h9" />
     <path d="M146 74l6 6 6-6" strokeWidth="2.5" />
+    <path d="M152 80l16-12" />
+    {/* holding hands */}
+    <path d="M72 84c10 6 22 10 34 13" />
+    <path d="M152 80c-10 4-24 10-38 17" />
+    <circle cx="110" cy="98" r="3" />
   </svg>
 );
 

@@ -6,7 +6,7 @@ const Story = () => {
   const { story } = useContent();
 
   return (
-    <section id="story" className="relative py-24 md:py-36 bg-[#F2EFE9]" data-testid="story-section">
+    <section id="story" className="relative py-16 md:py-24 bg-[#F2EFE9]" data-testid="story-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={3} label={story.label} title={story.headline}>
           <p className="font-label text-[0.65rem] tracking-[0.2em] uppercase text-[#1D3F2C]">{story.kicker}</p>

@@ -83,7 +83,7 @@ const Hero = () => {
                   src="/photos/sophie-ken-bw.jpg"
                   alt="Black-and-white photograph of Sophie and Ken laughing together, foreheads touching"
                   className="w-full h-[320px] sm:h-[420px] lg:h-[520px] object-cover"
-                  style={{ y: imgY, scale: 1.12 }}
+                  style={{ y: imgY, scale: 1.12, objectPosition: "50% 40%" }}
                   data-testid="hero-illustration"
                 />
               </div>

@@ -32,7 +32,7 @@ const NYGuide = () => {
   };
 
   return (
-    <section id="new-york" className="relative py-24 md:py-36" data-testid="ny-guide-section">
+    <section id="new-york" className="relative py-16 md:py-24" data-testid="ny-guide-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={7} label={ny_guide.label} title={ny_guide.headline}>
           <p className="font-display italic text-xl text-[#1A1A1A]">{ny_guide.subhead}</p>

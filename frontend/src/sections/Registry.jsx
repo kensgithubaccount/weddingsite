@@ -6,10 +6,11 @@ const Registry = () => {
   const { registry } = useContent();
 
   return (
-    <section id="registry" className="py-28 md:py-44" data-testid="registry-section">
+    <section id="registry" className="py-16 md:py-24" data-testid="registry-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={6} label={registry.label} title={registry.headline} titleClass="font-std font-semibold text-[#1D3F2C]">
-          <p>{registry.body}</p>
+          <p className="font-display italic text-xl text-[#1A1A1A]">{registry.subhead}</p>
+          <p className="mt-3">{registry.body}</p>
           <p className="mt-3">{registry.note}</p>
           <p className="mt-8 font-body italic text-base">
             {registry.signoff.split(", ").map((line, i) => (
