@@ -49,35 +49,51 @@ const Invitation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 lg:col-start-3 text-center">
             <Reveal>
-              <p className="font-label text-[0.68rem] tracking-[0.26em] uppercase text-[#595959] leading-loose" data-testid="invitation-host-line">
+              <p className="overline-label" data-testid="invitation-parents-overline">Together with their parents</p>
+              <p className="font-display text-xl sm:text-2xl text-[#1A1A1A] mt-5 leading-relaxed" data-testid="invitation-host-line">
                 Dr. and Mrs. Eric and Marie Knochenhauer
-                <br />
-                request the pleasure of your company
-                <br />
-                at the wedding of their daughter
               </p>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug mt-10">
+              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mt-20 md:mt-28" data-testid="invitation-name-one">
                 {content.couple.partner_one}
               </p>
-              <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-4">and</p>
-              <p className="font-display text-3xl sm:text-4xl tracking-tight text-[#1A1A1A] leading-snug">
+              <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-6">and</p>
+              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08]" data-testid="invitation-name-two">
                 {content.couple.partner_two}
               </p>
-              <p className="font-display text-2xl sm:text-3xl mt-8 text-[#1A1A1A]">{date.display}</p>
-              <p className="font-body text-[#595959] mt-4 leading-relaxed">
-                {venue.name}
+              <p className="font-body italic text-[#595959] mt-9 leading-relaxed">
+                request the pleasure of your company
                 <br />
-                {venue.address}
-                <br />
-                {venue.city}
+                at their wedding
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
-              <div className="rule-fine mt-12 pt-10 flex flex-wrap justify-center gap-3">
+              <div className="rule-fine mt-16 pt-12 space-y-10" data-testid="invitation-info">
+                <div>
+                  <p className="overline-label">Saturday</p>
+                  <p className="font-std font-bold uppercase tracking-tight text-[#1D3F2C] text-3xl sm:text-4xl mt-3">{date.short}</p>
+                </div>
+                <div>
+                  <p className="overline-label">Arrival</p>
+                  <p className="font-display text-2xl text-[#1A1A1A] mt-2">{content.schedule[0].time}</p>
+                </div>
+                <div>
+                  <p className="font-display text-2xl text-[#1A1A1A]">{venue.name}</p>
+                  <p className="font-body text-[#595959] mt-2 leading-relaxed">
+                    {venue.address}
+                    <br />
+                    {venue.city}
+                  </p>
+                </div>
+                <p className="overline-label text-[#1D3F2C]">{content.attire.headline}</p>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.24}>
+              <div className="mt-12 flex flex-wrap justify-center gap-3">
                 <button
                   onClick={addToCalendar}
                   className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase border border-[#1A1A1A]/50 px-5 py-3 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors"

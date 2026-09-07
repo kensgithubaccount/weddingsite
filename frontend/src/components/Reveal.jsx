@@ -25,7 +25,7 @@ export const MaskedLine = ({ children, delay = 0, className = "" }) => (
   </span>
 );
 
-export const SectionHeading = ({ index, label, title, children }) => (
+export const SectionHeading = ({ index, label, title, children, titleClass = "" }) => (
   <div className="mb-14 md:mb-20">
     <Reveal>
       <div className="flex items-baseline justify-between rule-fine pt-4 mb-10">
@@ -36,7 +36,7 @@ export const SectionHeading = ({ index, label, title, children }) => (
       </div>
     </Reveal>
     <Reveal delay={0.08}>
-      <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#1A1A1A]">{title}</h2>
+      <h2 className={`text-4xl sm:text-5xl lg:text-6xl tracking-tight ${titleClass || "font-display text-[#1A1A1A]"}`}>{title}</h2>
     </Reveal>
     {children && (
       <Reveal delay={0.16}>

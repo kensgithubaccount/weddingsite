@@ -37,7 +37,6 @@ const NYGuide = () => {
         <SectionHeading index={7} label={ny_guide.label} title={ny_guide.headline}>
           <p className="font-display italic text-xl text-[#1A1A1A]">{ny_guide.subhead}</p>
           <p className="mt-3">{ny_guide.body}</p>
-          <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#1D3F2C] mt-5">{ny_guide.disclaimer}</p>
         </SectionHeading>
 
         {/* The interactive map */}
