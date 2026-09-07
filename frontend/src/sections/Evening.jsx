@@ -1,32 +1,55 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
+import { SaveDateCab } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
+  const venue = content.venue;
 
   return (
     <section id="evening" data-testid="evening-section">
       <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <SectionHeading title="The Details" />
 
-          {program.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.06}>
-              <div
-                className="grid grid-cols-[92px_1fr] sm:grid-cols-[140px_1fr] gap-4 sm:gap-8 py-10 rule-fine first:border-t-0 first:pt-0"
-                data-testid={`schedule-item-${i}`}
-              >
-                <div className="font-label text-[0.68rem] tracking-[0.14em] uppercase text-[#1D3F2C] pt-1.5 leading-relaxed">
-                  {item.time}
+          <div className="border-y border-[#1A1A1A]/20">
+            {program.map((item, i) => (
+              <Reveal key={item.title} delay={i * 0.05}>
+                <div
+                  className="grid grid-cols-[88px_1px_1fr] sm:grid-cols-[140px_1px_1fr] gap-5 sm:gap-8 py-7 md:py-8 border-t border-[#1A1A1A]/12 first:border-t-0"
+                  data-testid={`schedule-item-${i}`}
+                >
+                  <div className="font-label text-[0.68rem] tracking-[0.12em] uppercase text-[#1D3F2C] pt-1.5 leading-relaxed whitespace-nowrap">
+                    {item.time}
+                  </div>
+
+                  <div className="w-px bg-[#1A1A1A]/25 self-stretch" aria-hidden="true" />
+
+                  <div className="pb-1">
+                    <h3 className="font-display text-2xl sm:text-[1.7rem] tracking-tight text-[#1A1A1A] leading-none">
+                      {item.title.replace(/^The\s+/i, "")}
+                    </h3>
+                    <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">
+                      {item.description}
+                    </p>
+                    {i === 0 && (
+                      <p className="font-label text-[0.58rem] sm:text-[0.62rem] tracking-[0.14em] uppercase text-[#595959] mt-3 leading-relaxed">
+                        {venue.name}<br />
+                        {venue.address}, {venue.city}
+                      </p>
+                    )}
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-display text-2xl sm:text-3xl tracking-tight text-[#1A1A1A]">{item.title}</h3>
-                  <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={0.12}>
+            <div className="mt-7 md:mt-9 flex justify-end">
+              <SaveDateCab className="w-56 sm:w-64 md:w-72" />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
