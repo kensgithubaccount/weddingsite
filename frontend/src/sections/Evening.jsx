@@ -1,4 +1,4 @@
-import { Reveal, SectionHeading } from "@/components/Reveal";
+import { Reveal } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
@@ -8,8 +8,6 @@ const Evening = () => {
   return (
     <section id="evening" data-testid="evening-section">
       <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10">
-        <SectionHeading index={2} label="The Evening" title="One evening, five parts." />
-
         <div className="max-w-3xl mx-auto">
           {program.map((item, i) => (
             <Reveal key={item.title} delay={i * 0.06}>
