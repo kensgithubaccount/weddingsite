@@ -18,6 +18,7 @@ A complete, fully functional wedding website for Sophie Knochenhauer and Ken Sym
 - Test credentials: see `/app/memory/test_credentials.md`.
 
 ## Implemented (latest first)
+- 2026-09-07 (Invitation hosting hierarchy): Sophie’s parents now clearly host — "Dr. Eric Knochenhauer & Marie Knochenhauer" (small serif, centered) → italic transition "request the pleasure of your company / at the wedding of their daughter" → large whitespace → oversized Bodoni couple names (unchanged size). "Together with their parents" overline removed; no co-hosting implication.
 - 2026-09-07 (Targeted copy + design polish — Invitation, Registry, NY Guide only):
   - Invitation re-typeset: "Together with their parents" overline → parent line (Dr. and Mrs. Eric and Marie Knochenhauer, kept verbatim) → large whitespace → couple names in huge Bodoni caps (font-std) with small green "and" → italic "request the pleasure of your company / at their wedding" → thin rule → utility stack (Saturday / June 5, 2027 in green Bodoni, Arrival / 5:30 PM, venue lines, Black Tie Optional) → action buttons (Add to calendar, Copy address, Open in maps, RSVP all kept). No card, no box.
   - Registry: headline "A Few Things We’d Be Happy to Have Around" in green Bodoni (SectionHeading gained optional titleClass); supporting copy now "Having you with us is the point." + "For those who have asked, we’ve put together a few things we love, a few things we need, and a few things we did not realize we had opinions about until now." + signoff "Love, Sophie & Ken". MyRegistry entry/link unchanged.

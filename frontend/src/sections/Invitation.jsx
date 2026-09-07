@@ -49,24 +49,23 @@ const Invitation = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 lg:col-start-3 text-center">
             <Reveal>
-              <p className="overline-label" data-testid="invitation-parents-overline">Together with their parents</p>
-              <p className="font-display text-xl sm:text-2xl text-[#1A1A1A] mt-5 leading-relaxed" data-testid="invitation-host-line">
-                Dr. and Mrs. Eric and Marie Knochenhauer
+              <p className="font-display text-xl sm:text-2xl text-[#1A1A1A] leading-relaxed" data-testid="invitation-host-line">
+                Dr. Eric Knochenhauer &amp; Marie Knochenhauer
+              </p>
+              <p className="font-body italic text-[#595959] text-[0.95rem] leading-loose mt-10">
+                request the pleasure of your company
+                <br />
+                at the wedding of their daughter
               </p>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mt-20 md:mt-28" data-testid="invitation-name-one">
+              <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08] mt-24 md:mt-36" data-testid="invitation-name-one">
                 {content.couple.partner_one}
               </p>
               <p className="font-label text-[0.65rem] tracking-[0.3em] uppercase text-[#1D3F2C] my-6">and</p>
               <p className="font-std font-bold uppercase tracking-tight text-[#1A1A1A] text-4xl sm:text-5xl lg:text-6xl leading-[1.08]" data-testid="invitation-name-two">
                 {content.couple.partner_two}
-              </p>
-              <p className="font-body italic text-[#595959] mt-9 leading-relaxed">
-                request the pleasure of your company
-                <br />
-                at their wedding
               </p>
             </Reveal>
 
