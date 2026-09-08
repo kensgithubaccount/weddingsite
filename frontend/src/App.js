@@ -5,11 +5,10 @@ import { AnimatePresence, MotionConfig, motion, useScroll, useSpring } from "fra
 import "@/App.css";
 import "@/interactions.css";
 import { ContentProvider } from "@/lib/content";
-import { phaseConfig } from "@/lib/sitePhase";
 import { useLenis } from "@/hooks/useLenis";
 import { PhasePreviewToggle } from "@/components/PhasePreviewToggle";
+import { RSVPRoute } from "@/components/RSVPRoute";
 import Home from "@/pages/Home";
-import RSVP from "@/pages/RSVP";
 import Admin from "@/pages/Admin";
 import NotFound from "@/pages/NotFound";
 
@@ -51,7 +50,7 @@ const AnimatedRoutes = () => {
       >
         <Routes location={location}>
           <Route path="/" element={<Home />} />
-          <Route path="/rsvp" element={phaseConfig.rsvpEnabled ? <RSVP /> : <NotFound />} />
+          <Route path="/rsvp" element={<RSVPRoute />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
