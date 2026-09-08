@@ -3,6 +3,10 @@ import { useContent } from "@/lib/content";
 
 const Story = () => {
   const { story } = useContent();
+  const naturalBreak = story.intro.indexOf(" Now they're getting married.");
+  const introParagraphs = naturalBreak > -1
+    ? [story.intro.slice(0, naturalBreak), story.intro.slice(naturalBreak + 1)]
+    : [story.intro];
 
   return (
     <section id="story" className="relative py-16 md:py-24 bg-[#F2EFE9]" data-testid="story-section">
@@ -12,16 +16,23 @@ const Story = () => {
           <p className="mt-3">{story.standfirst}</p>
         </SectionHeading>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="lg:col-span-7">
             <Reveal>
-              <p className="drop-cap font-body text-[#1A1A1A] text-base md:text-lg leading-[1.9]" data-testid="story-intro">
-                {story.intro}
-              </p>
+              <div className="max-w-2xl lg:pr-8" data-testid="story-intro">
+                {introParagraphs.map((paragraph, i) => (
+                  <p
+                    key={paragraph}
+                    className={`${i === 0 ? "drop-cap" : "mt-6 md:mt-7"} font-body text-[#1A1A1A] text-base md:text-lg leading-[1.9]`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5 lg:col-start-8">
+          <div className="lg:col-span-5 self-center">
             <Reveal delay={0.1}>
               <figure className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5" data-testid="story-photo-0">
                 <div className="py-10 md:py-14 flex justify-center">
