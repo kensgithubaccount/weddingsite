@@ -1,4 +1,4 @@
-export const SITE_PHASE = "full-wedding";
+export const SITE_PHASE = process.env.REACT_APP_SITE_PHASE || "save-the-date";
 
 const PHASES = {
   "save-the-date": {
@@ -6,13 +6,19 @@ const PHASES = {
     sections: {
       invitation: true,
       evening: false,
-      story: false,
-      weddingParty: false,
+      story: true,
+      weddingParty: true,
+      hotel: true,
       attire: false,
-      questions: false,
+      questions: true,
       registry: false,
       newYork: true,
     },
+    faqHiddenQuestions: [
+      "What time should I arrive?",
+      "What should I wear?",
+      "What happens after 11:30 PM?",
+    ],
     ads: {
       taxi: true,
       subway: true,
@@ -25,11 +31,13 @@ const PHASES = {
       evening: true,
       story: true,
       weddingParty: true,
+      hotel: true,
       attire: true,
       questions: true,
       registry: true,
       newYork: true,
     },
+    faqHiddenQuestions: [],
     ads: {
       taxi: true,
       subway: true,
@@ -37,4 +45,4 @@ const PHASES = {
   },
 };
 
-export const phaseConfig = PHASES[SITE_PHASE] || PHASES["full-wedding"];
+export const phaseConfig = PHASES[SITE_PHASE] || PHASES["save-the-date"];
