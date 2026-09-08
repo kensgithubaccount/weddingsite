@@ -8,7 +8,7 @@ const Evening = () => {
 
   return (
     <section id="evening" data-testid="evening-section">
-      <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10">
+      <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10 overflow-visible">
         <div className="max-w-5xl mx-auto">
           <SectionHeading title="The Details" />
 
@@ -44,6 +44,10 @@ const Evening = () => {
           </div>
 
           <Reveal delay={0.12}>
+            <div className="mt-8 md:mt-12 relative left-1/2 w-screen -translate-x-1/2 px-4 md:px-8">
+              <img
+                src="/art/taxi-responsive.png"
+                alt="New York City taxi with trailing cans"
             <div className="mt-7 md:mt-9 w-full">
               <img
                 src="/art/vintage_nyc_taxi_with_trailing_cans.png"
