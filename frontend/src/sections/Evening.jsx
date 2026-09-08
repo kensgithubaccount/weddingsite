@@ -1,5 +1,4 @@
 import { Reveal, SectionHeading } from "@/components/Reveal";
-import { SaveDateCab } from "@/components/LineArt";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
@@ -47,7 +46,12 @@ const Evening = () => {
 
           <Reveal delay={0.12}>
             <div className="mt-7 md:mt-9 flex justify-end">
-              <SaveDateCab className="w-56 sm:w-64 md:w-72" />
+              <img
+                src="/art/save-date-cab-exact.jpg"
+                alt="Hand-drawn New York City taxi with trailing cans"
+                className="w-56 sm:w-64 md:w-72 h-auto object-contain"
+                data-testid="details-save-date-cab"
+              />
             </div>
           </Reveal>
         </div>

@@ -26,7 +26,7 @@ const Story = () => {
               <figure className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5" data-testid="story-photo-0">
                 <div className="py-10 md:py-14 flex justify-center">
                   <img
-                    src="/stick-couple.png"
+                    src="/art/stick-couple-exact.jpg"
                     alt="A simple drawing of Sophie and Ken"
                     className="w-44 md:w-56 h-auto object-contain"
                     data-testid="story-illustration"
