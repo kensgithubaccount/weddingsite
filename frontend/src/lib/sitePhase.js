@@ -43,6 +43,8 @@ const PHASES = {
   },
 };
 
+// Codespaces/local previews can switch versions with ?phase=save-the-date or ?phase=full-wedding.
+// The public deployment ignores that query parameter unless REACT_APP_ENABLE_PHASE_TOGGLE=true.
 const host = typeof window !== "undefined" ? window.location.hostname : "";
 const isLocalPreview =
   host === "localhost" ||
