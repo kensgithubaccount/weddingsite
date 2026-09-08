@@ -7,7 +7,7 @@ import "@/interactions.css";
 import { ContentProvider } from "@/lib/content";
 import { useLenis } from "@/hooks/useLenis";
 import { PhasePreviewToggle } from "@/components/PhasePreviewToggle";
-import { RSVPRoute } from "@/components/RSVPRoute";
+import RSVPRoute from "@/components/RSVPRoute";
 import Home from "@/pages/Home";
 import Admin from "@/pages/Admin";
 import NotFound from "@/pages/NotFound";
