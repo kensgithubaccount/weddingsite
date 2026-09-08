@@ -1,9 +1,12 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
+import { phaseConfig } from "@/lib/sitePhase";
 
 const FAQ = () => {
   const { faqs } = useContent();
+  const hidden = new Set(phaseConfig.faqHiddenQuestions || []);
+  const visibleFaqs = faqs.filter((faq) => !hidden.has(faq.q));
 
   return (
     <section id="questions" className="relative py-16 md:py-24" data-testid="faq-section">
@@ -15,7 +18,7 @@ const FAQ = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Reveal className="lg:col-span-8 lg:col-start-3">
             <Accordion type="single" collapsible className="w-full" data-testid="faq-accordion">
-              {faqs.map((faq, i) => {
+              {visibleFaqs.map((faq, i) => {
                 let answer = faq.a;
                 if (faq.q === "What time should I arrive?") answer = "5:30 PM.";
                 if (faq.q === "Is the wedding indoors?") answer = `Yes. ${faq.a}`;
