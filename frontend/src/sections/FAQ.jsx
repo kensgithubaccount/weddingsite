@@ -12,7 +12,7 @@ const FAQ = () => {
     <section id="questions" className="relative py-16 md:py-24" data-testid="faq-section">
       <div className="max-w-7xl mx-auto px-5 md:px-10">
         <SectionHeading index={5} label="Questions" title="Everything You Were About to Ask">
-          <p>We tried to answer it before it became a text. Though if you have questions, feel free to text.</p>
+          <p>We tried to answer it before it became a text. If you have questions, though, feel free to text.</p>
         </SectionHeading>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
@@ -23,7 +23,8 @@ const FAQ = () => {
                 if (faq.q === "What time should I arrive?") answer = "5:30 PM.";
                 if (faq.q === "Where is the wedding?") answer = "The New York Athletic Club at 180 Central Park South, New York, New York.";
                 if (faq.q === "Is the wedding indoors?") answer = `Yes. ${faq.a}`;
-                if (faq.q === "Are children invited?") answer = "Is the Pope jewish?";
+                if (faq.q === "Are children invited?") answer = "Is the Pope Jewish?";
+                if (faq.q === "When should I RSVP?") answer = "As soon as you know your plans. Kindly reply by April 5, 2027.";
 
                 return (
                   <AccordionItem
