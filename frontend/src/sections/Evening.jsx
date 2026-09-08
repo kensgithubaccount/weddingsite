@@ -34,8 +34,7 @@ const Evening = () => {
                     </p>
                     {i === 0 && (
                       <p className="font-label text-[0.58rem] sm:text-[0.62rem] tracking-[0.14em] uppercase text-[#595959] mt-3 leading-relaxed">
-                        {venue.name}<br />
-                        {venue.address}, {venue.city}
+                        {venue.name}
                       </p>
                     )}
                   </div>
@@ -47,8 +46,9 @@ const Evening = () => {
           <Reveal delay={0.12}>
             <div className="mt-7 md:mt-9 w-full">
               <img
-                src="/art/vintage_nyc_taxi_with_trailing_cans.webp"
-                alt="Hand-drawn New York City taxi with trailing cans"
+                src="/art/vintage_nyc_taxi_with_trailing_cans.png"
+                alt=""
+                aria-hidden="true"
                 className="block w-full h-auto object-contain"
                 data-testid="details-save-date-cab"
               />
