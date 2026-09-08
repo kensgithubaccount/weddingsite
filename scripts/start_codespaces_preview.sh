@@ -14,6 +14,16 @@ cleanup() {
 trap cleanup EXIT INT TERM
 
 cd frontend
+
+# Codespaces can occasionally finish creating before devDependencies are fully
+# installed. Make the preview launcher repair that state instead of failing with
+# "craco: not found".
+if [ ! -x node_modules/.bin/craco ]; then
+  echo "Frontend dependencies are missing. Installing them now..."
+  corepack enable
+  yarn install --production=false --non-interactive
+fi
+
 export HOST=0.0.0.0
 export BROWSER=none
 export WDS_SOCKET_PORT=0
