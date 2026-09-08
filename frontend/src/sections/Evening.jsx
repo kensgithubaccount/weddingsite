@@ -7,9 +7,9 @@ const Evening = () => {
   const program = content.schedule;
 
   return (
-    <section id="evening" data-testid="evening-section">
+    <section id="evening" data-testid="evening-section" className="overflow-visible">
       <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10 overflow-visible">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto overflow-visible">
           <SectionHeading title="The Details" />
 
           <div className="border-y border-[#1A1A1A]/20">
@@ -48,21 +48,21 @@ const Evening = () => {
             ))}
           </div>
 
-          <Reveal delay={0.12}>
-            <div className="mt-8 md:mt-12 relative left-1/2 w-screen -translate-x-1/2 px-4 md:px-8">
-              <img
-                src="/art/taxi-responsive.png"
-                alt="New York City taxi with trailing cans"
-            <div className="mt-7 md:mt-9 w-full">
-              <img
-                src="/art/vintage_nyc_taxi_with_trailing_cans.png"
-                alt=""
-                aria-hidden="true"
-                className="block w-full h-auto object-contain"
-                data-testid="details-save-date-cab"
-              />
-            </div>
-          </Reveal>
+          <motion.div
+            initial={{ opacity: 0, x: "-110vw" }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-7 md:mt-9 w-full overflow-visible"
+          >
+            <img
+              src="/art/vintage_nyc_taxi_with_trailing_cans.png"
+              alt=""
+              aria-hidden="true"
+              className="block w-[90%] mx-auto h-auto object-contain"
+              data-testid="details-save-date-cab"
+            />
+          </motion.div>
         </div>
       </div>
     </section>
