@@ -1,0 +1,117 @@
+/* Final interaction polish: deliberately subtle so the site still feels editorial, not app-like. */
+
+.editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.editorial-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0.28);
+  transform-origin: left;
+  opacity: 0.55;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.editorial-link:hover::after,
+.editorial-link:focus-visible::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  button:not(:disabled),
+  a[href] {
+    transition-property: color, background-color, border-color, opacity, transform;
+    transition-duration: 0.25s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  button:not(:disabled):active,
+  a[href]:active {
+    transform: translateY(1px) scale(0.99);
+  }
+
+  [data-testid="hero-illustration-frame"] {
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+  }
+
+  [data-testid="hero-illustration-frame"]:hover {
+    transform: scale(1.008);
+    box-shadow: 0 18px 50px rgba(29, 63, 44, 0.08);
+  }
+
+  [data-testid="couple-seal"] {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  a:hover [data-testid="couple-seal"],
+  button:hover [data-testid="couple-seal"],
+  [data-testid="couple-seal"]:hover {
+    transform: rotate(-2deg) scale(1.025);
+  }
+}
+
+/* RSVP confirmation: use the exact approved taxi asset, then let the interface animate it. */
+[data-testid="rsvp-confirmation-figure"] {
+  width: min(100%, 38rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[data-testid="rsvp-confirmation-illustration"] {
+  width: 100% !important;
+  height: auto !important;
+  animation: confirmation-taxi-arrive 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-testid="rsvp-confirmation"] > [data-testid="couple-seal"] {
+  animation: confirmation-seal-land 0.72s 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+[data-testid="rsvp-confirmation-headline"] {
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
+@keyframes confirmation-taxi-arrive {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes confirmation-seal-land {
+  0% {
+    opacity: 0;
+    transform: scale(1.24) rotate(-8deg);
+  }
+  65% {
+    opacity: 1;
+    transform: scale(0.97) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-testid="rsvp-confirmation-illustration"],
+  [data-testid="rsvp-confirmation"] > [data-testid="couple-seal"] {
+    animation: none;
+  }
+}

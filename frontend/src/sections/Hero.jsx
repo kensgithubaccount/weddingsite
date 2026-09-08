@@ -10,6 +10,7 @@ const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "12%"]);
+  const mapsUrl = `https://maps.google.com/?q=${encodeURIComponent(content.venue.name)}`;
 
   return (
     <section ref={ref} id="hero-cover" className="relative overflow-hidden" data-testid="hero-cover">
@@ -47,6 +48,14 @@ const Hero = () => {
                 <br />
                 {content.venue.city}
               </p>
+              <div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-3" data-testid="hero-utility-links">
+                <a href="/sophie-and-ken-june-5-2027.ics" className="editorial-link font-label text-[0.61rem] tracking-[0.2em] uppercase text-[#1D3F2C]" data-testid="hero-add-calendar">
+                  Add to calendar
+                </a>
+                <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="editorial-link font-label text-[0.61rem] tracking-[0.2em] uppercase text-[#1D3F2C]" data-testid="hero-open-maps">
+                  Open in maps
+                </a>
+              </div>
             </motion.div>
 
             {phaseConfig.rsvpEnabled && (

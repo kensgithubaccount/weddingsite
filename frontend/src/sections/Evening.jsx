@@ -1,10 +1,10 @@
-import { Reveal, SectionHeading } from "@/components/Reveal";
+import { motion } from "framer-motion";
+import { SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
-  const venue = content.venue;
 
   return (
     <section id="evening" data-testid="evening-section">
@@ -14,32 +14,37 @@ const Evening = () => {
 
           <div className="border-y border-[#1A1A1A]/20">
             {program.map((item, i) => (
-              <Reveal key={item.title} delay={i * 0.05}>
-                <div
-                  className="grid grid-cols-[88px_1px_1fr] sm:grid-cols-[140px_1px_1fr] gap-5 sm:gap-8 py-7 md:py-8 border-t border-[#1A1A1A]/12 first:border-t-0"
-                  data-testid={`schedule-item-${i}`}
-                >
-                  <div className="font-label text-[0.68rem] tracking-[0.12em] uppercase text-[#1D3F2C] pt-1.5 leading-relaxed whitespace-nowrap">
-                    {item.time}
-                  </div>
-
-                  <div className="w-px bg-[#1A1A1A]/25 self-stretch" aria-hidden="true" />
-
-                  <div className="pb-1">
-                    <h3 className="font-display text-2xl sm:text-[1.7rem] tracking-tight text-[#1A1A1A] leading-none">
-                      {item.title.replace(/^The\s+/i, "")}
-                    </h3>
-                    <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">
-                      {item.description}
-                    </p>
-                    {i === 0 && (
-                      <p className="font-label text-[0.58rem] sm:text-[0.62rem] tracking-[0.14em] uppercase text-[#595959] mt-3 leading-relaxed">
-                        {venue.name}
-                      </p>
-                    )}
-                  </div>
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0.4, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.52 }}
+                transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-[88px_1px_1fr] sm:grid-cols-[140px_1px_1fr] gap-5 sm:gap-8 py-7 md:py-8 border-t border-[#1A1A1A]/12 first:border-t-0"
+                data-testid={`schedule-item-${i}`}
+              >
+                <div className="font-label text-[0.68rem] tracking-[0.12em] uppercase text-[#1D3F2C] pt-1.5 leading-relaxed whitespace-nowrap">
+                  {item.time}
                 </div>
-              </Reveal>
+
+                <motion.div
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: false, amount: 0.55 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                  className="w-px bg-[#1D3F2C]/45 self-stretch origin-top"
+                  aria-hidden="true"
+                />
+
+                <div className="pb-1">
+                  <h3 className="font-display text-2xl sm:text-[1.7rem] tracking-tight text-[#1A1A1A] leading-none">
+                    {item.title.replace(/^The\s+/i, "")}
+                  </h3>
+                  <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
             ))}
           </div>
 

@@ -55,20 +55,15 @@ export const SaveDateCab = ({ className = "", testId = "line-save-date-cab" }) =
   </svg>
 );
 
+/* Exact approved taxi artwork, reused wherever the cab-with-cans motif appears. */
 export const CabCans = ({ className = "", testId = "line-cab-cans" }) => (
-  <svg viewBox="0 0 240 120" fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" {...base(className, testId)}>
-    <path d="M150 62h54c6 0 12 3 15 8l6 10c2 3 0 6-4 6h-71" />
-    <path d="M154 62l8-16c2-4 6-6 10-6h22c5 0 10 3 12 8l6 14" />
-    <path d="M176 40h18v10h-18z" />
-    <path d="M170 62v-12M192 62v-10" strokeWidth="2.5" />
-    <circle cx="172" cy="88" r="10" />
-    <circle cx="208" cy="88" r="10" />
-    <circle cx="172" cy="88" r="3" strokeWidth="2" />
-    <circle cx="208" cy="88" r="3" strokeWidth="2" />
-    <path d="M150 74c-14 4-24 10-32 16M150 78c-10 8-18 14-24 22" strokeWidth="2" />
-    <path d="M112 92h14l-2 12h-10zM120 100h14l-2 12h-10z" strokeWidth="2.5" />
-    <path d="M96 104h12l-2 10h-8z" strokeWidth="2.5" />
-  </svg>
+  <img
+    src="/art/vintage_nyc_taxi_with_trailing_cans.png"
+    alt=""
+    aria-hidden="true"
+    className={`select-none ${className}`}
+    data-testid={testId}
+  />
 );
 
 export const Pigeon = ({ className = "", testId = "line-pigeon" }) => (
