@@ -49,6 +49,10 @@ const Evening = () => {
               <img
                 src="/art/taxi-responsive.png"
                 alt="New York City taxi with trailing cans"
+            <div className="mt-7 md:mt-9 w-full">
+              <img
+                src="/art/vintage_nyc_taxi_with_trailing_cans.webp"
+                alt="Hand-drawn New York City taxi with trailing cans"
                 className="block w-full h-auto object-contain"
                 data-testid="details-save-date-cab"
               />
