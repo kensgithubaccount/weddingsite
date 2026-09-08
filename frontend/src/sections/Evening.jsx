@@ -5,7 +5,6 @@ import { useContent } from "@/lib/content";
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
-  const venue = content.venue;
 
   return (
     <section id="evening" data-testid="evening-section">
@@ -44,31 +43,25 @@ const Evening = () => {
                   <p className="font-body text-[#595959] mt-2 text-[0.95rem] leading-relaxed">
                     {item.description}
                   </p>
-                  {i === 0 && (
-                    <p className="font-label text-[0.58rem] sm:text-[0.62rem] tracking-[0.14em] uppercase text-[#595959] mt-3 leading-relaxed">
-                      {venue.name}
-                    </p>
-                  )}
                 </div>
               </motion.div>
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: "-8vw" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-7 md:mt-9 w-full"
-          >
-            <img
+          <div className="mt-7 md:mt-9 w-full overflow-visible">
+            <motion.img
               src="/art/vintage_nyc_taxi_with_trailing_cans.png"
               alt=""
               aria-hidden="true"
+              initial={{ opacity: 0, x: "-110vw" }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.12 }}
+              transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
               className="block w-[90%] mx-auto h-auto object-contain"
+              style={{ willChange: "transform" }}
               data-testid="details-save-date-cab"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
