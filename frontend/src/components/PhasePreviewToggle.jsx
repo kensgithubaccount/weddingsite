@@ -34,7 +34,7 @@ export const PhasePreviewToggle = () => {
               className={`font-label text-[0.58rem] sm:text-[0.62rem] tracking-[0.12em] uppercase px-3 py-2 transition-colors ${
                 active
                   ? "bg-[#1D3F2C] text-[#F7F5F0]"
-                  : "text-[#1A1A1A] hover:bg-[#1A1A1A]/8"
+                  : "text-[#1A1A1A] hover:bg-[#1A1A1A]/10"
               }`}
             >
               {option.label}
