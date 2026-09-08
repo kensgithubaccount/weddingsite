@@ -1,15 +1,22 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
+  const taxiTrackRef = useRef(null);
+  const { scrollYProgress: taxiProgress } = useScroll({
+    target: taxiTrackRef,
+    offset: ["start end", "end start"],
+  });
+  const taxiX = useTransform(taxiProgress, [0, 1], ["-85vw", "105vw"]);
 
   return (
-    <section id="evening" data-testid="evening-section" className="overflow-visible">
-      <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10 overflow-visible">
-        <div className="max-w-5xl mx-auto overflow-visible">
+    <section id="evening" data-testid="evening-section">
+      <div className="py-16 md:py-24 max-w-7xl mx-auto px-5 md:px-10">
+        <div className="max-w-5xl mx-auto">
           <SectionHeading title="The Details" />
 
           <div className="border-y border-[#1A1A1A]/20">
@@ -48,21 +55,21 @@ const Evening = () => {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: "-110vw" }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 1.35, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 md:mt-9 w-full overflow-visible"
+          <div
+            ref={taxiTrackRef}
+            className="mt-7 md:mt-9 relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-2 md:py-4"
+            data-testid="details-taxi-track"
           >
-            <img
-              src="/art/vintage_nyc_taxi_with_trailing_cans.png"
-              alt=""
-              aria-hidden="true"
-              className="block w-[90%] mx-auto h-auto object-contain"
-              data-testid="details-save-date-cab"
-            />
-          </motion.div>
+            <motion.div style={{ x: taxiX }} className="w-max will-change-transform">
+              <img
+                src="/art/vintage_nyc_taxi_with_trailing_cans.png"
+                alt=""
+                aria-hidden="true"
+                className="block w-[78vw] sm:w-[68vw] lg:w-[760px] h-auto object-contain"
+                data-testid="details-save-date-cab"
+              />
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
