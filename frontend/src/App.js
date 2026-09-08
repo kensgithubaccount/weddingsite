@@ -7,6 +7,7 @@ import "@/interactions.css";
 import { ContentProvider } from "@/lib/content";
 import { phaseConfig } from "@/lib/sitePhase";
 import { useLenis } from "@/hooks/useLenis";
+import { PhasePreviewToggle } from "@/components/PhasePreviewToggle";
 import Home from "@/pages/Home";
 import RSVP from "@/pages/RSVP";
 import Admin from "@/pages/Admin";
@@ -70,6 +71,7 @@ function App() {
           <BrowserRouter>
             <ScrollProgress />
             <AnimatedRoutes />
+            <PhasePreviewToggle />
           </BrowserRouter>
         </ContentProvider>
       </MotionConfig>

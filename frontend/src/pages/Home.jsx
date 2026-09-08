@@ -5,7 +5,9 @@ import { AdvertisingBreak } from "@/components/AdvertisingBreak";
 import { phaseConfig } from "@/lib/sitePhase";
 import Hero from "@/sections/Hero";
 import Evening from "@/sections/Evening";
+import TaxiDrive from "@/sections/TaxiDrive";
 import Story from "@/sections/Story";
+import Hotel from "@/sections/Hotel";
 import WeddingParty from "@/sections/WeddingParty";
 import Attire from "@/sections/Attire";
 import FAQ from "@/sections/FAQ";
@@ -20,7 +22,9 @@ const Home = () => {
       <VerticalRail />
       <Hero />
       {s.evening && <Evening />}
+      {phaseConfig.ads.taxi && <TaxiDrive />}
       {s.story && <Story />}
+      {s.hotel && <Hotel />}
       {s.weddingParty && <WeddingParty />}
       {s.attire && <Attire />}
       {s.questions && <FAQ />}

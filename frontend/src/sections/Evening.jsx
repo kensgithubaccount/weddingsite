@@ -1,17 +1,10 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
 
 const Evening = () => {
   const content = useContent();
   const program = content.schedule;
-  const taxiTrackRef = useRef(null);
-  const { scrollYProgress: taxiProgress } = useScroll({
-    target: taxiTrackRef,
-    offset: ["start end", "end start"],
-  });
-  const taxiX = useTransform(taxiProgress, [0, 1], ["-85vw", "105vw"]);
 
   return (
     <section id="evening" data-testid="evening-section">
@@ -53,22 +46,6 @@ const Evening = () => {
                 </div>
               </motion.div>
             ))}
-          </div>
-
-          <div
-            ref={taxiTrackRef}
-            className="mt-7 md:mt-9 relative left-1/2 w-screen -translate-x-1/2 overflow-hidden py-2 md:py-4"
-            data-testid="details-taxi-track"
-          >
-            <motion.div style={{ x: taxiX }} className="w-max will-change-transform">
-              <img
-                src="/art/vintage_nyc_taxi_with_trailing_cans.png"
-                alt=""
-                aria-hidden="true"
-                className="block w-[78vw] sm:w-[68vw] lg:w-[760px] h-auto object-contain"
-                data-testid="details-save-date-cab"
-              />
-            </motion.div>
           </div>
         </div>
       </div>

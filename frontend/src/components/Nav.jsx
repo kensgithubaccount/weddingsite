@@ -9,6 +9,7 @@ import { phaseConfig } from "@/lib/sitePhase";
 const ALL_LINKS = [
   { id: "evening", label: "The Evening", section: "evening" },
   { id: "story", label: "Our Story", section: "story" },
+  { id: "hotel", label: "Stay", section: "hotel" },
   { id: "questions", label: "Questions", section: "questions" },
 ];
 
