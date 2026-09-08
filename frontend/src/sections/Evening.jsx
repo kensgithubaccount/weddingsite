@@ -45,11 +45,11 @@ const Evening = () => {
           </div>
 
           <Reveal delay={0.12}>
-            <div className="mt-7 md:mt-9 flex justify-end">
+            <div className="mt-7 md:mt-9 w-full">
               <img
-                src="/art/save-date-cab-exact.jpg"
+                src="/art/vintage_nyc_taxi_with_trailing_cans.webp"
                 alt="Hand-drawn New York City taxi with trailing cans"
-                className="w-56 sm:w-64 md:w-72 h-auto object-contain"
+                className="block w-full h-auto object-contain"
                 data-testid="details-save-date-cab"
               />
             </div>
