@@ -1,5 +1,5 @@
 import { toast } from "sonner";
-import { CalendarPlus, Copy, MapPin } from "lucide-react";
+import { Copy, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Reveal, SectionHeading } from "@/components/Reveal";
 import { useContent } from "@/lib/content";
@@ -8,32 +8,6 @@ import { phaseConfig } from "@/lib/sitePhase";
 const Invitation = () => {
   const content = useContent();
   const { venue, date, invitation } = content;
-
-  const addToCalendar = () => {
-    const ics = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Sophie + Ken//Wedding//EN",
-      "BEGIN:VEVENT",
-      "UID:sophie-ken-2027@sophieandken",
-      "DTSTAMP:20260701T120000Z",
-      "DTSTART:20270605T213000Z",
-      "DTEND:20270606T033000Z",
-      "SUMMARY:Sophie + Ken — Wedding",
-      `LOCATION:${venue.name}\\, ${venue.address}\\, ${venue.city}`,
-      "DESCRIPTION:Arrival 5:30 PM · Ceremony 6:00 PM · Cocktail hour 6:30 PM · Reception 7:30–11:30 PM · After-party to follow",
-      "END:VEVENT",
-      "END:VCALENDAR",
-    ].join("\r\n");
-    const blob = new Blob([ics], { type: "text/calendar" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "sophie-and-ken-june-5-2027.ics";
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success("Saved to your calendar — June 5, 2027.");
-  };
 
   const copyAddress = async () => {
     await navigator.clipboard.writeText(`${venue.name}, ${venue.address}, ${venue.city}`);
@@ -98,13 +72,6 @@ const Invitation = () => {
 
             <Reveal delay={0.24}>
               <div className="mt-12 flex flex-wrap justify-center gap-3">
-                <button
-                  onClick={addToCalendar}
-                  className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase border border-[#1A1A1A]/50 px-5 py-3 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors"
-                  data-testid="add-to-calendar-button"
-                >
-                  <CalendarPlus size={14} /> Add to calendar
-                </button>
                 <button
                   onClick={copyAddress}
                   className="flex items-center gap-2 font-label text-[0.68rem] tracking-[0.16em] uppercase border border-[#1A1A1A]/50 px-5 py-3 hover:bg-[#1A1A1A] hover:text-[#F7F5F0] transition-colors"
