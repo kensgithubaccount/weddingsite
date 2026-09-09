@@ -16,7 +16,7 @@ const Story = () => {
           <p className="mt-3">{story.standfirst}</p>
         </SectionHeading>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
           <div className="lg:col-span-7">
             <Reveal>
               <div className="max-w-2xl lg:pr-8" data-testid="story-intro">
@@ -32,7 +32,7 @@ const Story = () => {
             </Reveal>
           </div>
 
-          <div className="lg:col-span-5 self-center">
+          <div className="lg:col-span-5 self-start">
             <Reveal delay={0.1}>
               <figure className="border border-[#1A1A1A]/25 bg-[#F7F5F0] p-2.5" data-testid="story-photo-0">
                 <div className="py-10 md:py-14 flex justify-center">
