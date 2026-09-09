@@ -49,9 +49,6 @@ const Hero = () => {
                 {content.venue.city}
               </p>
               <div className="mt-5 flex flex-wrap items-center gap-x-7 gap-y-3" data-testid="hero-utility-links">
-                <a href="/sophie-and-ken-june-5-2027.ics" className="editorial-link font-label text-[0.61rem] tracking-[0.2em] uppercase text-[#1D3F2C]" data-testid="hero-add-calendar">
-                  Add to calendar
-                </a>
                 <a href={mapsUrl} target="_blank" rel="noopener noreferrer" className="editorial-link font-label text-[0.61rem] tracking-[0.2em] uppercase text-[#1D3F2C]" data-testid="hero-open-maps">
                   Open in maps
                 </a>
