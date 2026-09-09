@@ -23,6 +23,7 @@ const FAQ = () => {
                 if (faq.q === "What time should I arrive?") answer = "5:30 PM.";
                 if (faq.q === "Where is the wedding?") answer = "The New York Athletic Club at 180 Central Park South, New York, New York.";
                 if (faq.q === "Is the wedding indoors?") answer = `Yes. ${faq.a}`;
+                if (faq.q === "Can I bring a guest?") answer = "Your invitation lists everyone in your party. When you RSVP, you'll see exactly who is included — including any +1s.";
                 if (faq.q === "Are children invited?") answer = "Is the Pope Jewish?";
                 if (faq.q === "When should I RSVP?") answer = "As soon as you know your plans. Kindly reply by April 5, 2027.";
 
