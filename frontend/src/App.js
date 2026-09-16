@@ -67,7 +67,7 @@ function App() {
       <div className="grain-overlay" />
       <MotionConfig reducedMotion="user">
         <ContentProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={process.env.PUBLIC_URL || undefined}>
             <ScrollProgress />
             <AnimatedRoutes />
             <PhasePreviewToggle />
