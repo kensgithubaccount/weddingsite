@@ -8,10 +8,35 @@ export const ContentProvider = ({ children }) => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    api
-      .get("/content")
-      .then((res) => setContent(res.data))
-      .catch(() => setError(true));
+    let active = true;
+
+    const loadContent = async () => {
+      try {
+        const res = await api.get("/content");
+        if (active) setContent(res.data);
+        return;
+      } catch {
+        // Persistent static deployments (for example GitHub Pages) do not
+        // have the FastAPI preview endpoint. Fall back to the content snapshot
+        // generated from backend/content.py during the deployment build.
+      }
+
+      try {
+        const base = (process.env.PUBLIC_URL || "").replace(/\/$/, "");
+        const res = await fetch(`${base}/content.json`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`Static content request failed: ${res.status}`);
+        const data = await res.json();
+        if (active) setContent(data);
+      } catch {
+        if (active) setError(true);
+      }
+    };
+
+    loadContent();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
   if (error) {
