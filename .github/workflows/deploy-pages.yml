@@ -48,7 +48,7 @@ jobs:
       - name: Build static site
         working-directory: frontend
         env:
-          PUBLIC_URL: /weddingsite
+          PUBLIC_URL: /
           REACT_APP_SITE_PHASE: save-the-date
           CI: "false"
         run: yarn build
