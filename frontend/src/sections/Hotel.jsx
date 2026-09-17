@@ -3,80 +3,112 @@ import { Reveal } from "@/components/Reveal";
 const HOTELS = [
   {
     name: "JW Marriott Essex House New York",
-    meta: "160 Central Park South · 1-minute walk · $$$$",
+    walk: "1-minute walk",
     body: "The closest option, by a lot. Your walk to the wedding is mostly just leaving the hotel.",
     hotelUrl: "https://www.marriott.com/en-us/hotels/nycex-jw-marriott-essex-house-new-york/overview/",
-    mapsUrl: "https://maps.google.com/?q=JW%20Marriott%20Essex%20House%20New%20York",
+    imageUrl: "https://images1.loopnet.com/i2/ZTa9t1JHxnKpgE2RzJm775U6ZijpaDJ_FE5LAbXvCNc/112/image.jpg",
+    imageAlt: "JW Marriott Essex House on Central Park South",
   },
   {
     name: "Park Central Hotel New York",
-    meta: "870 Seventh Avenue · 5-minute walk · $$$",
+    walk: "5-minute walk",
     body: "A short walk from the NYAC and a little closer to the Theater District. But please remember you have plans Saturday night.",
     hotelUrl: "https://www.parkcentralny.com/",
-    mapsUrl: "https://maps.google.com/?q=Park%20Central%20Hotel%20New%20York",
+    imageUrl: "https://assets.talentronic.com/photos/employers/257735/709957_o.jpg",
+    imageAlt: "Park Central Hotel New York",
   },
   {
     name: "Hilton Garden Inn New York/Central Park South-Midtown West",
-    meta: "237 West 54th Street · 10-minute walk · $$",
+    walk: "10-minute walk",
     body: "A little farther west, but still an easy walk to the wedding by New York standards.",
     hotelUrl: "https://www.hilton.com/en/hotels/nycwfgi-hilton-garden-inn-new-york-central-park-south-midtown-west/",
-    mapsUrl: "https://maps.google.com/?q=Hilton%20Garden%20Inn%20New%20York%20Central%20Park%20South%20Midtown%20West",
+    imageUrl: "https://bynder.onthebeach.co.uk/cdn-cgi/image/width%3D1400%2Cquality%3D80%2Cfit%3Dcover%2Cformat%3Dauto/m/6d010ff17b4753b5/original/Hilton-Garden-Inn-New-York-Central-Park-South-Midt-General-view-7.jpg",
+    imageAlt: "Hilton Garden Inn New York Central Park South entrance",
   },
 ];
 
+const HotelCard = ({ hotel, index }) => (
+  <article
+    className={[
+      "snap-start shrink-0 w-[82vw] sm:w-[68vw] md:w-auto md:shrink",
+      "md:px-7 lg:px-9",
+      index > 0 ? "md:border-l md:border-[#1D3F2C]/18" : "",
+    ].join(" ")}
+  >
+    <div className="flex items-center gap-4 mb-5">
+      <span className="font-label text-[0.68rem] tracking-[0.18em] text-[#1D3F2C]/75">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span className="h-px flex-1 bg-[#1D3F2C]/25" />
+    </div>
+
+    <div className="aspect-[4/3] overflow-hidden bg-[#E7E2D7]">
+      <img
+        src={hotel.imageUrl}
+        alt={hotel.imageAlt}
+        loading="lazy"
+        referrerPolicy="no-referrer"
+        className="h-full w-full object-cover grayscale-[10%]"
+      />
+    </div>
+
+    <div className="pt-6 flex flex-col min-h-[17rem] md:min-h-[19rem]">
+      <h3 className="font-display text-[1.8rem] sm:text-[2rem] md:text-[1.75rem] lg:text-[2rem] tracking-tight leading-[1.02]">
+        {hotel.name}
+      </h3>
+
+      <p className="font-label text-[0.62rem] tracking-[0.25em] uppercase text-[#1D3F2C]/65 mt-4">
+        {hotel.walk}
+      </p>
+
+      <p className="font-body text-base md:text-[1.02rem] leading-relaxed text-[#1D3F2C]/82 mt-5">
+        {hotel.body}
+      </p>
+
+      <div className="mt-auto pt-7">
+        <a
+          href={hotel.hotelUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-between gap-8 min-w-[12rem] bg-[#1D3F2C] text-[#F7F5F0] px-5 py-4 font-label text-[0.62rem] tracking-[0.22em] uppercase hover:bg-[#173424] transition-colors"
+          data-testid={`hotel-view-link-${index + 1}`}
+        >
+          <span>View Hotel</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </article>
+);
+
 const Hotel = () => (
-  <section id="hotel" className="relative bg-[#1D3F2C] text-[#F7F5F0]" data-testid="hotel-section">
-    <div className="max-w-7xl mx-auto px-5 md:px-10 py-16 md:py-24">
+  <section
+    id="hotel"
+    className="relative bg-[#F7F5F0] text-[#1D3F2C]"
+    data-testid="hotel-section"
+  >
+    <div className="max-w-7xl mx-auto px-5 md:px-10 py-14 md:py-20">
       <Reveal>
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start border-y border-[#F7F5F0]/20 py-10 md:py-14">
-          <div className="lg:col-span-5">
-            <p className="font-label text-[0.64rem] tracking-[0.28em] uppercase text-[#F7F5F0]/65">Where to Stay</p>
-            <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.92] mt-4">
-              Stay Close.
-            </h2>
-          </div>
+        <div className="text-center mb-9 md:mb-12">
+          <p className="font-label text-[0.64rem] tracking-[0.28em] uppercase text-[#1D3F2C]/65">
+            Where to Stay
+          </p>
+          <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[0.92] mt-4">
+            Stay Close.
+          </h2>
+        </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
+        <div className="-mx-5 px-5 md:mx-0 md:px-0 overflow-x-auto md:overflow-visible">
+          <div className="flex gap-5 pb-5 md:grid md:grid-cols-3 md:gap-0 md:pb-0 snap-x snap-mandatory md:snap-none">
             {HOTELS.map((hotel, index) => (
-              <div
-                key={hotel.name}
-                className={index === 0 ? "" : "border-t border-[#F7F5F0]/20 mt-9 pt-9"}
-              >
-                <p className="font-display text-2xl sm:text-3xl tracking-tight leading-tight">
-                  {hotel.name}
-                </p>
-                <p className="font-label text-[0.62rem] tracking-[0.18em] uppercase text-[#F7F5F0]/60 mt-3">
-                  {hotel.meta}
-                </p>
-
-                <p className="font-body text-base md:text-lg leading-relaxed text-[#F7F5F0]/85 mt-5 max-w-xl">
-                  {hotel.body}
-                </p>
-
-                <div className="flex flex-wrap gap-x-7 gap-y-3 mt-6">
-                  <a
-                    href={hotel.hotelUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-label text-[0.62rem] tracking-[0.2em] uppercase border-b border-[#F7F5F0]/45 pb-1 hover:border-[#F7F5F0] transition-colors"
-                    data-testid={`hotel-view-link-${index + 1}`}
-                  >
-                    View Hotel
-                  </a>
-                  <a
-                    href={hotel.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-label text-[0.62rem] tracking-[0.2em] uppercase border-b border-[#F7F5F0]/45 pb-1 hover:border-[#F7F5F0] transition-colors"
-                    data-testid={`hotel-maps-link-${index + 1}`}
-                  >
-                    Open in Maps
-                  </a>
-                </div>
-              </div>
+              <HotelCard key={hotel.name} hotel={hotel} index={index} />
             ))}
           </div>
         </div>
+
+        <p className="md:hidden font-label text-[0.58rem] tracking-[0.2em] uppercase text-[#1D3F2C]/50 text-center mt-1">
+          Swipe for more
+        </p>
       </Reveal>
     </div>
   </section>
