@@ -11,14 +11,14 @@ const HOTELS = [
   {
     name: "Park Central Hotel New York",
     meta: "870 Seventh Avenue · 5-minute walk · $$$",
-    body: "A few blocks farther. Still very close, and generally a little kinder to the room rate.",
+    body: "A short walk from the NYAC and a little closer to the Theater District. But please remember you have plans Saturday night.",
     hotelUrl: "https://www.parkcentralny.com/",
     mapsUrl: "https://maps.google.com/?q=Park%20Central%20Hotel%20New%20York",
   },
   {
     name: "Hilton Garden Inn New York/Central Park South-Midtown West",
     meta: "237 West 54th Street · 10-minute walk · $$",
-    body: "A little more affordable and only a few blocks away, which in Manhattan still counts as around the corner.",
+    body: "A little farther west, but still an easy walk to the wedding by New York standards.",
     hotelUrl: "https://www.hilton.com/en/hotels/nycwfgi-hilton-garden-inn-new-york-central-park-south-midtown-west/",
     mapsUrl: "https://maps.google.com/?q=Hilton%20Garden%20Inn%20New%20York%20Central%20Park%20South%20Midtown%20West",
   },
